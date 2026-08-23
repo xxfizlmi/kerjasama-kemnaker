@@ -145,22 +145,22 @@ $items = [
                 </div>
 
                 <a
-                    href="' . Url::to(['/site/index']) . '"
+                    href="' . Url::to(['/ksdn']) . '"
                     class="mega-menu-link">
                     Kerja Sama Dalam Negeri
                 </a>
                 <a
-                    href="' . Url::to(['/site/index']) . '"
+                    href="' . Url::to(['/ksb']) . '"
                     class="mega-menu-link">
                     Kerja Sama Bilateral
                 </a>
                 <a
-                    href="' . Url::to(['/site/index']) . '"
+                    href="' . Url::to(['/ksr']) . '"
                     class="mega-menu-link">
                     Kerja Sama Regional
                 </a>
                 <a
-                    href="' . Url::to(['/site/index']) . '"
+                    href="' . Url::to(['/ksm']) . '"
                     class="mega-menu-link">
                     Kerja Sama Multilateral
                 </a>
