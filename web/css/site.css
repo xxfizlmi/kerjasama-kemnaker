@@ -1,5 +1,6 @@
 @import url("nav.css");
 @import url("card.css");
+@import url("modal.css");
 @import url("footer.css");
 
 /* =========================================================
@@ -27,8 +28,15 @@
 .bg-primary {
     background: var(--primary) !important;
 }
+.btn-primary {
+    background: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
 
-
+.btn-primary:hover {
+    background: #001f3f !important;
+    border-color: #00264d !important;
+}
 
 /* =========================================================
    PAGE
