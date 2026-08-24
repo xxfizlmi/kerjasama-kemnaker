@@ -22,10 +22,9 @@ $section = [
 $cards = [
     [
         'id' => 'asean',
-        'type' => 'subtitle',
         'image' => '@web/images/organization/asean.png',
-        'title' => 'ASEAN',
-        'subtitle' => 'ASEAN Labour Ministers Meeting (ALMM)',
+        'name' => 'ASEAN',
+        'title' => 'ASEAN Labour Ministers Meeting (ALMM)',
         'description' => '-',
         'items' => [
             [
@@ -38,10 +37,9 @@ $cards = [
 
     [
         'id' => 'apec',
-        'type' => 'subtitle',
         'image' => '@web/images/organization/apec.png',
-        'title' => 'APEC',
-        'subtitle' => 'Human Resources Development Working Group (HRDWG)',
+        'name' => 'APEC',
+        'title' => 'Human Resources Development Working Group (HRDWG)',
         'description' => 'Tidak ada deskripsi',
         'items' => [
             [
@@ -54,10 +52,9 @@ $cards = [
 
     [
         'id' => 'ipef',
-        'type' => 'subtitle',
         'image' => '@web/images/organization/world.png',
-        'title' => 'IPEF',
-        'subtitle' => 'Labour Rights Advisory Board (LRAB)',
+        'name' => 'IPEF',
+        'title' => 'Labour Rights Advisory Board (LRAB)',
         'description' => 'Pilar IPEF Supply Chain mendorong kerja sama penguatan rantai pasok pada sektor-sektor yang menjadi kepentingan bersama untuk meningkatkan daya saing, ketangguhan, serta mengantisipasi dan merespon gangguan rantai pasok seiring dengan perlindungan hak-hak pekerja pada sektor rantai pasok regional.',
         'items' => [
             [
@@ -70,10 +67,9 @@ $cards = [
 
     [
         'id' => 'imt-gt',
-        'type' => 'subtitle',
         'image' => '@web/images/organization/imt-gt.png',
-        'title' => 'IMT-GT',
-        'subtitle' => 'Working Group on Human Resources Development (WGHRD)',
+        'name' => 'IMT-GT',
+        'title' => 'Working Group on Human Resources Development (WGHRD)',
         'description' => 'Tidak ada deskripsi',
         'items' => [
             [
@@ -86,10 +82,9 @@ $cards = [
 
     [
         'id' => 'acaft',
-        'type' => 'subtitle',
         'image' => '@web/images/organization/world.png',
-        'title' => 'ACAFT',
-        'subtitle' => 'WGTSD & WGTIS',
+        'name' => 'ACAFT',
+        'title' => 'WGTSD & WGTIS',
         'description' => 'Tidak ada deskripsi.',
         'items' => [
             [
@@ -124,7 +119,10 @@ $cards = [
 
     <?php foreach ($cards as $card): ?>
         <?= Html::beginTag('div', ['class' => 'col-12 col-sm-6 col-lg-3 d-flex justify-content-center',]) ?>
-        <?= $this->render('../components/ui/card', $card) ?>
+        <?= $this->render('../components/ui/card', array_merge(
+            $card,
+            ['type' => 'ksr']
+        )) ?>
         <?= Html::endTag('div') ?>
     <?php endforeach; ?>
     <?= Html::endTag('div') ?>
@@ -132,7 +130,10 @@ $cards = [
 
     <?php foreach ($cards as $card): ?>
 
-        <?= $this->render('../components/ui/modal', $card) ?>
+        <?= $this->render('../components/ui/modal', array_merge(
+            $card,
+            ['type' => 'ksr']
+        )) ?>
 
     <?php endforeach; ?>
 
