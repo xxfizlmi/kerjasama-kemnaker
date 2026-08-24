@@ -1,24 +1,10 @@
+@import url("nav.css");
+@import url("card.css");
+@import url("footer.css");
+
 /* =========================================================
-   GLOBAL BOX SIZING
+   ROOT
    ========================================================= */
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-html,
-body {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-}
-
-body {
-    overflow-x: hidden;
-}
-
 /* =========================================================
    ROOT
    ========================================================= */
@@ -35,1528 +21,291 @@ body {
     --sidebar-text: #ffffff;
 
     --transition-speed: 0.4s;
+    --primary: #003366;
 }
 
-/* =========================================================
-   NAVBAR
-   ========================================================= */
-
-.site-navbar {
-    position: fixed;
-
-    top: 0;
-    left: 0;
-    right: 0;
-
-    z-index: 1000;
-
-    height: var(--navbar-height);
-
-    background: linear-gradient(
-        to bottom,
-        var(--navbar-bg-start),
-        var(--navbar-bg-end)
-    ) !important;
-
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.bg-primary {
+    background: var(--primary) !important;
 }
 
+
+
 /* =========================================================
-   NAVBAR CONTAINER
+   PAGE
    ========================================================= */
 
-.navbar-container {
-    position: relative;
-
+.page {
     width: 100%;
     max-width: 100%;
-    height: 100%;
 
-    padding-inline: clamp(14px, 3vw, 32px);
+    overflow: hidden;
+}
 
-    display: flex;
-    align-items: center;
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+
+    margin-inline: auto;
+
+    padding-inline: clamp(20px, 4vw, 40px);
 
     box-sizing: border-box;
 }
 
 /* =========================================================
-   LOGO
+   HERO CONTENT
    ========================================================= */
 
-.navbar-brand-custom {
-    display: flex;
-
-    align-items: center;
-
-    flex-shrink: 0;
-
-    text-decoration: none;
-}
-
-.navbar-logo {
-    display: block;
-
-    width: auto;
-    height: 42px;
-
-    object-fit: contain;
-
-    filter: brightness(1.15) drop-shadow(0 0 5px rgba(255, 255, 255, 0.25));
-
-    transition:
-        filter 0.3s ease,
-        transform 0.3s ease;
-}
-
-.navbar-logo:hover {
-    filter: brightness(1.3) drop-shadow(0 0 10px rgba(255, 255, 255, 0.55));
-
-    transform: scale(1.02);
-}
-
-/* =========================================================
-   DESKTOP NAVIGATION
-   ========================================================= */
-
-.desktop-navigation {
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-
-    z-index: 20;
-}
-
-/* =========================================================
-   NAVIGATION LIST
-   ========================================================= */
-
-.navbar-nav-custom {
-    display: flex;
-
-    align-items: center;
-
-    gap: 4px;
-
-    margin: 0;
-    padding: 0;
-
-    list-style: none;
-}
-
-/* =========================================================
-   MAIN NAVIGATION LINK
-   ========================================================= */
-
-.navbar-nav-custom > li > a {
-    position: relative;
-
-    display: block;
-
-    padding: 10px 14px;
-
-    color: var(--navbar-text) !important;
-
-    background: transparent !important;
-
-    border: 0 !important;
-
-    box-shadow: none !important;
-
-    text-decoration: none;
-
-    white-space: nowrap;
-
-    transition: color 0.25s ease;
-}
-
-/* =========================================================
-   NORMAL MENU UNDERLINE
-   ========================================================= */
-
-.navbar-nav-custom > li > a:not(.dropdown-toggle)::after {
-    content: "";
-
-    position: absolute;
-
-    left: 14px;
-    bottom: 5px;
-
-    width: calc(100% - 28px);
-    height: 1px;
-
-    background: #ffffff;
-
-    transform: scaleX(0);
-
-    transform-origin: left;
-
-    transition: transform 0.3s ease;
-}
-
-.navbar-nav-custom > li > a:not(.dropdown-toggle):hover::after {
-    transform: scaleX(1);
-}
-
-/* =========================================================
-   DROPDOWN PARENT
-   ========================================================= */
-
-.navbar-nav-custom > li.dropdown {
-    position: static;
-}
-
-/* =========================================================
-   DROPDOWN TOGGLE
-   ========================================================= */
-
-.navbar-nav-custom > li > a.dropdown-toggle {
-    position: relative;
-
-    color: #ffffff !important;
-
-    background: transparent !important;
-
-    border: 0 !important;
-
-    box-shadow: none !important;
-}
-
-/* =========================================================
-   DROPDOWN TOGGLE UNDERLINE
-   ========================================================= */
-
-.navbar-nav-custom > li > a.dropdown-toggle::before {
-    content: "";
-
-    position: absolute;
-
-    left: 14px;
-    bottom: 5px;
-
-    width: calc(100% - 28px);
-    height: 1px;
-
-    background: #ffffff;
-
-    transform: scaleX(0);
-
-    transform-origin: left;
-
-    transition: transform 0.3s ease;
-}
-
-.navbar-nav-custom > li > a.dropdown-toggle:hover::before {
-    transform: scaleX(1);
-}
-
-/* =========================================================
-   BOOTSTRAP ARROW
-   ========================================================= */
-
-.navbar-nav-custom > li > a.dropdown-toggle::after {
-    margin-left: 0.4em;
-
-    vertical-align: middle;
-}
-
-/* =========================================================
-   DESKTOP MEGA MENU
-   ========================================================= */
-
-@media (min-width: 992px) {
-    .navbar-nav-custom .dropdown-menu {
-        width: min(850px, calc(100vw - 40px));
-
-        min-width: 0;
-        max-width: calc(100vw - 40px);
-    }
-
-    /* Bootstrap membuka dropdown */
-
-    .navbar-nav-custom .dropdown-menu.show {
-        display: flex !important;
-    }
-
-    /* =====================================================
-       MEGA MENU SECTION
-       ===================================================== */
-
-    .navbar-nav-custom .dropdown-menu > li {
-        display: flex;
-
-        flex-direction: column;
-
-        min-width: 190px;
-
-        padding: 0 20px;
-
-        margin: 0;
-
-        list-style: none;
-    }
-
-    /* =====================================================
-       SECTION DIVIDER
-       ===================================================== */
-
-    .navbar-nav-custom .dropdown-menu > li + li {
-        border-left: 1px solid rgba(255, 255, 255, 0.15);
-    }
-
-    /* =====================================================
-       FIRST SECTION
-       ===================================================== */
-
-    .navbar-nav-custom .dropdown-menu > li:first-child {
-        padding-left: 0;
-    }
-
-    /* =====================================================
-       LAST SECTION
-       ===================================================== */
-
-    .navbar-nav-custom .dropdown-menu > li:last-child {
-        padding-right: 0;
-    }
-
-    /* =====================================================
-       MEGA COLUMN
-       ===================================================== */
-
-    .mega-menu-column {
-        display: flex;
-
-        flex-direction: column;
-
-        min-width: 190px;
-
-        padding: 0 20px;
-    }
-
-    .mega-menu-column:first-child {
-        padding-left: 0;
-    }
-
-    .mega-menu-column:last-child {
-        padding-right: 0;
-    }
-
-    /* =====================================================
-       COLUMN DIVIDER
-       ===================================================== */
-
-    .mega-menu-column + .mega-menu-column {
-        border-left: 1px solid rgba(255, 255, 255, 0.15);
-    }
-
-    /* =====================================================
-       TITLE
-       ===================================================== */
-
-    .mega-menu-title {
-        margin: 0 0 12px;
-
-        color: rgba(255, 255, 255, 0.65);
-
-        font-size: 12px;
-
-        font-weight: 700;
-
-        line-height: 1.4;
-
-        text-transform: uppercase;
-
-        white-space: nowrap;
-    }
-
-    /* =====================================================
-       LINK
-       ===================================================== */
-
-    .mega-menu-link {
-        display: block;
-
-        padding: 6px 0;
-
-        color: #ffffff !important;
-
-        background: transparent !important;
-
-        font-size: 14px;
-
-        line-height: 1.5;
-
-        text-decoration: none;
-
-        white-space: normal;
-
-        transition:
-            padding-left 0.2s ease,
-            opacity 0.2s ease;
-    }
-
-    .mega-menu-link:hover {
-        padding-left: 5px;
-
-        color: #ffffff !important;
-
-        opacity: 0.7;
-    }
-
-    /* =====================================================
-       FALLBACK BOOTSTRAP DROPDOWN ITEM
-       ===================================================== */
-
-    .navbar-nav-custom .dropdown-item {
-        display: block;
-
-        width: 100%;
-
-        padding: 6px 0;
-
-        color: #ffffff !important;
-
-        background: transparent !important;
-
-        border: 0 !important;
-
-        border-radius: 0;
-
-        font-size: 14px;
-
-        line-height: 1.5;
-
-        text-decoration: none;
-    }
-
-    .navbar-nav-custom .dropdown-item:hover,
-    .navbar-nav-custom .dropdown-item:focus {
-        color: #ffffff !important;
-
-        background: transparent !important;
-
-        padding-left: 5px;
-
-        opacity: 0.75;
-    }
-}
-
-/* =========================================================
-   DESKTOP LOGIN
-   ========================================================= */
-
-.desktop-actions {
-    margin-left: auto;
-
-    flex-shrink: 0;
-
-    z-index: 30;
-}
-
-.login-button {
+.source-button {
     display: inline-flex;
 
     align-items: center;
     justify-content: center;
 
-    min-width: 90px;
+    gap: 9px;
 
-    padding: 9px 20px;
+    max-width: 100%;
 
-    color: #ffffff;
+    padding: 10px clamp(20px, 4vw, 32px);
 
-    background: transparent;
+    color: #ffffff !important;
 
-    border: 1px solid rgba(255, 255, 255, 0.8);
+    background: var(--navbar-bg-end);
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
 
     border-radius: 50px;
 
     font-size: 14px;
 
-    font-weight: 500;
+    text-align: center;
 
     text-decoration: none;
 
     transition:
         background-color 0.25s ease,
-        color 0.25s ease,
-        border-color 0.25s ease,
         transform 0.25s ease;
 }
 
-.login-button:hover {
-    color: #111111;
+.source-button:hover {
+    color: #ffffff !important;
 
-    background: #ffffff;
+    background: var(--navbar-bg-start);
 
-    border-color: #ffffff;
-
-    transform: translateY(-1px);
+    transform: translateY(-2px);
 }
 
-/* =========================================================
-   HAMBURGER
-   ========================================================= */
-
-.hamburger-button {
-    position: relative;
-
-    display: none;
-
-    width: 44px;
-    height: 44px;
-
-    margin: 0;
-    padding: 0;
-
-    background: transparent !important;
-
-    border: 0 !important;
-    outline: none;
-
-    cursor: pointer;
-
+.source-button i {
     flex-shrink: 0;
 
-    z-index: 20;
+    font-size: 17px;
 }
 
-.hamburger-button span {
-    position: absolute;
+.strategic-card {
+    min-width: 0;
 
-    left: 50%;
-
-    display: block;
-
-    width: 24px;
-    height: 2px;
-
-    margin: 0;
-
-    background: #ffffff !important;
-
-    border-radius: 2px;
-
-    transform: translateX(-50%);
-
-    transition:
-        transform 0.3s ease,
-        opacity 0.3s ease;
-}
-
-/* Garis pertama */
-
-.hamburger-button span:nth-child(1) {
-    top: 13px;
-}
-
-/* Garis kedua */
-
-.hamburger-button span:nth-child(2) {
-    top: 21px;
-}
-
-/* Garis ketiga */
-
-.hamburger-button span:nth-child(3) {
-    top: 29px;
-}
-
-/* =========================================================
-   HAMBURGER HOVER
-   ========================================================= */
-
-.hamburger-button:hover span {
-    opacity: 0.8;
-}
-
-/* =========================================================
-   HAMBURGER FOCUS
-   ========================================================= */
-
-.hamburger-button:focus {
-    outline: none;
-}
-
-.hamburger-button:focus-visible {
-    outline: 2px solid rgba(255, 255, 255, 0.9);
-    outline-offset: 3px;
-}
-
-/* =========================================================
-   SIDEBAR OVERLAY
-   ========================================================= */
-
-.sidebar-overlay {
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 1090;
-
-    background: rgba(0, 0, 0, 0.5);
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    transition:
-        opacity var(--transition-speed) ease,
-        visibility var(--transition-speed) ease;
-
-    backdrop-filter: blur(3px);
-}
-
-.sidebar-overlay.active {
-    opacity: 1;
-
-    visibility: visible;
-}
-
-/* =========================================================
-   MOBILE SIDEBAR
-   ========================================================= */
-
-.navigation-sidebar {
-    position: fixed;
-
-    top: 0;
-    right: 0;
-
-    z-index: 1100;
-
-    width: min(var(--sidebar-width), calc(100vw - clamp(16px, 5vw, 40px)));
-
-    max-width: 100%;
-
-    height: 100dvh;
-
-    display: flex;
-    flex-direction: column;
-
-    box-sizing: border-box;
+    padding: clamp(22px, 3vw, 35px);
 
     color: #ffffff;
 
-    background: linear-gradient(
-        to bottom,
-        var(--navbar-bg-start),
-        var(--navbar-bg-end)
-    ) !important;
+    background: var(--navbar-bg-end);
 
-    box-shadow: -15px 0 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.18);
 
-    transform: translateX(100%);
+    border-radius: 24px;
 
-    transition: transform var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
-
-    overflow: hidden;
+    box-sizing: border-box;
 }
 
-.navigation-sidebar.active {
-    transform: translateX(0);
-}
-
-/* =========================================================
-   SIDEBAR HEADER
-   ========================================================= */
-
-.sidebar-header {
-    min-height: var(--navbar-height);
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding-inline: clamp(18px, 4vw, 24px);
-
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+.card-icon {
+    width: 48px;
+    height: 48px;
 
     flex-shrink: 0;
-}
 
-/* =========================================================
-   SIDEBAR LOGO
-   ========================================================= */
-
-.sidebar-logo {
     display: flex;
 
     align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    border-radius: 12px;
 }
 
-.sidebar-logo .navbar-logo {
-    height: 40px;
-
-    filter: brightness(1.15) drop-shadow(0 0 5px rgba(255, 255, 255, 0.25));
-}
-
-/* =========================================================
-   SIDEBAR CLOSE
-   ========================================================= */
-
-.sidebar-close {
-    position: relative;
-
-    width: 42px;
-    height: 42px;
-
-    padding: 0;
-
-    background: transparent;
-
-    border: 0;
-
-    cursor: pointer;
-}
-
-.sidebar-close span {
-    position: absolute;
-
-    top: 20px;
-    left: 9px;
-
-    width: 24px;
-    height: 2px;
-
-    background: #ffffff;
-
-    border-radius: 2px;
-}
-
-.sidebar-close span:first-child {
-    transform: rotate(45deg);
-}
-
-.sidebar-close span:last-child {
-    transform: rotate(-45deg);
+.card-icon i {
+    font-size: 22px;
 }
 
 /* =========================================================
-   SIDEBAR CONTENT
+   DETAIL AREA
    ========================================================= */
 
-.sidebar-content {
-    flex: 1;
-
-    min-height: 0;
-
-    overflow-y: auto;
-
-    padding: clamp(20px, 4vw, 25px) clamp(18px, 4vw, 24px);
-
-    scrollbar-width: thin;
-
-    scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
-}
-
-/* =========================================================
-   SIDEBAR MENU
-   ========================================================= */
-
-.sidebar-menu {
+.detail {
     width: 100%;
+
+    padding: clamp(45px, 6vw, 80px) 0;
 }
 
 /* =========================================================
-   SIDEBAR NAV
+   DETAIL SECTION
    ========================================================= */
 
-.sidebar-nav {
-    display: flex;
+.section {
+    width: 100%;
 
-    flex-direction: column;
+    margin-bottom: clamp(45px, 6vw, 70px);
+}
 
-    gap: 4px;
+.section-header {
+    max-width: 800px;
 
+    margin-inline: auto;
+
+    text-align: center;
+}
+
+.section-title {
     margin: 0;
-    padding: 0;
 
-    list-style: none;
+    color: #111111;
+
+    font-size: clamp(24px, 3vw, 32px);
+
+    font-weight: 700;
+
+    line-height: 1.3;
 }
 
-/* =========================================================
-   SIDEBAR MAIN LINK
-   ========================================================= */
+.section-description {
+    margin: 15px 0 0;
 
-.sidebar-nav > li > a {
-    display: flex;
-
-    align-items: center;
-
-    width: 100%;
-
-    padding: 13px 15px;
-
-    color: #ffffff !important;
-
-    background: transparent !important;
+    color: #555555;
 
     font-size: 15px;
 
-    font-weight: 500;
-
-    text-decoration: none;
-
-    border-radius: 10px;
-
-    transition:
-        background-color 0.2s ease,
-        padding-left 0.2s ease;
-}
-
-.sidebar-nav > li > a:hover,
-.sidebar-nav > li > a:focus {
-    color: #ffffff !important;
-
-    background: rgba(255, 255, 255, 0.08) !important;
-
-    padding-left: 20px;
+    line-height: 1.8;
 }
 
 /* =========================================================
-   SIDEBAR DROPDOWN
+   DETAIL CARD GRID
    ========================================================= */
-
-/*
- * Bootstrap biasanya memberi display:none
- * kepada .dropdown-menu.
- *
- * Karena sidebar kita ingin dropdown
- * dapat dibuka oleh Bootstrap,
- * jangan paksa display:block di sini.
- */
-
-.sidebar-nav .dropdown-menu {
-    position: static !important;
-
-    width: 100%;
-
-    margin: 4px 0 8px;
-
-    padding: 5px 0 5px 15px;
-
-    background: transparent !important;
-
-    border: 0 !important;
-
-    box-shadow: none !important;
-
-    transform: none !important;
-}
 
 /* =========================================================
-   SIDEBAR DROPDOWN SAAT TERBUKA
+   DETAIL CARD
    ========================================================= */
 
-.sidebar-nav .dropdown-menu.show {
-    display: block !important;
-}
+.detail-card {
+    min-width: 0;
 
-/* =========================================================
-   MOBILE EVENTS
-   ========================================================= */
-
-/*
- * Penting:
- *
- * Desktop:
- * SIDANG | PENGUMUMAN | WORKSHOP
- *
- * Mobile:
- *
- * SIDANG
- *   ILC 114
- *
- * PENGUMUMAN
- *   Inpassing
- *
- * WORKSHOP
- *   English
- *   Basic
- *   Advanced
- */
-
-.sidebar-nav .mega-menu-column {
     display: flex;
 
     flex-direction: column;
 
-    width: 100%;
+    padding: clamp(22px, 3vw, 30px);
 
-    min-width: 0;
+    background: #ffffff;
 
-    margin: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 
-    padding: 0 0 14px;
+    border-radius: 20px;
 
-    border: 0 !important;
-}
-
-/* =========================================================
-   MOBILE MEGA COLUMN TITLE
-   ========================================================= */
-
-.sidebar-nav .mega-menu-title {
-    display: block;
-
-    margin: 8px 0 4px;
-
-    padding: 0 12px;
-
-    color: rgba(255, 255, 255, 0.6) !important;
-
-    font-size: 11px;
-
-    font-weight: 700;
-
-    line-height: 1.4;
-
-    text-transform: uppercase;
-
-    white-space: nowrap;
-}
-
-.mega-menu-description {
-    max-width: 220px;
-
-    color: rgba(255, 255, 255, 0.7);
-
-    font-size: 14px;
-
-    line-height: 1.6;
-}
-
-/* =========================================================
-   MOBILE MEGA LINK
-   ========================================================= */
-
-.sidebar-nav .mega-menu-link {
-    display: block;
-
-    width: 100%;
-
-    padding: 9px 12px;
-
-    color: #ffffff !important;
-
-    background: transparent !important;
-
-    font-size: 14px;
-
-    line-height: 1.5;
-
-    text-decoration: none;
-
-    border-radius: 8px;
-
-    transition:
-        background-color 0.2s ease,
-        padding-left 0.2s ease;
-}
-
-.sidebar-nav .mega-menu-link:hover,
-.sidebar-nav .mega-menu-link:focus {
-    color: #ffffff !important;
-
-    background: rgba(255, 255, 255, 0.08) !important;
-
-    padding-left: 17px;
-}
-
-/* =========================================================
-   SIDEBAR FALLBACK DROPDOWN ITEM
-   ========================================================= */
-
-.sidebar-nav .dropdown-item {
-    display: block;
-
-    width: 100%;
-
-    padding: 9px 12px;
-
-    color: #ffffff !important;
-
-    background: transparent !important;
-
-    font-size: 14px;
-
-    line-height: 1.5;
-
-    border-radius: 8px;
-
-    white-space: normal;
-}
-
-.sidebar-nav .dropdown-item:hover,
-.sidebar-nav .dropdown-item:focus {
-    color: #ffffff !important;
-
-    background: rgba(255, 255, 255, 0.08) !important;
-}
-
-/* =========================================================
-   SIDEBAR DROPDOWN HEADER
-   ========================================================= */
-
-.sidebar-nav .dropdown-header {
-    padding: 10px 12px 5px;
-
-    color: rgba(255, 255, 255, 0.6) !important;
-
-    font-size: 11px;
-
-    font-weight: 700;
-
-    text-transform: uppercase;
-}
-
-/* =========================================================
-   SIDEBAR FOOTER
-   ========================================================= */
-
-.sidebar-footer {
-    padding: clamp(18px, 4vw, 20px) clamp(18px, 4vw, 24px);
-
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-
-    flex-shrink: 0;
-}
-
-/* =========================================================
-   SIDEBAR LOGIN
-   ========================================================= */
-
-.sidebar-login {
-    width: 100%;
-
-    color: #ffffff !important;
-
-    background: transparent !important;
-
-    border-color: rgba(255, 255, 255, 0.8);
-}
-
-.sidebar-login:hover {
-    color: #111111 !important;
-
-    background: #ffffff !important;
-
-    border-color: #ffffff;
-}
-
-/* =========================================================
-   BODY
-   ========================================================= */
-
-body {
-    padding-top: var(--navbar-height);
-}
-
-body.sidebar-open {
-    overflow: hidden;
-}
-
-/* =========================================================
-   TABLET / MOBILE NAVBAR
-   ========================================================= */
-
-@media (max-width: 991.98px) {
-    .navbar-container {
-        width: 100%;
-        max-width: 100%;
-        height: 100%;
-
-        padding-inline: clamp(14px, 3vw, 24px);
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        box-sizing: border-box;
-    }
-
-    /* =====================================================
-       HIDE DESKTOP
-       ===================================================== */
-
-    .desktop-navigation,
-    .desktop-actions {
-        display: none !important;
-    }
-
-    /* =====================================================
-       CENTER LOGO
-       ===================================================== */
-
-    .navbar-brand-custom {
-        position: absolute;
-
-        top: 50%;
-        left: 50%;
-
-        display: flex;
-        align-items: center;
-
-        max-width: calc(100% - 110px);
-
-        margin: 0;
-
-        transform: translate(-50%, -50%);
-
-        z-index: 2;
-    }
-
-    .navbar-brand-custom .navbar-logo {
-        display: block;
-
-        width: auto;
-        max-width: 100%;
-
-        height: clamp(36px, 5vw, 42px);
-
-        object-fit: contain;
-    }
-
-    /* =====================================================
-       HAMBURGER
-       ===================================================== */
-
-    .hamburger-button {
-        position: absolute;
-
-        top: 50%;
-        right: clamp(10px, 3vw, 24px);
-
-        display: block;
-
-        width: clamp(42px, 6vw, 46px);
-        height: clamp(42px, 6vw, 46px);
-
-        margin: 0;
-        padding: 0;
-
-        transform: translateY(-50%);
-
-        z-index: 10;
-    }
-}
-
-/* =========================================================
-   ACCESSIBILITY
-   ========================================================= */
-
-.navbar-nav-custom a:focus-visible,
-.login-button:focus-visible,
-.hamburger-button:focus-visible,
-.sidebar-close:focus-visible,
-.sidebar-nav a:focus-visible {
-    outline: 2px solid rgba(255, 255, 255, 0.9);
-
-    outline-offset: 3px;
-}
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
-.site-footer {
-    position: relative;
-
-    width: 100%;
-    max-width: 100%;
-
-    margin-top: 80px;
-
-    color: #ffffff;
-
-    background: linear-gradient(
-        135deg,
-        var(--navbar-bg-start) 0%,
-        var(--navbar-bg-end) 100%
-    );
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
 
     box-sizing: border-box;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.detail-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.1);
+}
+
+.detail-card .card-title {
+    color: #111111;
+}
+
+.detail-card .card-icon {
+    color: var(--navbar-bg-end);
+
+    border-color: rgba(0, 43, 92, 0.2);
 }
 
 /* =========================================================
-   FOOTER CONTAINER
+   STAT
    ========================================================= */
 
-.footer-container {
-    width: 100%;
-    max-width: 1400px;
-
-    margin-inline: auto;
-
-    padding: clamp(45px, 5vw, 70px) clamp(20px, 4vw, 40px)
-        clamp(35px, 4vw, 55px);
-
-    display: grid;
-
-    grid-template-columns:
-        minmax(180px, 0.8fr)
-        minmax(0, 3fr);
-
-    align-items: start;
-
-    gap: clamp(35px, 5vw, 70px);
-
-    box-sizing: border-box;
-}
-
-/* =========================================================
-   FOOTER BRAND
-   ========================================================= */
-
-.footer-brand {
-    min-width: 0;
-
+.stat {
     display: flex;
 
-    flex-direction: column;
+    align-items: baseline;
+    justify-content: center;
 
-    align-items: flex-start;
+    gap: 8px;
+
+    margin-top: 25px;
 }
 
-.footer-logo-link {
-    display: inline-flex;
+.stat-number {
+    color: var(--navbar-bg-end);
 
-    align-items: center;
-
-    max-width: 100%;
-
-    text-decoration: none;
-}
-
-.footer-logo {
-    display: block;
-
-    width: auto;
-
-    max-width: 100%;
-
-    height: clamp(42px, 4vw, 48px);
-
-    object-fit: contain;
-
-    filter: brightness(1.15) drop-shadow(0 0 5px rgba(255, 255, 255, 0.25));
-}
-
-.footer-description {
-    margin: 16px 0 0;
-
-    color: rgba(255, 255, 255, 0.7);
-
-    font-size: clamp(13px, 1vw, 14px);
-
-    line-height: 1.6;
-}
-
-/* =========================================================
-   FOOTER COLUMNS
-   ========================================================= */
-
-.footer-columns {
-    width: 100%;
-    min-width: 0;
-
-    display: grid;
-
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-
-    gap: clamp(20px, 3vw, 45px);
-}
-
-/* =========================================================
-   FOOTER COLUMN
-   ========================================================= */
-
-.footer-column {
-    min-width: 0;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: flex-start;
-}
-
-/* =========================================================
-   FOOTER SUBTITLE
-   ========================================================= */
-
-.footer-subtitle {
-    position: relative;
-
-    display: inline-block;
-
-    width: fit-content;
-
-    max-width: 100%;
-
-    margin: 0 0 20px;
-
-    padding-bottom: 8px;
-
-    color: var(--footer-accent) !important;
-
-    font-size: clamp(12px, 1vw, 13px);
+    font-size: 32px;
 
     font-weight: 700;
-
-    line-height: 1.4;
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.04em;
 }
 
-/* =========================================================
-   SUBTITLE UNDERLINE
-   ========================================================= */
+.stat-label {
+    color: #666666;
 
-.footer-subtitle::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    bottom: 0;
-
-    width: 100%;
-    height: 2px;
-
-    background: var(--footer-primary);
-
-    transform: scaleX(1);
-
-    transform-origin: left;
-
-    transition: transform 0.3s ease;
+    font-size: 13px;
 }
 
-/* =========================================================
-   ADDRESS
-   ========================================================= */
+.detail-description {
+    margin: 20px 0 0;
 
-.footer-address {
-    width: 100%;
-    max-width: 260px;
+    color: #555555;
 
-    margin: 0;
-
-    color: rgba(255, 255, 255, 0.7);
-
-    font-size: clamp(13px, 1vw, 14px);
+    font-size: 14px;
 
     line-height: 1.7;
 
-    overflow-wrap: break-word;
+    text-align: center;
 }
 
 /* =========================================================
-   QUICK LINKS
+   REFERENCE
    ========================================================= */
 
-.footer-links {
-    width: 100%;
+.reference {
+    padding-top: 10px;
 
-    display: flex;
+    color: #666666;
 
-    flex-direction: column;
+    font-size: 13px;
 
-    align-items: flex-start;
-
-    gap: 9px;
+    text-align: center;
 }
 
-.footer-link {
-    position: relative;
+.reference a {
+    color: var(--navbar-bg-end);
 
-    display: inline-block;
-
-    width: fit-content;
-    max-width: 100%;
-
-    padding-bottom: 3px;
-
-    color: #ffffff !important;
-
-    font-size: clamp(13px, 1vw, 14px);
-
-    line-height: 1.5;
-
-    text-decoration: none;
-
-    transition:
-        color 0.25s ease,
-        padding-left 0.25s ease;
-}
-
-.footer-link::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    bottom: 0;
-
-    width: 100%;
-    height: 1px;
-
-    background: var(--footer-primary);
-
-    transform: scaleX(0);
-
-    transform-origin: left;
-
-    transition: transform 0.3s ease;
-}
-
-.footer-link:hover {
-    color: var(--footer-accent) !important;
-
-    padding-left: 5px;
+    font-weight: 600;
 
     text-decoration: none;
 }
 
-.footer-link:hover::after {
-    transform: scaleX(1);
-}
-
-/* =========================================================
-   CONTACT
-   ========================================================= */
-
-.footer-contact {
-    width: 100%;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 10px;
-}
-
-.footer-contact-item {
-    width: 100%;
-
-    display: flex;
-
-    align-items: flex-start;
-
-    gap: 9px;
-
-    color: rgba(255, 255, 255, 0.7);
-
-    font-size: clamp(13px, 1vw, 14px);
-
-    line-height: 1.5;
-}
-
-.footer-contact-item i {
-    width: 18px;
-
-    flex-shrink: 0;
-
-    margin-top: 2px;
-
-    color: #ffffff;
-
-    font-size: 14px;
-}
-
-.footer-contact-item span {
-    min-width: 0;
-
-    overflow-wrap: break-word;
-}
-
-/* =========================================================
-   SOCIAL
-   ========================================================= */
-
-.footer-social {
-    width: 100%;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: flex-start;
-
-    gap: 10px;
-}
-
-.footer-social-link {
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 9px;
-
-    color: rgba(255, 255, 255, 0.7);
-
-    font-size: clamp(13px, 1vw, 14px);
-
-    text-decoration: none;
-
-    transition:
-        color 0.2s ease,
-        transform 0.2s ease;
-}
-
-.footer-social-link i {
-    font-size: 18px;
-}
-
-.footer-social-link:hover {
-    color: #ffffff;
-
-    transform: translateX(4px);
-
-    text-decoration: none;
-}
-
-/* =========================================================
-   FOOTER BOTTOM
-   ========================================================= */
-
-.footer-bottom {
-    width: 100%;
-    max-width: 1400px;
-
-    margin-inline: auto;
-
-    padding: 20px clamp(20px, 4vw, 40px);
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 20px;
-
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-
-    box-sizing: border-box;
-}
-
-.footer-bottom p {
-    margin: 0;
-
-    color: rgba(255, 255, 255, 0.55);
-
-    font-size: 12px;
-
-    line-height: 1.5;
+.reference a:hover {
+    text-decoration: underline;
 }
 
 /* =========================================================
@@ -1564,20 +313,8 @@ body.sidebar-open {
    ========================================================= */
 
 @media (max-width: 991.98px) {
-    .footer-container {
-        grid-template-columns: 1fr;
-
-        gap: 40px;
-    }
-
-    .footer-brand {
-        width: 100%;
-    }
-
-    .footer-columns {
+    .card-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-
-        gap: 35px 30px;
     }
 }
 
@@ -1586,141 +323,49 @@ body.sidebar-open {
    ========================================================= */
 
 @media (max-width: 575.98px) {
-    .footer-container {
-        display: flex;
-
-        flex-direction: column;
-
-        gap: 35px;
-
-        padding: 45px 20px 35px;
+    .hero {
+        padding-top: 40px;
     }
 
-    .footer-brand {
-        width: 100%;
+    .strategic-grid {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
     }
 
-    .footer-logo {
+    .card-grid {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+    .strategic-card,
+    .detail-card {
+        padding: 22px;
+    }
+
+    .card-header {
+        align-items: flex-start;
+    }
+
+    .card-icon {
+        width: 42px;
         height: 42px;
     }
 
-    .footer-description {
-        margin-top: 12px;
-
-        font-size: 13px;
+    .card-icon i {
+        font-size: 19px;
     }
 
-    /* =====================================================
-       COLUMNS → VERTICAL
-       ===================================================== */
-
-    .footer-columns {
+    .source-button {
         width: 100%;
 
-        display: flex;
-
-        flex-direction: column;
-
-        gap: 0;
+        max-width: 340px;
     }
 
-    /* =====================================================
-       EACH COLUMN
-       ===================================================== */
-
-    .footer-column {
-        width: 100%;
-
-        padding-bottom: 25px;
-
-        margin-bottom: 25px;
-
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .footer-column:last-child {
-        padding-bottom: 0;
-
-        margin-bottom: 0;
-
-        border-bottom: none;
-    }
-
-    /* =====================================================
-       TITLE
-       ===================================================== */
-
-    .footer-subtitle {
-        margin-bottom: 13px;
-
-        font-size: 12px;
-    }
-
-    /* =====================================================
-       ADDRESS
-       ===================================================== */
-
-    .footer-address {
-        max-width: 100%;
-
-        font-size: 13px;
+    .reference {
+        padding-inline: 10px;
 
         line-height: 1.7;
-    }
-
-    /* =====================================================
-       LINKS
-       ===================================================== */
-
-    .footer-links {
-        gap: 8px;
-    }
-
-    .footer-link {
-        font-size: 13px;
-    }
-
-    /* =====================================================
-       CONTACT
-       ===================================================== */
-
-    .footer-contact {
-        gap: 9px;
-    }
-
-    .footer-contact-item {
-        font-size: 13px;
-    }
-
-    /* =====================================================
-       SOCIAL
-       ===================================================== */
-
-    .footer-social {
-        gap: 8px;
-    }
-
-    .footer-social-link {
-        font-size: 13px;
-    }
-
-    /* =====================================================
-       FOOTER BOTTOM
-       ===================================================== */
-
-    .footer-bottom {
-        padding: 18px 20px;
-
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        gap: 5px;
-    }
-
-    .footer-bottom p {
-        font-size: 11px;
-
-        line-height: 1.6;
     }
 }

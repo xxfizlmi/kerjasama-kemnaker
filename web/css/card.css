@@ -1,0 +1,51 @@
+.card {
+    width: 260px;
+    min-width: 260px;
+
+    background-color: #fff;
+
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+/* Card hover */
+.card:hover {
+    background-color: #fff;
+
+    border-color: var(--primary) !important;
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 0.5rem 1rem rgba(0, 51, 102, 0.15);
+}
+
+/* =========================================================
+   CARD BUTTON
+   ========================================================= */
+
+.card .btn-outline-primary {
+    color: var(--primary);
+
+    background-color: #fff;
+
+    border-color: var(--primary);
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+/* Button hover */
+.card .btn-outline-primary:hover,
+.card .btn-outline-primary:focus {
+    color: #fff;
+
+    background-color: var(--primary);
+
+    border-color: var(--primary);
+}
