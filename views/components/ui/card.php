@@ -6,8 +6,9 @@ use yii\helpers\Html;
  * @var string $id
  * @var string $image
  * @var string $title
- * @var string $description
- * @var array $items
+ * @var string|null $subtitle
+ * @var int|null $documentCount
+ * @var string $type
  */
 ?>
 
@@ -52,13 +53,56 @@ use yii\helpers\Html;
 ) ?>
 
 
-<?= Html::tag(
-    'p',
-    Html::encode($subtitle),
-    [
-        'class' => 'text-secondary small mt-3 mb-3 text-clamp-2',
-    ]
-) ?>
+<?php
+switch ($type) {
+    case 'documentCount':
+?>
+
+        <?= Html::beginTag('div', [
+            'class' => 'd-flex align-items-center gap-1 text-secondary small mt-3 mb-3',
+        ]) ?>
+
+        <?= Html::tag('i', '', [
+            'class' => 'bi bi-file-earmark-text',
+            'aria-hidden' => 'true',
+        ]) ?>
+
+        <?= Html::tag(
+            'span',
+            Html::encode($documentCount . ' Dokumen')
+        ) ?>
+
+        <?= Html::endTag('div') ?>
+
+    <?php
+        break;
+
+    case 'subtitle':
+    ?>
+
+        <?= Html::tag(
+            'p',
+            Html::encode($subtitle),
+            [
+                'class' => 'text-secondary small mt-3 mb-3 text-clamp-2',
+                'title' => $subtitle,
+            ]
+        ) ?>
+
+    <?php
+        break;
+
+    default:
+    ?>
+
+        <?= Html::tag('div', '', [
+            'class' => 'mt-3 mb-3',
+        ]) ?>
+
+<?php
+        break;
+}
+?>
 
 
 <!-- BUTTON -->
@@ -78,4 +122,4 @@ use yii\helpers\Html;
 
 <?= Html::endTag('div') ?>
 
-<?= Html::endTag('article') ?>
+<?= Html::endTag('article') ?>  

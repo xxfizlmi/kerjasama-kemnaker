@@ -22,6 +22,7 @@ $section = [
 $cards = [
     [
         'id' => 'asean',
+        'type' => 'subtitle',
         'image' => '@web/images/organization/asean.png',
         'title' => 'ASEAN',
         'subtitle' => 'ASEAN Labour Ministers Meeting (ALMM)',
@@ -37,6 +38,7 @@ $cards = [
 
     [
         'id' => 'apec',
+        'type' => 'subtitle',
         'image' => '@web/images/organization/apec.png',
         'title' => 'APEC',
         'subtitle' => 'Human Resources Development Working Group (HRDWG)',
@@ -52,6 +54,7 @@ $cards = [
 
     [
         'id' => 'ipef',
+        'type' => 'subtitle',
         'image' => '@web/images/organization/world.png',
         'title' => 'IPEF',
         'subtitle' => 'Labour Rights Advisory Board (LRAB)',
@@ -67,6 +70,7 @@ $cards = [
 
     [
         'id' => 'imt-gt',
+        'type' => 'subtitle',
         'image' => '@web/images/organization/imt-gt.png',
         'title' => 'IMT-GT',
         'subtitle' => 'Working Group on Human Resources Development (WGHRD)',
@@ -82,6 +86,7 @@ $cards = [
 
     [
         'id' => 'acaft',
+        'type' => 'subtitle',
         'image' => '@web/images/organization/world.png',
         'title' => 'ACAFT',
         'subtitle' => 'WGTSD & WGTIS',
