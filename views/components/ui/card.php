@@ -27,7 +27,7 @@ use yii\helpers\Html;
 ]) ?>
 
 <?= Html::img($image, [
-    'alt' => $title,
+    'alt' => $name,
     'loading' => 'lazy',
     'width' => 100,
     'height' => 100,
@@ -46,65 +46,34 @@ use yii\helpers\Html;
 
 <?= Html::tag(
     'h3',
-    Html::encode($title),
+    Html::encode($name),
     [
         'class' => 'h6 fw-bold mb-0',
     ]
 ) ?>
 
+<?php if (!empty($title)) : ?>
 
-<?php
-switch ($type) {
-    case 'documentCount':
-?>
+    <?= Html::tag(
+        'p',
+        Html::encode($title),
+        [
+            'class' => 'text-secondary small mt-3 mb-3 text-clamp-2',
+            'title' => $title,
+        ]
+    ) ?>
+<?php elseif (!empty($documentCount)) : ?>
 
-        <?= Html::beginTag('div', [
-            'class' => 'd-flex align-items-center gap-1 text-secondary small mt-3 mb-3',
-        ]) ?>
+    <?= Html::tag(
+        'p',
+        Html::encode($documentCount) . ' ' . 'Document',
+        [
+            'class' => 'small mt-3 mb-3 text-clamp-2 border text-white bg-secondary px-3 py-1 rounded-pill ',
+            'title' => $documentCount,
+        ]
+    ) ?>
 
-        <?= Html::tag('i', '', [
-            'class' => 'bi bi-file-earmark-text',
-            'aria-hidden' => 'true',
-        ]) ?>
-
-        <?= Html::tag(
-            'span',
-            Html::encode($documentCount . ' Dokumen')
-        ) ?>
-
-        <?= Html::endTag('div') ?>
-
-    <?php
-        break;
-
-    case 'subtitle':
-    ?>
-
-        <?= Html::tag(
-            'p',
-            Html::encode($subtitle),
-            [
-                'class' => 'text-secondary small mt-3 mb-3 text-clamp-2',
-                'title' => $subtitle,
-            ]
-        ) ?>
-
-    <?php
-        break;
-
-    default:
-    ?>
-
-        <?= Html::tag('div', '', [
-            'class' => 'mt-3 mb-3',
-        ]) ?>
-
-<?php
-        break;
-}
-?>
-
-
+<?php endif; ?>
 <!-- BUTTON -->
 <?= Html::button(
     Html::tag('span', 'Lihat Detail') .
@@ -120,6 +89,6 @@ switch ($type) {
     ]
 ) ?>
 
-<?= Html::endTag('div') ?>
+<!-- <?= Html::endTag('div') ?> -->
 
-<?= Html::endTag('article') ?>  
+<?= Html::endTag('article') ?>
