@@ -62,3 +62,27 @@
 }
 
 
+.strategic-partners-track {
+    width: max-content;
+    animation: strategicPartnersSlide 30s linear infinite;
+}
+
+.strategic-partners-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes strategicPartnersSlide {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .strategic-partners-track {
+        animation: none;
+    }
+}

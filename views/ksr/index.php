@@ -47,7 +47,7 @@ $cards = [
                 'description' => 'Melalui HRDWG, Kemnaker terlibat dalam kegiatan dan proyek kerja sama yang berfokus pada pengembangan sumber daya manusia dan ketenagakerjaan, termasuk peningkatan keterampilan tenaga kerja, kesiapan menghadapi perubahan pasar kerja, serta pertukaran kebijakan dan praktik terbaik antar ekonomi anggota APEC.',
             ],
         ],
-        'url' => 'https://www.apec.org/',
+        'url' => 'https://www.apec.org/',   
     ],
 
     [

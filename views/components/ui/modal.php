@@ -150,6 +150,198 @@ use yii\helpers\Html;
             ) ?>
 
         <?php endif; ?>
+    <?php
+        break;
+    case 'ksb': ?>
+        <?= Html::beginTag('div', ['class' => 'd-flex flex-row align-items-center justify-content-center gap-3']); ?>
+        <?= Html::img($image, [
+            'alt' => $name,
+            // 'width' => 100,
+            'height' => 30,
+            'class' => 'object-fit-contain m-0 ',
+        ]) ?>
+        <?= Html::tag(
+            'h5',
+            'Kerja Sama' . ' ' . Html::encode($name),
+            [
+                'class' => 'modal-title fw-bold m-0',
+                'id' => 'modal-label-' . $id,
+            ]
+        ) ?>
+        <?= Html::endTag('div') ?>
+        <?= Html::button('', [
+            'type' => 'button',
+            'class' => 'btn-close',
+            'data-bs-dismiss' => 'modal',
+            'aria-label' => 'Close',
+        ]) ?>
+
+        <?= Html::endTag('div') ?>
+        <!-- BODY -->
+        <?= Html::beginTag('div', [
+            'class' => 'modal-body px-4 px-md-5',
+        ]) ?>
+        <!-- LOGO -->
+        <?= Html::beginTag('div', [
+            'class' => 'text-left mb-4',
+        ]) ?>
+
+
+
+
+        <?= Html::tag(
+            'p',
+            'Ditemukan' . ' ' . Html::encode($documentCount) . ' ' . 'dokumen kerja sama untuk negara ini.',
+            [
+                'class' => 'text-secondary mb-0',
+            ]
+        ) ?>
+
+        <?= Html::endTag('div') ?>
+
+        <?= Html::tag('hr', '', [
+            'class' => 'my-auto border-dashed',
+        ]) ?>
+
+        <!-- ITEMS -->
+        <?php if (!empty($items)): ?>
+
+            <?= Html::beginTag('div', [
+                'class' => 'mt-4',
+            ]) ?>
+
+            <?php foreach ($items as $item): ?>
+
+                <?= Html::beginTag('div', [
+                    'class' => 'mb-4 d-flex align-items-center justify-content-between gap-4 border rounded-3 p-3',
+                ]) ?>
+
+                <?= Html::beginTag('div', [
+                    'class' => 'flex-grow-1',
+                ]) ?>
+
+                <?= Html::tag(
+                    'h5',
+                    Html::encode($item['title']),
+                    [
+                        'class' => 'fw-normal mb-2 text-16',
+                    ]
+                ) ?>
+
+                <?= Html::beginTag('div', [
+                    'class' => 'd-flex align-items-center gap-3 mt-3',
+                ]) ?>
+
+                <?php if (!empty($item['mitra'])): ?>
+
+                    <?= Html::beginTag('div', [
+                        'class' => 'd-flex align-items-center gap-2',
+                    ]) ?>
+
+                    <?= Html::tag('i', '', [
+                        'class' => 'bi bi-people',
+                        'aria-hidden' => 'true',
+                    ]) ?>
+
+                    <?= Html::tag(
+                        'span',
+                        Html::encode($item['mitra']),
+                        [
+                            'class' => 'text-12',
+                        ]
+                    ) ?>
+
+                    <?= Html::endTag('div') ?>
+
+                <?php endif; ?>
+
+                <?= Html::tag('span', '', [
+                    'class' => 'border-start border-secondary',
+                    'style' => 'height: 20px;',
+                ]) ?>
+
+                <?php if (!empty($item['pemerintah'])): ?>
+
+                    <?= Html::beginTag('div', [
+                        'class' => 'd-flex align-items-center gap-2',
+                    ]) ?>
+
+                    <?= Html::tag('i', '', [
+                        'class' => 'bi bi-building',
+                        'aria-hidden' => 'true',
+                    ]) ?>
+
+                    <?= Html::tag(
+                        'span',
+                        Html::encode($item['pemerintah']),
+                        [
+                            'class' => 'text-12',
+                        ]
+                    ) ?>
+
+                    <?= Html::endTag('div') ?>
+
+                <?php endif; ?>
+
+                <?= Html::endTag('div') ?>
+
+                <?php if (!empty($item['description'])): ?>
+
+                    <?= Html::tag(
+                        'p',
+                        Html::encode($item['description']),
+                        [
+                            'class' => 'text-secondary mb-0 lh-lg text-clamp-2 text-12',
+                        ]
+                    ) ?>
+
+                <?php endif; ?>
+
+                <?= Html::endTag('div') ?>
+
+                <?php if (!empty($item['status'])): ?>
+
+                    <?= Html::tag(
+                        'span',
+                        Html::encode($item['status']),
+                        [
+                            'class' => 'bg-success text-white px-3 py-1 rounded-pill text-center text-12 flex-shrink-0',
+                        ]
+                    ) ?>
+
+                <?php endif; ?>
+
+                <?= Html::endTag('div') ?>
+
+            <?php endforeach; ?>
+
+            <?= Html::endTag('div') ?>
+
+        <?php endif; ?>
+
+        <?= Html::endTag('div') ?>
+
+
+        <!-- FOOTER -->
+
+
+        <?= Html::beginTag('div', [
+            'class' => 'modal-footer border-0',
+        ]) ?>
+
+        <?php if (!empty($url)): ?>
+
+            <?= Html::a(
+                'Website Resmi',
+                $url,
+                [
+                    'class' => 'btn btn-primary rounded-pill px-4',
+                    'target' => '_blank',
+                    'rel' => 'noopener noreferrer',
+                ]
+            ) ?>
+
+        <?php endif; ?>
 
 
 
