@@ -23,6 +23,7 @@
 
     --transition-speed: 0.4s;
     --primary: #003366;
+    --secondary: #c9c5c5;
 }
 
 .bg-primary {
@@ -31,6 +32,10 @@
 .btn-primary {
     background: var(--primary) !important;
     border-color: var(--primary) !important;
+}
+
+.bg-secondary {
+    background-color: var(--secondary) !important;
 }
 
 .btn-primary:hover {
@@ -376,4 +381,51 @@
 
         line-height: 1.7;
     }
+}
+
+#ksdnTab {
+    border-bottom: 1px solid #dee2e6;
+}
+
+#ksdnTab .nav-link {
+    color: #53657d;
+    border: 0;
+    border-radius: 0;
+    padding: 1rem 1.5rem;
+}
+
+#ksdnTab .nav-link:hover {
+    color: #101828;
+}
+
+#ksdnTab .nav-link.active {
+    color: #101828;
+    background: #fff;
+
+    border: 1px solid #101828;
+    border-bottom-color: #fff;
+
+    border-radius: 4px 4px 0 0;
+
+    margin-bottom: -1px;
+    font-weight: 600;
+}
+
+#ksdnTabContent {
+    min-height: 300px;
+}
+
+@media (max-width: 767.98px) {
+
+    #ksdnTab {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+
+    #ksdnTab .nav-link {
+        white-space: nowrap;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
 }
