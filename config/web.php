@@ -53,6 +53,9 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 'content-ksdn' => 'ksdn/index',
+                'content-ksb' => 'ksb/index',
+                'content-ksr' => 'ksr/index',
+                'content-ksm' => 'ksm/index',
             ],
         ],
 
