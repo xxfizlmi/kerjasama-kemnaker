@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 $title = 'Kerja Sama Multilateral';
 
@@ -182,3 +183,99 @@ $cards = [
 
     <?php endforeach; ?>
 <?= Html::endTag('div') ?>
+
+<section class="py-5 overflow-hidden">
+
+    <div class="container">
+
+        <!-- JUDUL -->
+        <div class="text-center mb-4">
+
+            <?= Html::tag(
+                'h2',
+                'Situs Mitra Strategis',
+                [
+                    'class' => 'fw-bold mb-2',
+                ]
+            ) ?>
+
+        </div>
+
+
+        <!-- SLIDER -->
+        <div class="overflow-hidden">
+
+            <div class="d-flex gap-3 strategic-partners-track">
+
+                <?php foreach (array_merge($cards, $cards) as $card): ?>
+
+                    <?= Html::a(
+
+                        Html::beginTag('div', [
+                            'class' => 'card border rounded-4 shadow-sm h-100',
+                            'style' => 'width: 210px;',
+                        ])
+
+                        . Html::beginTag('div', [
+                            'class' => 'card-body d-flex flex-column align-items-center justify-content-center text-center p-3',
+                        ])
+
+                        // <!-- LOGO -->
+                        . Html::beginTag('div', [
+                            'class' => 'd-flex align-items-center justify-content-center mb-3',
+                            'style' => 'width: 65px; height: 65px;',
+                        ])
+
+                        . Html::img(
+                            Url::to($card['image']),
+                            [
+                                'alt' => $card['name'],
+                                'class' => 'img-fluid object-fit-contain',
+                                'style' => 'max-width: 65px; max-height: 65px;',
+                            ]
+                        )
+
+                        . Html::endTag('div')
+
+
+                        // <!-- NAMA SINGKAT -->
+                        . Html::tag(
+                            'h6',
+                            Html::encode($card['name']),
+                            [
+                                'class' => 'fw-semibold mb-1 text-dark',
+                            ]
+                        )
+
+
+                        // <!-- NAMA LENGKAP -->
+                        . Html::tag(
+                            'p',
+                            Html::encode($card['title']),
+                            [
+                                'class' => 'small text-secondary mb-0 text-clamp-2',
+                                'style' => 'font-size: 11px;',
+                            ]
+                        )
+
+                        . Html::endTag('div')
+                        . Html::endTag('div'),
+
+                        $card['url'] ?? '#',
+                        [
+                            'class' => 'text-decoration-none flex-shrink-0',
+                            'target' => '_blank',
+                            'rel' => 'noopener noreferrer',
+                        ]
+
+                    ) ?>
+
+                <?php endforeach; ?>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
