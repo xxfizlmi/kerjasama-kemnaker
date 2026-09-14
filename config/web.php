@@ -52,10 +52,12 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'content-ksdn' => 'ksdn/index',
-                'content-ksb' => 'ksb/index',
-                'content-ksr' => 'ksr/index',
-                'content-ksm' => 'ksm/index',
+                'ksdn' => 'ks/ksdn',
+                'ksb' => 'ks/ksb',
+                'ksr' => 'ks/ksr',
+                'ksm' => 'ks/ksm',
+                'kartu-nama' => 'kartu-nama/index',
+                'about' => 'site/about',
             ],
         ],
 
