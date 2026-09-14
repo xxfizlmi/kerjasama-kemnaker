@@ -1,431 +1,1262 @@
-@import url("nav.css");
-@import url("card.css");
-@import url("modal.css");
-@import url("footer.css");
-
 /* =========================================================
-   ROOT
-   ========================================================= */
-/* =========================================================
-   ROOT
-   ========================================================= */
+   HOMEPAGE
+   Biro Kerja Sama - Kemnaker RI
+========================================================= */
 
-:root {
-    --navbar-height: 72px;
-    --sidebar-width: 380px;
+.home-page {
+    --home-navy: var(--primary, #003366);
+    --home-navy-dark: var(--primary-2, #0f172a);
+    --home-gold: var(--warning, #c89416);
 
-    --navbar-bg-start: #203a43;
-    --navbar-bg-end: #002b5c;
+    --home-blue: #0d4777;
+    --home-blue-soft: #145381;
+    --home-blue-light: #6db6e8;
 
-    --navbar-text: #ffffff;
+    --home-cream: #fff7dc;
+    --home-cream-border: #dfbf66;
 
-    --sidebar-text: #ffffff;
+    --home-white: #ffffff;
+    --home-text-soft: rgba(255, 255, 255, 0.78);
+    --home-border-light: rgba(255, 255, 255, 0.18);
 
-    --transition-speed: 0.4s;
-    --primary: #003366;
-    --secondary: #c9c5c5;
-}
-
-.bg-primary {
-    background: var(--primary) !important;
-}
-.btn-primary {
-    background: var(--primary) !important;
-    border-color: var(--primary) !important;
-}
-
-.bg-secondary {
-    background-color: var(--secondary) !important;
-}
-
-.btn-primary:hover {
-    background: #001f3f !important;
-    border-color: #00264d !important;
-}
-
-/* =========================================================
-   PAGE
-   ========================================================= */
-
-.page {
     width: 100%;
-    max-width: 100%;
+    overflow-x: hidden;
 
-    overflow: hidden;
+    color: var(--home-white);
+    background: var(--home-navy);
 }
 
 /* =========================================================
-   CONTAINER
-   ========================================================= */
+   COMMON
+========================================================= */
 
-.container {
-    width: 100%;
-    max-width: 1200px;
-
-    margin-inline: auto;
-
-    padding-inline: clamp(20px, 4vw, 40px);
-
-    box-sizing: border-box;
+.home-page section {
+    background-color: var(--home-navy);
 }
 
-/* =========================================================
-   HERO CONTENT
-   ========================================================= */
-
-.source-button {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 9px;
-
-    max-width: 100%;
-
-    padding: 10px clamp(20px, 4vw, 32px);
-
-    color: #ffffff !important;
-
-    background: var(--navbar-bg-end);
-
-    border: 1px solid rgba(255, 255, 255, 0.35);
-
-    border-radius: 50px;
-
-    font-size: 14px;
-
-    text-align: center;
-
-    text-decoration: none;
-
-    transition:
-        background-color 0.25s ease,
-        transform 0.25s ease;
+.home-section-header {
+    margin-bottom: 28px;
 }
 
-.source-button:hover {
-    color: #ffffff !important;
-
-    background: var(--navbar-bg-start);
-
-    transform: translateY(-2px);
-}
-
-.source-button i {
-    flex-shrink: 0;
-
-    font-size: 17px;
-}
-
-.strategic-card {
-    min-width: 0;
-
-    padding: clamp(22px, 3vw, 35px);
-
-    color: #ffffff;
-
-    background: var(--navbar-bg-end);
-
-    border: 1px solid rgba(255, 255, 255, 0.18);
-
-    border-radius: 24px;
-
-    box-sizing: border-box;
-}
-
-.card-icon {
-    width: 48px;
-    height: 48px;
-
-    flex-shrink: 0;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    color: #ffffff;
-
-    border: 1px solid rgba(255, 255, 255, 0.3);
-
-    border-radius: 12px;
-}
-
-.card-icon i {
-    font-size: 22px;
-}
-
-/* =========================================================
-   DETAIL AREA
-   ========================================================= */
-
-.detail {
-    width: 100%;
-
-    padding: clamp(45px, 6vw, 80px) 0;
-}
-
-/* =========================================================
-   DETAIL SECTION
-   ========================================================= */
-
-.section {
-    width: 100%;
-
-    margin-bottom: clamp(45px, 6vw, 70px);
-}
-
-.section-header {
-    max-width: 800px;
-
-    margin-inline: auto;
-
-    text-align: center;
-}
-
-.section-title {
+.home-section-title {
     margin: 0;
 
-    color: #111111;
+    color: var(--home-white);
 
-    font-size: clamp(24px, 3vw, 32px);
+    font-size: 38px;
+    font-weight: 800;
 
-    font-weight: 700;
-
-    line-height: 1.3;
+    line-height: 1.2;
 }
 
-.section-description {
-    margin: 15px 0 0;
+/* =========================================================
+   1. HERO
+========================================================= */
 
-    color: #555555;
+.home-hero {
+    padding: 76px 0 72px;
+}
 
-    font-size: 15px;
+/* Left Content */
+
+.home-hero-content {
+    max-width: 590px;
+}
+
+.home-hero-kicker {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin-bottom: 22px;
+}
+
+.home-hero-kicker > span:first-child {
+    color: var(--home-blue-light);
+
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 2.2px;
+
+    text-transform: uppercase;
+}
+
+.home-hero-kicker-line {
+    display: block;
+
+    width: 42px;
+    height: 2px;
+
+    margin-top: 9px;
+
+    background: var(--home-blue-light);
+}
+
+.home-hero-title {
+    margin: 0 0 24px;
+
+    color: var(--home-white);
+
+    font-size: clamp(42px, 4.2vw, 60px);
+    font-weight: 800;
+
+    line-height: 1.08;
+    letter-spacing: -1.4px;
+}
+
+.home-hero-description {
+    max-width: 560px;
+
+    margin: 0;
+
+    color: var(--home-text-soft);
+
+    font-size: 16px;
+    font-weight: 400;
 
     line-height: 1.8;
 }
 
-/* =========================================================
-   DETAIL CARD GRID
-   ========================================================= */
+/* Hero Media */
 
-/* =========================================================
-   DETAIL CARD
-   ========================================================= */
+.home-hero-media {
+    position: relative;
 
-.detail-card {
-    min-width: 0;
+    width: 100%;
+    min-height: 455px;
 
-    display: flex;
+    overflow: hidden;
 
-    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 24px;
 
-    padding: clamp(22px, 3vw, 30px);
-
-    background: #ffffff;
-
-    border: 1px solid rgba(0, 0, 0, 0.1);
-
-    border-radius: 20px;
-
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
-
-    box-sizing: border-box;
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+    background: var(--home-navy-dark);
 }
 
-.detail-card:hover {
-    transform: translateY(-4px);
+.home-hero-image {
+    position: absolute;
+    inset: 0;
 
-    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.1);
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
 }
 
-.detail-card .card-title {
-    color: #111111;
+.home-hero-media-gradient {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to bottom,
+        transparent 42%,
+        rgba(4, 15, 27, 0.22) 58%,
+        rgba(4, 15, 27, 0.92) 100%
+    );
+
+    pointer-events: none;
 }
 
-.detail-card .card-icon {
-    color: var(--navbar-bg-end);
+.home-hero-media-content {
+    position: absolute;
+    z-index: 2;
 
-    border-color: rgba(0, 43, 92, 0.2);
+    left: 26px;
+    right: 26px;
+    bottom: 53px;
 }
 
-/* =========================================================
-   STAT
-   ========================================================= */
+.home-hero-media-title {
+    max-width: 95%;
 
-.stat {
-    display: flex;
+    margin: 0 0 9px;
 
-    align-items: baseline;
-    justify-content: center;
+    color: var(--home-white);
 
-    gap: 8px;
-
-    margin-top: 25px;
-}
-
-.stat-number {
-    color: var(--navbar-bg-end);
-
-    font-size: 32px;
-
+    font-size: 17px;
     font-weight: 700;
+
+    line-height: 1.45;
 }
 
-.stat-label {
-    color: #666666;
+.home-hero-media-source {
+    display: flex;
+    align-items: center;
 
+    gap: 7px;
+
+    color: rgba(255, 255, 255, 0.82);
+
+    font-size: 12px;
+}
+
+.home-hero-media-source i {
     font-size: 13px;
 }
 
-.detail-description {
-    margin: 20px 0 0;
+/* Hero Pagination */
 
-    color: #555555;
+.home-hero-pagination {
+    position: absolute;
+    z-index: 3;
+
+    left: 50%;
+    bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    transform: translateX(-50%);
+}
+
+.home-hero-dot {
+    flex: 0 0 auto;
+
+    width: 7px;
+    height: 7px;
+
+    padding: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+
+    background: transparent;
+
+    appearance: none;
+}
+
+.home-hero-dot.active {
+    background: var(--home-white);
+}
+
+/* =========================================================
+   2. BERITA TERBARU
+========================================================= */
+
+.home-news {
+    padding: 62px 0 76px;
+}
+
+/* Featured */
+
+.home-news-featured {
+    display: grid;
+    grid-template-columns: 53% 47%;
+
+    min-height: 350px;
+
+    margin-bottom: 24px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 18px;
+
+    background: var(--home-blue);
+}
+
+.home-news-featured-image {
+    position: relative;
+
+    min-height: 350px;
+
+    overflow: hidden;
+}
+
+.home-news-featured-img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    min-height: 350px;
+
+    object-fit: cover;
+}
+
+.home-news-featured-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 35px 38px;
+
+    background: var(--home-blue);
+}
+
+.home-news-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 8px 17px;
+
+    margin-bottom: 13px;
+}
+
+.home-news-category,
+.home-news-card-category {
+    color: var(--home-gold);
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 0.6px;
+}
+
+.home-news-date,
+.home-news-card-date {
+    color: rgba(255, 255, 255, 0.66);
+
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.home-news-featured-title {
+    margin: 0 0 15px;
+
+    color: var(--home-white);
+
+    font-size: clamp(23px, 2.1vw, 30px);
+    font-weight: 800;
+
+    line-height: 1.3;
+}
+
+.home-news-featured-description {
+    margin: 0 0 22px;
+
+    color: rgba(255, 255, 255, 0.78);
 
     font-size: 14px;
 
-    line-height: 1.7;
-
-    text-align: center;
+    line-height: 1.75;
 }
 
-/* =========================================================
-   REFERENCE
-   ========================================================= */
+.home-news-read-more {
+    display: inline-block;
 
-.reference {
-    padding-top: 10px;
+    width: fit-content;
 
-    color: #666666;
+    color: var(--home-gold);
 
     font-size: 13px;
-
-    text-align: center;
-}
-
-.reference a {
-    color: var(--navbar-bg-end);
-
-    font-weight: 600;
+    font-weight: 800;
 
     text-decoration: none;
 }
 
-.reference a:hover {
-    text-decoration: underline;
+.home-news-read-more:hover {
+    color: #e5b437;
+}
+
+/* Small Cards */
+
+.home-news-card {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    min-height: 165px;
+
+    padding: 22px 23px;
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 15px;
+
+    color: var(--home-white);
+    background: rgba(20, 83, 129, 0.7);
+
+    text-decoration: none;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.home-news-card:hover {
+    color: var(--home-white);
+
+    border-color: rgba(255, 255, 255, 0.24);
+
+    background: rgba(20, 83, 129, 0.92);
+
+    text-decoration: none;
+}
+
+.home-news-card-category {
+    display: block;
+
+    margin-bottom: 6px;
+}
+
+.home-news-card-date {
+    display: block;
+
+    margin-bottom: 14px;
+}
+
+.home-news-card-title {
+    margin: 0;
+
+    color: var(--home-white);
+
+    font-size: 17px;
+    font-weight: 700;
+
+    line-height: 1.48;
+}
+
+/* =========================================================
+   3. INFORMASI LAINNYA
+========================================================= */
+
+.home-information {
+    padding: 62px 0 78px;
+}
+
+.home-information-header {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 30px;
+}
+
+.home-information-bar {
+    display: block;
+
+    width: 4px;
+    height: 31px;
+
+    border-radius: 4px;
+
+    background: var(--home-gold);
+}
+
+.home-information-title {
+    margin: 0;
+
+    color: var(--home-white);
+
+    font-size: 34px;
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+/* Cards */
+
+.home-information-card {
+    height: 100%;
+    min-height: 340px;
+
+    padding: 28px;
+
+    border: 1px solid rgba(109, 182, 232, 0.38);
+    border-radius: 18px;
+
+    background: var(--home-blue);
+
+    text-align: center;
+}
+
+.home-information-card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 100%;
+}
+
+.home-information-label {
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: var(--home-gold);
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+.home-information-date {
+    margin: 0 0 18px;
+
+    color: rgba(255, 255, 255, 0.66);
+
+    font-size: 12px;
+}
+
+.home-information-card-title {
+    margin: 0 0 16px;
+
+    color: var(--home-white);
+
+    font-size: 21px;
+    font-weight: 800;
+
+    line-height: 1.4;
+}
+
+.home-information-description {
+    display: -webkit-box;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    color: rgba(255, 255, 255, 0.76);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+}
+
+.home-information-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    align-self: center;
+
+    min-width: 170px;
+
+    margin-top: 26px;
+    padding: 9px 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.82);
+    border-radius: 50px;
+
+    color: var(--home-white);
+    background: transparent;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 0.7px;
+
+    text-decoration: none;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.home-information-button:hover {
+    color: var(--home-navy);
+
+    border-color: var(--home-white);
+
+    background: var(--home-white);
+
+    text-decoration: none;
+}
+
+/* =========================================================
+   4. JENIS KERJA SAMA
+========================================================= */
+
+.home-cooperation {
+    padding: 62px 0 88px;
+}
+
+.home-cooperation-header {
+    margin-bottom: 30px;
+
+    text-align: left;
+}
+
+.home-cooperation-title {
+    margin: 0 0 12px;
+
+    color: var(--home-white);
+
+    font-size: 31px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    line-height: 1.2;
+
+    text-transform: uppercase;
+}
+
+.home-cooperation-line {
+    display: block;
+
+    width: 74px;
+    height: 3px;
+
+    background: var(--home-gold);
+}
+
+/* Cards */
+
+.home-cooperation-card {
+    height: 100%;
+    min-height: 330px;
+
+    padding: 25px 22px;
+
+    border: 1px solid var(--home-cream-border);
+    border-radius: 18px;
+
+    background: var(--home-cream);
+
+    text-align: center;
+}
+
+.home-cooperation-card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 100%;
+}
+
+.home-cooperation-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 4px auto 18px;
+
+    color: var(--home-navy);
+
+    font-size: 42px;
+
+    line-height: 1;
+}
+
+.home-cooperation-card-title {
+    display: flex;
+    flex-direction: column;
+
+    gap: 1px;
+
+    margin: 0 0 15px;
+
+    color: var(--home-navy);
+
+    font-size: 16px;
+    font-weight: 800;
+
+    letter-spacing: 1.1px;
+
+    line-height: 1.35;
+
+    text-transform: uppercase;
+}
+
+.home-cooperation-card-title span {
+    font-weight: inherit;
+}
+
+.home-cooperation-description {
+    display: -webkit-box;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    color: #273442;
+
+    font-size: 12.5px;
+
+    line-height: 1.65;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.home-cooperation-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    align-self: center;
+
+    min-width: 116px;
+
+    margin-top: 22px;
+    padding: 8px 19px;
+
+    border: 1px solid var(--home-navy);
+    border-radius: 50px;
+
+    color: var(--home-white);
+    background: var(--home-navy);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 0.8px;
+
+    text-decoration: none;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.home-cooperation-button:hover {
+    color: var(--home-white);
+
+    border-color: var(--home-navy-dark);
+
+    background: var(--home-navy-dark);
+
+    text-decoration: none;
 }
 
 /* =========================================================
    TABLET
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 991.98px) {
-    .card-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    .home-hero {
+        padding: 62px 0;
+    }
+
+    .home-hero-content {
+        max-width: none;
+    }
+
+    .home-hero-title {
+        font-size: 46px;
+    }
+
+    .home-hero-media {
+        min-height: 410px;
+    }
+
+    /* News */
+
+    .home-news {
+        padding: 54px 0 66px;
+    }
+
+    .home-news-featured {
+        grid-template-columns: 1fr;
+    }
+
+    .home-news-featured-image,
+    .home-news-featured-img {
+        min-height: 340px;
+    }
+
+    .home-news-featured-content {
+        padding: 32px;
+    }
+
+    /* Information */
+
+    .home-information {
+        padding: 54px 0 68px;
+    }
+
+    .home-information-card {
+        min-height: 330px;
+    }
+
+    /* Cooperation */
+
+    .home-cooperation {
+        padding: 54px 0 72px;
+    }
+
+    .home-cooperation-card {
+        min-height: 315px;
     }
 }
 
 /* =========================================================
    MOBILE
-   ========================================================= */
-
-@media (max-width: 575.98px) {
-    .hero {
-        padding-top: 40px;
-    }
-
-    .strategic-grid {
-        grid-template-columns: 1fr;
-
-        gap: 16px;
-    }
-
-    .card-grid {
-        grid-template-columns: 1fr;
-
-        gap: 16px;
-    }
-
-    .strategic-card,
-    .detail-card {
-        padding: 22px;
-    }
-
-    .card-header {
-        align-items: flex-start;
-    }
-
-    .card-icon {
-        width: 42px;
-        height: 42px;
-    }
-
-    .card-icon i {
-        font-size: 19px;
-    }
-
-    .source-button {
-        width: 100%;
-
-        max-width: 340px;
-    }
-
-    .reference {
-        padding-inline: 10px;
-
-        line-height: 1.7;
-    }
-}
-
-#ksdnTab {
-    border-bottom: 1px solid #dee2e6;
-}
-
-#ksdnTab .nav-link {
-    color: #53657d;
-    border: 0;
-    border-radius: 0;
-    padding: 1rem 1.5rem;
-}
-
-#ksdnTab .nav-link:hover {
-    color: #101828;
-}
-
-#ksdnTab .nav-link.active {
-    color: #101828;
-    background: #fff;
-
-    border: 1px solid #101828;
-    border-bottom-color: #fff;
-
-    border-radius: 4px 4px 0 0;
-
-    margin-bottom: -1px;
-    font-weight: 600;
-}
-
-#ksdnTabContent {
-    min-height: 300px;
-}
+========================================================= */
 
 @media (max-width: 767.98px) {
-
-    #ksdnTab {
-        overflow-x: auto;
-        flex-wrap: nowrap;
+    .home-page .container {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
-    #ksdnTab .nav-link {
-        white-space: nowrap;
-        padding-left: 1rem;
-        padding-right: 1rem;
+    /* Hero */
+
+    .home-hero {
+        padding: 45px 0 52px;
     }
 
+    .home-hero-kicker {
+        margin-bottom: 18px;
+    }
+
+    .home-hero-kicker > span:first-child {
+        font-size: 11px;
+
+        letter-spacing: 1.8px;
+    }
+
+    .home-hero-title {
+        margin-bottom: 19px;
+
+        font-size: 37px;
+
+        line-height: 1.12;
+        letter-spacing: -0.7px;
+    }
+
+    .home-hero-description {
+        font-size: 14px;
+
+        line-height: 1.75;
+    }
+
+    .home-hero-media {
+        min-height: 345px;
+
+        border-radius: 18px;
+    }
+
+    .home-hero-media-content {
+        left: 20px;
+        right: 20px;
+        bottom: 50px;
+    }
+
+    .home-hero-media-title {
+        max-width: 100%;
+
+        font-size: 14px;
+
+        line-height: 1.45;
+    }
+
+    /* Section Title */
+
+    .home-section-title {
+        font-size: 30px;
+    }
+
+    /* News */
+
+    .home-news {
+        padding: 48px 0 58px;
+    }
+
+    .home-section-header {
+        margin-bottom: 23px;
+    }
+
+    .home-news-featured {
+        min-height: auto;
+
+        border-radius: 16px;
+    }
+
+    .home-news-featured-image,
+    .home-news-featured-img {
+        min-height: 240px;
+    }
+
+    .home-news-featured-content {
+        padding: 25px 22px;
+    }
+
+    .home-news-featured-title {
+        font-size: 23px;
+    }
+
+    .home-news-featured-description {
+        font-size: 13.5px;
+    }
+
+    .home-news-card {
+        min-height: auto;
+
+        padding: 21px;
+    }
+
+    .home-news-card-title {
+        font-size: 16px;
+    }
+
+    /* Information */
+
+    .home-information {
+        padding: 48px 0 60px;
+    }
+
+    .home-information-header {
+        margin-bottom: 25px;
+    }
+
+    .home-information-bar {
+        height: 27px;
+    }
+
+    .home-information-title {
+        font-size: 29px;
+    }
+
+    .home-information-card {
+        min-height: 315px;
+
+        padding: 25px 22px;
+    }
+
+    /* Cooperation */
+
+    .home-cooperation {
+        padding: 48px 0 65px;
+    }
+
+    .home-cooperation-title {
+        font-size: 27px;
+    }
+
+    .home-cooperation-card {
+        min-height: 300px;
+
+        padding: 24px 22px;
+    }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 575.98px) {
+    .home-hero-title {
+        font-size: 32px;
+    }
+
+    .home-hero-media {
+        min-height: 310px;
+    }
+
+    .home-hero-media-title {
+        font-size: 13px;
+    }
+
+    .home-hero-media-source {
+        font-size: 11px;
+    }
+
+    .home-news-featured-image,
+    .home-news-featured-img {
+        min-height: 220px;
+    }
+
+    .home-news-featured-content {
+        padding: 23px 20px;
+    }
+
+    .home-news-featured-title {
+        font-size: 21px;
+    }
+
+    .home-information-card,
+    .home-cooperation-card {
+        min-height: 0;
+    }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .home-news-card,
+    .home-information-button,
+    .home-cooperation-button {
+        transition: none;
+    }
+}
+
+/* =========================================================
+   HERO CAROUSEL
+========================================================= */
+
+.home-hero-carousel {
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 24px;
+
+    background: var(--home-navy-dark);
+}
+
+/* =========================================================
+   MEDIA
+========================================================= */
+
+.home-hero-media {
+    position: relative;
+
+    width: 100%;
+    height: 455px;
+
+    overflow: hidden;
+}
+
+.home-hero-media .carousel-item {
+    position: relative;
+
+    width: 100%;
+    height: 455px;
+}
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.home-hero-image {
+    display: block;
+
+    width: 100%;
+    height: 455px;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 0;
+}
+
+/* =========================================================
+   DARK OVERLAY
+========================================================= */
+
+.home-hero-media-gradient {
+    position: absolute;
+
+    z-index: 1;
+
+    inset: 0;
+
+    background: linear-gradient(
+        to bottom,
+        transparent 40%,
+        rgba(4, 15, 27, 0.18) 58%,
+        rgba(4, 15, 27, 0.94) 100%
+    );
+
+    pointer-events: none;
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.home-hero-media-content {
+    position: absolute;
+
+    z-index: 3;
+
+    left: 26px;
+    right: 26px;
+    bottom: 53px;
+}
+
+.home-hero-media-title {
+    max-width: 95%;
+
+    margin: 0 0 9px;
+
+    color: #ffffff;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    line-height: 1.45;
+
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.home-hero-media-source {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: rgba(255, 255, 255, 0.82);
+
+    font-size: 12px;
+}
+
+.home-hero-media-source i {
+    font-size: 13px;
+}
+
+/* =========================================================
+   DOTS
+========================================================= */
+
+.home-hero-pagination.carousel-indicators {
+    z-index: 5;
+
+    right: auto;
+    bottom: 19px;
+    left: 50%;
+
+    display: flex;
+
+    width: auto;
+
+    margin: 0;
+
+    gap: 7px;
+
+    transform: translateX(-50%);
+}
+
+.home-hero-pagination .home-hero-dot {
+    width: 7px;
+    height: 7px;
+
+    margin: 0;
+
+    padding: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+
+    background: transparent;
+
+    opacity: 1;
+}
+
+.home-hero-pagination .home-hero-dot.active {
+    width: 7px;
+    height: 7px;
+
+    background: #ffffff;
+}
+
+/* =========================================================
+   PREV / NEXT
+========================================================= */
+
+.home-hero-control {
+    z-index: 4;
+
+    width: 54px;
+
+    opacity: 0;
+
+    transition: opacity 0.25s ease;
+}
+
+.home-hero-carousel:hover .home-hero-control {
+    opacity: 0.75;
+}
+
+.home-hero-control:hover {
+    opacity: 1 !important;
+}
+
+.home-hero-control .carousel-control-prev-icon,
+.home-hero-control .carousel-control-next-icon {
+    width: 25px;
+    height: 25px;
+
+    background-size: 16px;
+
+    border-radius: 50%;
+
+    background-color: rgba(0, 0, 0, 0.28);
+}
+
+/* =========================================================
+   CAROUSEL ANIMATION
+========================================================= */
+
+.home-hero-carousel .carousel-item {
+    transition: transform 0.65s ease-in-out;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991.98px) {
+    .home-hero-media,
+    .home-hero-media .carousel-item,
+    .home-hero-image {
+        height: 410px;
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767.98px) {
+    .home-hero-carousel {
+        border-radius: 18px;
+    }
+
+    .home-hero-media,
+    .home-hero-media .carousel-item,
+    .home-hero-image {
+        height: 345px;
+    }
+
+    .home-hero-media-content {
+        left: 20px;
+        right: 20px;
+        bottom: 48px;
+    }
+
+    .home-hero-media-title {
+        max-width: 100%;
+
+        font-size: 14px;
+
+        line-height: 1.45;
+    }
+
+    .home-hero-control {
+        width: 42px;
+    }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 575.98px) {
+    .home-hero-media,
+    .home-hero-media .carousel-item,
+    .home-hero-image {
+        height: 310px;
+    }
+
+    .home-hero-media-title {
+        font-size: 13px;
+    }
+
+    .home-hero-media-source {
+        font-size: 11px;
+    }
 }

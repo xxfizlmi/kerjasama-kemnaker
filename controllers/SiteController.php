@@ -88,19 +88,8 @@ class SiteController extends Controller
      */
     public function actionLogin(): Response|string
     {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
 
-        $model = new LoginForm($this->security);
-
-        if ($model->load($this->request->post()) && $model->login()) {
-            return $this->goBack();
-        }
-
-        $model->password = '';
-
-        return $this->render('login', ['model' => $model]);
+        return $this->render('login');
     }
 
     /**
@@ -122,25 +111,9 @@ class SiteController extends Controller
      */
     public function actionContact(): Response|string
     {
-        $model = new ContactForm();
 
-        $contact = $model->load($this->request->post()) && $model->contact(
-            $this->mailer,
-            Yii::$app->params['adminEmail'],
-            Yii::$app->params['senderEmail'],
-            Yii::$app->params['senderName'],
-        );
 
-        if ($contact) {
-            Yii::$app->session->setFlash(
-                'success',
-                'Thank you for contacting us. We will respond to you as soon as possible.',
-            );
-
-            return $this->refresh();
-        }
-
-        return $this->render('contact', ['model' => $model]);
+        return $this->render('contact');
     }
 
     /**
@@ -151,5 +124,19 @@ class SiteController extends Controller
     public function actionAbout(): string
     {
         return $this->render('about');
+    }
+    public function actionFaq(): string
+    {
+        return $this->render('faq');
+    }
+
+    public function actionDashboard()
+    {
+        return $this->render('dashboard');
+    }
+
+    public function actionPolicyBrief()
+    {
+        return $this->render('policy-brief');
     }
 }
