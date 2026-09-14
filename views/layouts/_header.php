@@ -8,6 +8,48 @@ use yii\bootstrap5\Nav;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
+
+/*
+|--------------------------------------------------------------------------
+| HELPER UNTUK MEGA MENU COLUMN
+|--------------------------------------------------------------------------
+*/
+
+function megaMenuColumn(
+    string $title,
+    array $links = [],
+    string $description = ''
+): string {
+
+    $html = '<div class="mega-menu-column">';
+
+    $html .= '<div class="mega-menu-title">'
+        . Html::encode($title)
+        . '</div>';
+
+    foreach ($links as $link) {
+
+        $html .= Html::a(
+            Html::encode($link['label']),
+            $link['url'],
+            [
+                'class' => 'mega-menu-link',
+            ]
+        );
+    }
+
+    if ($description !== '') {
+
+        $html .= '<div class="mega-menu-description">'
+            . Html::encode($description)
+            . '</div>';
+    }
+
+    $html .= '</div>';
+
+    return $html;
+}
+
 $items = [
 
     // =====================================================
@@ -36,87 +78,61 @@ $items = [
 
         'items' => [
 
-            // SIDANG
-            '<div class="mega-menu-column">
+            megaMenuColumn(
+                'Sidang',
+                [
+                    [
+                        'label' => 'ILC Sesi Ke-114',
+                        'url' => ['/event/ilc'],
+                    ],
+                ]
+            ),
 
-                <div class="mega-menu-title">
-                    Sidang
-                </div>
+            megaMenuColumn(
+                'Pengumuman',
+                [
+                    [
+                        'label' => 'Inpassing JFAKS',
+                        'url' => ['/site/index'],
+                    ],
+                ]
+            ),
 
-                <a
-                    href="' . Url::to(['/site/index']) . '"
-                    class="mega-menu-link">
-                    ILC Sesi Ke-114
-                </a>
+            megaMenuColumn(
+                'Workshop',
+                [
+                    [
+                        'label' => 'Workshop on English',
+                        'url' => ['/site/index'],
+                    ],
+                ]
+            ),
 
-            </div>',
-
-
-            // PENGUMUMAN
-            '<div class="mega-menu-column">
-
-                <div class="mega-menu-title">
-                    Pengumuman
-                </div>
-
-                <a
-                    href="' . Url::to(['/site/index']) . '"
-                    class="mega-menu-link">
-                    Inpassing JFAKS
-                </a>
-
-            </div>',
-
-
-            // WORKSHOP
-            '<div class="mega-menu-column">
-
-                <div class="mega-menu-title">
-                    Workshop
-                </div>
-
-                <a
-                    href="' . Url::to(['/site/index']) . '"
-                    class="mega-menu-link">
-                    Workshop on English
-                </a>
-
-            </div>',
-
-            // Kegiatan
-            '<div class="mega-menu-column">
-
-                <div class="mega-menu-title">
-                    KEGIATAN
-                </div>
-
-                <a
-                    href="' . Url::to(['/site/index']) . '"
-                    class="mega-menu-link">
-                    Sosialisasi LINKS
-                </a>
-                <a
-                    href="' . Url::to(['/site/index']) . '"
-                    class="mega-menu-link">
-                    Monev KSDN Batch 1 2026
-                </a>
-                <a
-                    href="' . Url::to(['/site/index']) . '"
-                    class="mega-menu-link">
-                    Penyusunan Bahan ILC 114
-                </a>
-                <a
-                    href="' . Url::to(['/site/index']) . '"
-                    class="mega-menu-link">
-                    Kerja Sama Bilateral Indonsia dan Turki
-                </a>
-                <a
-                    href="' . Url::to(['/site/index']) . '"
-                    class="mega-menu-link">
-                    Monev KSDN Batch 2 2026
-                </a>
-
-            </div>',
+            megaMenuColumn(
+                'Kegiatan',
+                [
+                    [
+                        'label' => 'Sosialisasi LINKS',
+                        'url' => ['/site/index'],
+                    ],
+                    [
+                        'label' => 'Monev KSDN Batch 1 2026',
+                        'url' => ['/site/index'],
+                    ],
+                    [
+                        'label' => 'Penyusunan Bahan ILC 114',
+                        'url' => ['/site/index'],
+                    ],
+                    [
+                        'label' => 'Kerja Sama Bilateral Indonesia dan Turki',
+                        'url' => ['/site/index'],
+                    ],
+                    [
+                        'label' => 'Monev KSDN Batch 2 2026',
+                        'url' => ['/site/index'],
+                    ],
+                ]
+            ),
         ],
     ],
 
@@ -137,58 +153,40 @@ $items = [
 
         'items' => [
 
-            // Kategori Kerja Sama
-            '<div class="mega-menu-column">
+            megaMenuColumn(
+                'Kategori Kerja Sama',
+                [
+                    [
+                        'label' => 'Kerja Sama Dalam Negeri',
+                        'url' => ['/ksdn'],
+                    ],
+                    [
+                        'label' => 'Kerja Sama Bilateral',
+                        'url' => ['/ksb'],
+                    ],
+                    [
+                        'label' => 'Kerja Sama Regional',
+                        'url' => ['/ksr'],
+                    ],
+                    [
+                        'label' => 'Kerja Sama Multilateral',
+                        'url' => ['/ksm'],
+                    ],
+                ]
+            ),
 
-                <div class="mega-menu-title">
-                    KATEGORI KERJA SAMA
-                </div>
+            megaMenuColumn(
+                'Bisnis Proses'
+            ),
 
-                <a
-                    href="' . Url::to(['/ksdn']) . '"
-                    class="mega-menu-link">
-                    Kerja Sama Dalam Negeri
-                </a>
-                <a
-                    href="' . Url::to(['/ksb']) . '"
-                    class="mega-menu-link">
-                    Kerja Sama Bilateral
-                </a>
-                <a
-                    href="' . Url::to(['/ksr']) . '"
-                    class="mega-menu-link">
-                    Kerja Sama Regional
-                </a>
-                <a
-                    href="' . Url::to(['/ksm']) . '"
-                    class="mega-menu-link">
-                    Kerja Sama Multilateral
-                </a>
-
-            </div>',
-
-            '<div class="mega-menu-column">
-
-                <div class="mega-menu-title">
-                    Bisnis Proses
-                </div>
-
-            </div>',
-
-
-            '<div class="mega-menu-column">
-
-                <div class="mega-menu-title">
-                    Informasi
-                </div>
-
-                <div class="mega-menu-description">
-                    Informasi kerja sama setiap bidang.
-                </div>
-
-            </div>',
+            megaMenuColumn(
+                'Informasi',
+                [],
+                'Informasi kerja sama setiap bidang.'
+            ),
         ],
     ],
+
 
     // =====================================================
     // POLICY BRIEF
@@ -206,35 +204,24 @@ $items = [
 
         'items' => [
 
-            // Kategori Policy Brief
-            '<div class="mega-menu-column">
+            megaMenuColumn(
+                'Policy Brief',
+                [
+                    [
+                        'label' => 'Analisis Perumusan Rekomendasi Kebijakan Kerja Sama Internasional',
+                        'url' => ['/site/policy-brief'],
+                    ],
+                ]
+            ),
 
-                <div class="mega-menu-title">
-                    Policy Brief
-                </div>
-
-                <a
-                    href="' . Url::to(['/site/index']) . '"
-                    class="mega-menu-link">
-                    Analisis Perumusan Rekomendasi Kebijakan Kerja Sama Internasional
-                </a>
-
-            </div>',
-
-
-            '<div class="mega-menu-column">
-
-                <div class="mega-menu-title">
-                    Informasi
-                </div>
-
-                <div class="mega-menu-description">
-                    Informasi dokumen ringkas dan padat yang menyajikan analisis berbasis data mengenai suatu isu tertentu, disertai rekomendasi solusi konkret
-                </div>
-
-            </div>',
+            megaMenuColumn(
+                'Informasi',
+                [],
+                'Informasi dokumen ringkas dan padat yang menyajikan analisis berbasis data mengenai suatu isu tertentu, disertai rekomendasi solusi konkret.'
+            ),
         ],
     ],
+
 
     // =====================================================
     // TENTANG
@@ -242,7 +229,7 @@ $items = [
 
     [
         'label' => 'Tentang',
-        'url' => ['/site/index'],
+        'url' => ['/about'],
     ],
 
 
@@ -252,63 +239,48 @@ $items = [
 
     [
         'label' => 'FAQ',
-        'url' => ['/site/index'],
+        'url' => ['/site/faq'],
     ],
 ];
 
 ?>
 
 <header id="site-header">
-
     <nav class="site-navbar px-5">
-
         <div class="navbar-container px-5">
-
             <!-- Logo -->
             <a
                 href="<?= Url::to(['/site/index']) ?>"
                 class="navbar-brand-custom">
+
                 <?= Html::img(
                     Url::to('@web/images/logo/logo_final.png'),
-                    [
-                        'alt' => Yii::$app->name,
-                        'class' => 'navbar-logo',
-                    ]
+                    ['alt' => Yii::$app->name, 'class' => 'navbar-logo',]
                 ) ?>
+
             </a>
-
-
             <!-- Desktop Navigation -->
-            <div class="desktop-navigation">
 
+            <div class="desktop-navigation">
                 <?= Nav::widget([
                     'options' => [
                         'class' => 'navbar-nav-custom',
                     ],
-
                     'encodeLabels' => false,
-
                     'items' => $items,
                 ]) ?>
-
             </div>
 
 
             <!-- Desktop Button -->
+
             <div class="desktop-actions">
-
-                <?= Html::a(
-                    'Masuk',
-                    ['/site/login'],
-                    [
-                        'class' => 'login-button',
-                    ]
-                ) ?>
-
+                <?= Html::a('Masuk', ['/site/login'], ['class' => 'login-button',]) ?>
             </div>
 
 
             <!-- Mobile Hamburger -->
+
             <button
                 type="button"
                 class="hamburger-button"
@@ -327,23 +299,27 @@ $items = [
 
 
     <!-- Overlay -->
+
     <div
         class="sidebar-overlay"
         id="sidebarOverlay"></div>
 
 
     <!-- Right Sidebar -->
+
     <aside
         class="navigation-sidebar"
         id="navigationSidebar"
         aria-hidden="true">
 
         <!-- Sidebar Header -->
+
         <div class="sidebar-header">
 
             <a
                 href="<?= Url::to(['/site/index']) ?>"
                 class="sidebar-logo">
+
                 <?= Html::img(
                     Url::to('@web/images/logo/logo_final.png'),
                     [
@@ -351,6 +327,7 @@ $items = [
                         'class' => 'navbar-logo',
                     ]
                 ) ?>
+
             </a>
 
             <button
@@ -362,11 +339,11 @@ $items = [
                 <span></span>
             </button>
 
-
         </div>
 
 
         <!-- Sidebar Menu -->
+
         <div class="sidebar-content">
 
             <div class="sidebar-menu">
@@ -375,7 +352,9 @@ $items = [
                     'options' => [
                         'class' => 'sidebar-nav',
                     ],
+
                     'encodeLabels' => false,
+
                     'items' => $items,
                 ]) ?>
 
@@ -385,6 +364,7 @@ $items = [
 
 
         <!-- Sidebar Footer -->
+
         <div class="sidebar-footer">
 
             <?= Html::a(
@@ -398,5 +378,4 @@ $items = [
         </div>
 
     </aside>
-
 </header>

@@ -1,0 +1,1563 @@
+/* =========================================================
+   ABOUT PAGE
+========================================================= */
+
+.about-section-kicker {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #2f73f6;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    line-height: 1.2;
+    letter-spacing: 1.2px;
+}
+
+
+/* =========================================================
+   1. HERO
+========================================================= */
+
+.about-hero {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    min-height: 500px;
+
+    overflow: hidden;
+
+    background-image:
+        url("https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    /* Parallax / gambar diam saat scroll */
+    background-attachment: fixed;
+}
+
+
+.about-hero-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(11, 28, 50, 0.96) 0%,
+            rgba(11, 28, 50, 0.88) 33%,
+            rgba(11, 28, 50, 0.52) 58%,
+            rgba(11, 28, 50, 0.28) 100%
+        );
+
+    pointer-events: none;
+}
+
+
+.about-hero .container {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.about-hero-content {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+    justify-content: center;
+
+    width: min(560px, 100%);
+
+    min-height: 500px;
+
+    margin-left: 26%;
+
+    text-align: left;
+}
+
+
+/* Ministry */
+
+.about-ministry {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 16px;
+
+    color: #2fb4ff;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    line-height: 1.2;
+
+    letter-spacing: 1.7px;
+}
+
+
+.about-ministry i {
+    font-size: 10px;
+}
+
+
+/* Title */
+
+.about-hero-title {
+    margin: 0 0 14px;
+
+    color: #ffffff;
+
+    font-size:
+        clamp(
+            34px,
+            3.2vw,
+            42px
+        );
+
+    font-weight: 800;
+
+    line-height: 1.12;
+
+    letter-spacing: -0.5px;
+}
+
+
+/* Description */
+
+.about-hero-description {
+    max-width: 590px;
+
+    margin: 0;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.96
+        );
+
+    font-size: 17px;
+    font-weight: 500;
+
+    line-height: 1.25;
+}
+
+
+/* =========================================================
+   2. LANDASAN KERJA
+========================================================= */
+
+.work-foundation-section {
+    padding:
+        12px 0 95px;
+
+    background:
+        #f7f9fb;
+}
+
+
+.work-foundation-header {
+    margin-bottom: 12px;
+}
+
+
+.work-foundation-title {
+    margin: 0;
+
+    color: #172d48;
+
+    font-size: 27px;
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+
+.work-foundation-row {
+    align-items: flex-start;
+
+    --bs-gutter-x: 28px;
+}
+
+
+/* =========================================================
+   MAIN TASK
+========================================================= */
+
+.main-task-card {
+    position: relative;
+
+    display: flex;
+
+    min-height: 340px;
+
+    overflow: hidden;
+
+    padding: 40px;
+
+    border:
+        1px solid
+        rgba(
+            18,
+            48,
+            74,
+            0.12
+        );
+
+    border-radius: 18px;
+
+    background: #173640;
+
+    box-shadow:
+        0 12px 30px
+        rgba(
+            15,
+            23,
+            42,
+            0.10
+        );
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.main-task-card:hover {
+    transform:
+        translateY(-3px);
+
+    border-color:
+        rgba(
+            43,
+            160,
+            230,
+            0.35
+        );
+
+    box-shadow:
+        0 16px 34px
+        rgba(
+            15,
+            23,
+            42,
+            0.16
+        );
+}
+
+
+/* Globe */
+
+.main-task-globe {
+    position: absolute;
+
+    right: -18px;
+    bottom: 42px;
+
+    width: 190px;
+    height: 190px;
+
+    background-image:
+        url("../images/globe.png");
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: 0.10;
+
+    pointer-events: none;
+}
+
+
+/* Content */
+
+.main-task-content {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    width: 100%;
+}
+
+
+/* Icon */
+
+.main-task-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 70px;
+    height: 70px;
+
+    margin-bottom: 20px;
+
+    border-radius: 50%;
+
+    color: #43afff;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    font-size: 31px;
+
+    transition:
+        transform 0.25s ease,
+        background-color 0.25s ease;
+}
+
+
+.main-task-card:hover .main-task-icon {
+    transform: scale(1.04);
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.11
+        );
+}
+
+
+/* Main title */
+
+.main-task-title {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 23px;
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+
+/* Divider */
+
+.main-task-divider {
+    width: 60px;
+    height: 4px;
+
+    margin:
+        18px 0 25px;
+
+    background: #37a8ff;
+}
+
+
+/* Description */
+
+.main-task-description {
+    max-width: 390px;
+
+    margin: 0;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.86
+        );
+
+    font-size: 14px;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   FUNCTION GRID
+========================================================= */
+
+.work-function-row {
+    --bs-gutter-x: 24px;
+    --bs-gutter-y: 24px;
+}
+
+
+/* =========================================================
+   FUNCTION CARD
+========================================================= */
+
+.work-function-card {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    height: 100%;
+    min-height: 225px;
+
+    padding:
+        22px 20px;
+
+    border:
+        1px solid
+        #d9dee4;
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    box-shadow: none;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* Hover cukup ringan */
+
+.work-function-card:hover {
+    z-index: 2;
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        #2d9fe6;
+
+    box-shadow:
+        0 10px 22px
+        rgba(
+            15,
+            23,
+            42,
+            0.08
+        );
+}
+
+
+/* Number */
+
+.work-function-number {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #c2cfdf;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+/* Title */
+
+.work-function-title {
+    margin:
+        0 0 14px;
+
+    color: #111827;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    line-height: 1.3;
+}
+
+
+/* Description */
+
+.work-function-description {
+    margin: 0;
+
+    color: #687586;
+
+    font-size: 14px;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   CARD 05
+========================================================= */
+
+.work-function-card-wide {
+    min-height: 120px;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 20px;
+}
+
+
+/* Icon Card 05 */
+
+.work-function-wide-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 44px;
+
+    width: 44px;
+    height: 44px;
+
+    border-radius: 10px;
+
+    color: #297eb6;
+
+    background: #e3f3fd;
+
+    font-size: 19px;
+
+    transition:
+        transform 0.25s ease,
+        background-color 0.25s ease;
+}
+
+
+.work-function-card-wide:hover
+.work-function-wide-icon {
+    transform: scale(1.05);
+
+    background: #d5edfc;
+}
+
+
+.work-function-wide-content {
+    width: 100%;
+}
+
+
+.work-function-card-wide
+.work-function-title {
+    margin: 0;
+
+    color: #0b0f14;
+
+    font-size: 12px;
+
+    line-height: 1.3;
+}
+
+
+.work-function-wide-number {
+    margin-right: 3px;
+
+    color: #111827;
+}
+
+
+.work-function-card-wide
+.work-function-description {
+    margin-top: 3px;
+
+    font-size: 14px;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   3. GOVERNANCE
+========================================================= */
+
+.governance-section {
+    padding:
+        0 0 70px;
+
+    background: #f7f9fb;
+}
+
+
+/* Heading */
+
+.governance-heading {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 8px;
+}
+
+
+.governance-title {
+    margin: 0;
+
+    color: #172d48;
+
+    font-size: 31px;
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+
+/* Fullscreen link */
+
+.governance-view-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 4px;
+
+    margin-top: 1px;
+
+    padding: 0;
+
+    border: 0;
+
+    color: #1269b2;
+
+    background: transparent;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease;
+}
+
+
+.governance-view-link:hover {
+    color: #0a568f;
+}
+
+
+/* =========================================================
+   ORGANIZATION CARD
+========================================================= */
+
+.organization-card {
+    position: relative;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        #dce4ec;
+
+    border-radius: 18px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 10px 30px
+        rgba(
+            28,
+            55,
+            80,
+            0.05
+        );
+}
+
+
+/* =========================================================
+   IMAGE AREA
+========================================================= */
+
+.organization-image-area {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 570px;
+
+    padding:
+        80px 40px 45px;
+
+    overflow: hidden;
+
+    background: #f9fbfd;
+}
+
+
+/* Pattern */
+
+.organization-pattern {
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        radial-gradient(
+            rgba(
+                38,
+                112,
+                174,
+                0.23
+            ) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        20px 20px;
+
+    opacity: 0.65;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   OPEN IMAGE BUTTON
+========================================================= */
+
+.organization-open-button {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    z-index: 4;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+
+    padding:
+        7px 10px;
+
+    border: 0;
+
+    border-radius:
+        8px 0 8px 0;
+
+    color: #ffffff;
+
+    background: #2a79bc;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.organization-open-button:hover {
+    color: #ffffff;
+
+    background: #1768aa;
+
+    box-shadow:
+        0 5px 12px
+        rgba(
+            23,
+            104,
+            170,
+            0.18
+        );
+}
+
+
+/* =========================================================
+   IMAGE WRAPPER
+========================================================= */
+
+.organization-image-wrapper {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 96%;
+
+    max-width: 1070px;
+
+    padding: 18px;
+
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 8px 24px
+        rgba(
+            27,
+            51,
+            75,
+            0.06
+        );
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.organization-image-wrapper:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 12px 28px
+        rgba(
+            27,
+            51,
+            75,
+            0.10
+        );
+}
+
+
+/* Image */
+
+.organization-image {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+
+    height: auto;
+
+    max-height: none;
+
+    margin:
+        0 auto;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   ORGANIZATION INFO
+========================================================= */
+
+.organization-information {
+    display: grid;
+
+    grid-template-columns:
+        34% 66%;
+
+    align-items: stretch;
+
+    padding:
+        26px 30px;
+
+    border-top:
+        1px solid
+        #dce4ec;
+}
+
+
+/* =========================================================
+   BUREAU PROFILE
+========================================================= */
+
+.bureau-profile {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    min-height: 130px;
+
+    padding-right: 35px;
+
+    border-right:
+        1px solid
+        #e1e7ee;
+}
+
+
+.bureau-avatar {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 70px;
+    height: 70px;
+
+    margin-bottom: 22px;
+
+    border-radius: 50%;
+
+    color: #51647b;
+
+    background: #e3e9f1;
+
+    font-size: 19px;
+}
+
+
+.bureau-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #176bb3;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    line-height: 1.2;
+
+    letter-spacing: 1px;
+}
+
+
+.bureau-name {
+    margin: 0;
+
+    color: #122033;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    line-height: 1.35;
+}
+
+
+/* =========================================================
+   EMPLOYEE STAT
+========================================================= */
+
+.employee-stat-area {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding-left: 16px;
+}
+
+
+.employee-statistics {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            minmax(0, 1fr)
+        );
+
+    gap: 28px;
+}
+
+
+.employee-stat-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    min-height: 84px;
+
+    padding:
+        14px 18px;
+
+    border:
+        1px solid
+        transparent;
+
+    border-radius: 12px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.employee-stat-card:hover {
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 8px 18px
+        rgba(
+            20,
+            42,
+            65,
+            0.08
+        );
+}
+
+
+/* Colors */
+
+.employee-stat-primary {
+    border-color: #cce2fb;
+    background: #edf5ff;
+}
+
+
+.employee-stat-green {
+    border-color: #c9efd5;
+    background: #effbf3;
+}
+
+
+.employee-stat-brown {
+    border-color: #f1d7b8;
+    background: #fff7ef;
+}
+
+
+.employee-stat-purple {
+    border-color: #e3d5f5;
+    background: #f9f3ff;
+}
+
+
+/* Icon */
+
+.employee-stat-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex:
+        0 0 40px;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.74
+        );
+
+    font-size: 15px;
+}
+
+
+.employee-stat-primary
+.employee-stat-icon,
+.employee-stat-primary
+.employee-stat-number {
+    color: #2b75b7;
+}
+
+
+.employee-stat-green
+.employee-stat-icon,
+.employee-stat-green
+.employee-stat-number {
+    color: #1e8b4a;
+}
+
+
+.employee-stat-brown
+.employee-stat-icon,
+.employee-stat-brown
+.employee-stat-number {
+    color: #9a6a20;
+}
+
+
+.employee-stat-purple
+.employee-stat-icon,
+.employee-stat-purple
+.employee-stat-number {
+    color: #9b32d7;
+}
+
+
+/* Content */
+
+.employee-stat-content {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.employee-stat-number {
+    font-size: 17px;
+    font-weight: 800;
+
+    line-height: 1;
+}
+
+
+.employee-stat-label {
+    margin-top: 7px;
+
+    color: #51647b;
+
+    font-size: 8px;
+    font-weight: 800;
+
+    line-height: 1.2;
+
+    letter-spacing: 0.4px;
+}
+
+
+/* Update */
+
+.organization-update {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    gap: 3px;
+
+    margin:
+        12px 0 0;
+
+    color: #7b8795;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   ORGANIZATION MODAL
+========================================================= */
+
+.organization-modal
+.modal-dialog {
+    width:
+        min(
+            1200px,
+            calc(
+                100vw - 40px
+            )
+        );
+
+    max-width: 1200px;
+}
+
+
+.organization-modal
+.modal-content {
+    overflow: hidden;
+
+    border: 0;
+
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 20px 60px
+        rgba(
+            0,
+            0,
+            0,
+            0.25
+        );
+}
+
+
+.organization-modal
+.modal-header {
+    padding:
+        16px 20px;
+
+    border-bottom:
+        1px solid
+        #e1e7ee;
+}
+
+
+.organization-modal
+.modal-title {
+    color: #172d48;
+
+    font-size: 16px;
+    font-weight: 800;
+}
+
+
+.organization-modal
+.modal-body {
+    padding: 16px;
+
+    background: #f4f7fa;
+}
+
+
+.organization-modal-image-wrapper {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    overflow: auto;
+
+    padding: 12px;
+
+    background: #ffffff;
+}
+
+
+.organization-modal-image {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991.98px) {
+
+    .about-hero {
+        min-height: 470px;
+
+        /* fixed sering bermasalah pada tablet */
+        background-attachment: scroll;
+    }
+
+
+    .about-hero-content {
+        min-height: 470px;
+
+        margin-left: 12%;
+    }
+
+
+    .work-foundation-section {
+        padding-bottom: 80px;
+    }
+
+
+    .main-task-card {
+        min-height: 320px;
+    }
+
+
+    .organization-image-area {
+        min-height: 480px;
+
+        padding:
+            70px 25px 30px;
+    }
+
+
+    .organization-image-wrapper {
+        width: 100%;
+
+        max-width: 100%;
+
+        padding: 12px;
+    }
+
+
+    .organization-image {
+        width: 100%;
+
+        height: auto;
+
+        max-height: none;
+    }
+
+
+    .organization-information {
+        grid-template-columns: 1fr;
+    }
+
+
+    .bureau-profile {
+        padding:
+            0 0 25px;
+
+        border-right: 0;
+
+        border-bottom:
+            1px solid
+            #e1e7ee;
+    }
+
+
+    .employee-stat-area {
+        padding:
+            25px 0 0;
+    }
+
+
+    .employee-statistics {
+        grid-template-columns:
+            repeat(
+                2,
+                1fr
+            );
+
+        gap: 14px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767.98px) {
+
+    .about-hero {
+        min-height: 430px;
+
+        background-position:
+            62% center;
+
+        /* jangan fixed di mobile */
+        background-attachment: scroll;
+    }
+
+
+    .about-hero-content {
+        width: 100%;
+
+        min-height: 430px;
+
+        margin-left: 0;
+
+        padding:
+            50px 0;
+    }
+
+
+    .about-hero-title {
+        font-size: 32px;
+    }
+
+
+    .about-hero-description {
+        max-width: 500px;
+
+        font-size: 14px;
+
+        line-height: 1.45;
+    }
+
+
+    .work-foundation-section {
+        padding:
+            35px 0 70px;
+    }
+
+
+    .work-foundation-title,
+    .governance-title {
+        font-size: 25px;
+    }
+
+
+    .main-task-card {
+        min-height: 300px;
+
+        padding:
+            35px 28px;
+    }
+
+
+    .main-task-icon {
+        width: 60px;
+        height: 60px;
+
+        font-size: 27px;
+    }
+
+
+    .work-function-card {
+        min-height: 0;
+
+        padding:
+            24px 20px;
+    }
+
+
+    .work-function-card-wide {
+        flex-direction: row;
+
+        align-items: center;
+    }
+
+
+    .governance-heading {
+        align-items: flex-end;
+
+        gap: 15px;
+    }
+
+
+    .governance-view-link {
+        flex-shrink: 0;
+    }
+
+
+    .organization-image-area {
+        min-height: 320px;
+
+        padding:
+            60px 14px 22px;
+    }
+
+
+    .organization-image-wrapper {
+        width: 100%;
+
+        min-height: 0;
+
+        padding: 7px;
+    }
+
+
+    .organization-image {
+        width: 100%;
+
+        height: auto;
+
+        max-height: none;
+    }
+
+
+    .organization-information {
+        padding:
+            24px 20px;
+    }
+
+
+    .employee-statistics {
+        grid-template-columns:
+            repeat(
+                2,
+                1fr
+            );
+    }
+
+
+    .organization-modal
+    .modal-dialog {
+        width:
+            calc(
+                100vw - 20px
+            );
+
+        margin:
+            10px auto;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 575.98px) {
+
+    .about-ministry {
+        font-size: 9px;
+
+        letter-spacing: 1.1px;
+    }
+
+
+    .about-hero-title {
+        font-size: 29px;
+    }
+
+
+    .governance-heading {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .work-function-card-wide {
+        align-items: flex-start;
+    }
+
+
+    .employee-statistics {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .main-task-card,
+    .main-task-icon,
+    .work-function-card,
+    .work-function-wide-icon,
+    .organization-open-button,
+    .organization-image-wrapper,
+    .employee-stat-card {
+        transition: none;
+    }
+
+}
