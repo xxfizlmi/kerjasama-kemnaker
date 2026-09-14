@@ -4,484 +4,117 @@ use yii\helpers\Html;
 
 /**
  * @var string $id
- * @var string $image
- * @var string $title
- * @var string $description
- * @var array $items
+ * @var string $type
+ * @var array $card
  */
-?>
 
-<?= Html::beginTag('div', [
-    'class' => 'modal fade',
-    'id' => 'modal-' . $id,
-    'tabindex' => '-1',
-    'aria-labelledby' => 'modal-label-' . $id,
-    'aria-hidden' => 'true',
-]) ?>
-<?= Html::beginTag('div', [
-    'class' => 'modal-dialog modal-dialog-centered modal-lg',
-]) ?>
+$type = $type ?? '';
 
-<?= Html::beginTag('div', [
-    'class' => 'modal-content rounded-4 border-0 shadow',
-]) ?>
+$isRegional = $type === 'ksr';
+$isBilateral = $type === 'ksb';
+$isMultilateral = $type === 'ksm';
 
-<!-- HEADER -->
-<?= Html::beginTag('div', [
-    'class' => 'modal-header border-1 px-5',
-]) ?>
-<?php switch ($type) {
-    case 'ksr': ?>
-        <?= Html::tag(
-            'h5',
-            Html::encode($name),
-            [
-                'class' => 'modal-title fw-bold',
-                'id' => 'modal-label-' . $id,
-            ]
-        ) ?>
-        <?= Html::button('', [
-            'type' => 'button',
-            'class' => 'btn-close',
-            'data-bs-dismiss' => 'modal',
-            'aria-label' => 'Close',
-        ]) ?>
 
-        <?= Html::endTag('div') ?>
-        <!-- BODY -->
-        <?= Html::beginTag('div', [
-            'class' => 'modal-body px-4 px-md-5',
-        ]) ?>
-        <!-- LOGO -->
-        <?= Html::beginTag('div', [
-            'class' => 'text-left mb-4',
-        ]) ?>
+/* =========================================================
+   MODAL CLASS
+========================================================= */
 
-        <!-- <?= Html::img($image, [
-                    'alt' => $name,
-                    'width' => 100,
-                    'height' => 100,
-                    'class' => 'object-fit-contain mb-3',
-                ]) ?> -->
+if ($isRegional) {
 
-        <?= Html::tag(
-            'h4',
-            'Pilar Organisasi',
-            [
-                'class' => 'fw-normal mb-2',
-            ]
-        ) ?>
+    $dialogClass =
+        'modal-dialog modal-dialog-centered ksr-modal-dialog';
 
-        <?= Html::tag(
-            'p',
-            Html::encode($description),
-            [
-                'class' => 'text-secondary mb-0',
-            ]
-        ) ?>
+    $contentClass =
+        'modal-content ksr-modal-content';
+} elseif ($isBilateral) {
 
-        <?= Html::endTag('div') ?>
+    $dialogClass =
+        'modal-dialog modal-dialog-centered ksb-modal-dialog';
 
-        <?= Html::tag('hr', '', [
-            'class' => 'my-auto border-dashed',
-        ]) ?>
+    $contentClass =
+        'modal-content ksb-modal-content';
+} elseif ($isMultilateral) {
 
-        <!-- ITEMS -->
-        <?php if (!empty($items)): ?>
+    $dialogClass =
+        'modal-dialog modal-dialog-centered ksm-modal-dialog';
 
-            <?= Html::beginTag('div', [
-                'class' => 'mt-4',
-            ]) ?>
+    $contentClass =
+        'modal-content ksm-modal-content';
+} else {
 
-            <?php foreach ($items as $item): ?>
+    $dialogClass =
+        'modal-dialog modal-dialog-centered modal-lg';
 
-                <?= Html::beginTag('div', [
-                    'class' => 'mb-4',
-                ]) ?>
-
-                <?= Html::tag(
-                    'h5',
-                    'Posisi / Keterlibatan',
-                    [
-                        'class' => 'fw-normal mb-2',
-                    ]
-                ) ?>
-
-                <?php if (!empty($item['description'])): ?>
-
-                    <?= Html::tag(
-                        'p',
-                        Html::encode($item['description']),
-                        [
-                            'class' => 'text-secondary mb-0 lh-lg',
-                        ]
-                    ) ?>
-
-                <?php endif; ?>
-
-                <?= Html::endTag('div') ?>
-
-            <?php endforeach; ?>
-
-            <?= Html::endTag('div') ?>
-
-        <?php endif; ?>
-
-        <?= Html::endTag('div') ?>
-
-
-        <!-- FOOTER -->
-
-
-        <?= Html::beginTag('div', [
-            'class' => 'modal-footer border-0',
-        ]) ?>
-
-        <?php if (!empty($url)): ?>
-
-            <?= Html::a(
-                'Website Resmi',
-                $url,
-                [
-                    'class' => 'btn btn-primary rounded-pill px-4',
-                    'target' => '_blank',
-                    'rel' => 'noopener noreferrer',
-                ]
-            ) ?>
-
-        <?php endif; ?>
-    <?php
-        break;
-    case 'ksb': ?>
-        <?= Html::beginTag('div', ['class' => 'd-flex flex-row align-items-center justify-content-center gap-3']); ?>
-        <?= Html::img($image, [
-            'alt' => $name,
-            // 'width' => 100,
-            'height' => 30,
-            'class' => 'object-fit-contain m-0 ',
-        ]) ?>
-        <?= Html::tag(
-            'h5',
-            'Kerja Sama' . ' ' . Html::encode($name),
-            [
-                'class' => 'modal-title fw-bold m-0',
-                'id' => 'modal-label-' . $id,
-            ]
-        ) ?>
-        <?= Html::endTag('div') ?>
-        <?= Html::button('', [
-            'type' => 'button',
-            'class' => 'btn-close',
-            'data-bs-dismiss' => 'modal',
-            'aria-label' => 'Close',
-        ]) ?>
-
-        <?= Html::endTag('div') ?>
-        <!-- BODY -->
-        <?= Html::beginTag('div', [
-            'class' => 'modal-body px-4 px-md-5',
-        ]) ?>
-        <!-- LOGO -->
-        <?= Html::beginTag('div', [
-            'class' => 'text-left mb-4',
-        ]) ?>
-
-
-
-
-        <?= Html::tag(
-            'p',
-            'Ditemukan' . ' ' . Html::encode($documentCount) . ' ' . 'dokumen kerja sama untuk negara ini.',
-            [
-                'class' => 'text-secondary mb-0',
-            ]
-        ) ?>
-
-        <?= Html::endTag('div') ?>
-
-        <?= Html::tag('hr', '', [
-            'class' => 'my-auto border-dashed',
-        ]) ?>
-
-        <!-- ITEMS -->
-        <?php if (!empty($items)): ?>
-
-            <?= Html::beginTag('div', [
-                'class' => 'mt-4',
-            ]) ?>
-
-            <?php foreach ($items as $item): ?>
-
-                <?= Html::beginTag('div', [
-                    'class' => 'mb-4 d-flex align-items-center justify-content-between gap-4 border rounded-3 p-3',
-                ]) ?>
-
-                <?= Html::beginTag('div', [
-                    'class' => 'flex-grow-1',
-                ]) ?>
-
-                <?= Html::tag(
-                    'h5',
-                    Html::encode($item['title']),
-                    [
-                        'class' => 'fw-normal mb-2 text-16',
-                    ]
-                ) ?>
-
-                <?= Html::beginTag('div', [
-                    'class' => 'd-flex align-items-center gap-3 mt-3',
-                ]) ?>
-
-                <?php if (!empty($item['mitra'])): ?>
-
-                    <?= Html::beginTag('div', [
-                        'class' => 'd-flex align-items-center gap-2',
-                    ]) ?>
-
-                    <?= Html::tag('i', '', [
-                        'class' => 'bi bi-people',
-                        'aria-hidden' => 'true',
-                    ]) ?>
-
-                    <?= Html::tag(
-                        'span',
-                        Html::encode($item['mitra']),
-                        [
-                            'class' => 'text-12',
-                        ]
-                    ) ?>
-
-                    <?= Html::endTag('div') ?>
-
-                <?php endif; ?>
-
-                <?= Html::tag('span', '', [
-                    'class' => 'border-start border-secondary',
-                    'style' => 'height: 20px;',
-                ]) ?>
-
-                <?php if (!empty($item['pemerintah'])): ?>
-
-                    <?= Html::beginTag('div', [
-                        'class' => 'd-flex align-items-center gap-2',
-                    ]) ?>
-
-                    <?= Html::tag('i', '', [
-                        'class' => 'bi bi-building',
-                        'aria-hidden' => 'true',
-                    ]) ?>
-
-                    <?= Html::tag(
-                        'span',
-                        Html::encode($item['pemerintah']),
-                        [
-                            'class' => 'text-12',
-                        ]
-                    ) ?>
-
-                    <?= Html::endTag('div') ?>
-
-                <?php endif; ?>
-
-                <?= Html::endTag('div') ?>
-
-                <?php if (!empty($item['description'])): ?>
-
-                    <?= Html::tag(
-                        'p',
-                        Html::encode($item['description']),
-                        [
-                            'class' => 'text-secondary mb-0 lh-lg text-clamp-2 text-12',
-                        ]
-                    ) ?>
-
-                <?php endif; ?>
-
-                <?= Html::endTag('div') ?>
-
-                <?php if (!empty($item['status'])): ?>
-
-                    <?= Html::tag(
-                        'span',
-                        Html::encode($item['status']),
-                        [
-                            'class' => 'bg-success text-white px-3 py-1 rounded-pill text-center text-12 flex-shrink-0',
-                        ]
-                    ) ?>
-
-                <?php endif; ?>
-
-                <?= Html::endTag('div') ?>
-
-            <?php endforeach; ?>
-
-            <?= Html::endTag('div') ?>
-
-        <?php endif; ?>
-
-        <?= Html::endTag('div') ?>
-
-
-        <!-- FOOTER -->
-
-
-        <?= Html::beginTag('div', [
-            'class' => 'modal-footer border-0',
-        ]) ?>
-
-        <?php if (!empty($url)): ?>
-
-            <?= Html::a(
-                'Website Resmi',
-                $url,
-                [
-                    'class' => 'btn btn-primary rounded-pill px-4',
-                    'target' => '_blank',
-                    'rel' => 'noopener noreferrer',
-                ]
-            ) ?>
-
-        <?php endif; ?>
-
-
-
-    <?php
-        break;
-    case 'ksm': ?>
-
-        <?= Html::img($image, [
-            'alt' => $name,
-            // 'width' => 30,
-            'height' => 40,
-            'class' => 'object-fit-contain ',
-        ]) ?>
-        <?= Html::tag(
-            'h5',
-            Html::encode($name),
-            [
-                'class' => 'modal-title fw-bold ms-2',
-                'id' => 'modal-label-' . $id,
-            ]
-        ) ?>
-        <?= Html::button('', [
-            'type' => 'button',
-            'class' => 'btn-close',
-            'data-bs-dismiss' => 'modal',
-            'aria-label' => 'Close',
-        ]) ?>
-
-        <?= Html::endTag('div') ?>
-        <!-- BODY -->
-        <?= Html::beginTag('div', [
-            'class' => 'modal-body px-2 px-md-3 border',
-        ]) ?>
-        <!-- LOGO -->
-        <?= Html::beginTag('div', [
-            'class' => 'text-left d-flex flex-row align-items-center  gap-3',
-        ]) ?>
-
-        <?= Html::tag(
-            'p',
-            Html::tag('i', '', ['class' => 'bi bi-check-lg me-2', 'aria-hidden' => 'true',]) . $status,
-            [
-                'class' => 'fw-normal mb-2 border bg-success text-white rounded-pill px-3 py-1 w-auto mt-2',
-            ]
-        ) ?>
-
-        <?= Html::tag(
-            'p',
-            'Kerja Sama Multilateral',
-            [
-                'class' => 'text-secondary mb-0',
-            ]
-        ) ?>
-
-        <?= Html::endTag('div') ?>
-
-        <!-- ITEMS -->
-        <?php if (!empty($items)): ?>
-
-            <?= Html::beginTag('div', [
-                'class' => 'mt-4',
-            ]) ?>
-
-            <?php foreach ($items as $item): ?>
-
-                <?= Html::beginTag('div', [
-                    'class' => 'mb-4',
-                ]) ?>
-
-                <?= Html::tag(
-                    'h5',
-                    'TENTANG ORGANISASI',
-                    [
-                        'class' => 'fw-normal mb-3 fs-5 ',
-                    ]
-                ) ?>
-
-                <?php if (!empty($item['description'])): ?>
-
-                    <?= Html::tag(
-                        'p',
-                        Html::encode($item['description']),
-                        [
-                            'class' => 'text-secondary mb-0 lh-lg px-3 border-start border-4 rounded border-primary',
-                        ]
-                    ) ?>
-
-                <?php endif; ?>
-
-                <?= Html::endTag('div') ?>
-
-            <?php endforeach; ?>
-
-            <?= Html::endTag('div') ?>
-
-        <?php endif; ?>
-
-        <?= Html::endTag('div') ?>
-
-
-        <!-- FOOTER -->
-
-
-        <?= Html::beginTag('div', [
-            'class' => 'modal-footer border-0',
-        ]) ?>
-
-        <?php if (!empty($url)): ?>
-
-            <?= Html::a(
-                'Website Resmi',
-                $url,
-                [
-                    'class' => 'btn btn-primary rounded-pill px-4',
-                    'target' => '_blank',
-                    'rel' => 'noopener noreferrer',
-                ]
-            ) ?>
-
-        <?php endif; ?>
-
-
-
-    <?php
-        break;
-
-    default:
-    ?>
-
-        <?= Html::tag('div', '', [
-            'class' => 'mt-3 mb-3',
-        ]) ?>
-
-<?php
-        break;
+    $contentClass =
+        'modal-content rounded-4 border-0 shadow';
 }
+
 ?>
 
+
+<?= Html::beginTag(
+    'div',
+    [
+        'class' => 'modal fade',
+        'id' => 'modal-' . $id,
+        'tabindex' => '-1',
+        'aria-labelledby' => 'modal-label-' . $id,
+        'aria-hidden' => 'true',
+    ]
+) ?>
+
+
+<?= Html::beginTag(
+    'div',
+    [
+        'class' => $dialogClass,
+    ]
+) ?>
+
+
+<?= Html::beginTag(
+    'div',
+    [
+        'class' => $contentClass,
+    ]
+) ?>
+
+
+<?php if ($isRegional): ?>
+
+    <?= $this->render(
+        '../../ks/ksr/modal-content',
+        $card
+    ) ?>
+
+
+<?php elseif ($isBilateral): ?>
+
+    <?= $this->render(
+        '../../ks/ksb/modal-content',
+        $card
+    ) ?>
+
+
+<?php elseif ($isMultilateral): ?>
+
+    <?= $this->render(
+        '../../ks/ksm/modal-content',
+        $card
+    ) ?>
+
+
+<?php else: ?>
+
+    <div class="modal-body">
+        Konten modal tidak tersedia.
+    </div>
+
+<?php endif; ?>
+
+
 <?= Html::endTag('div') ?>
+
 <?= Html::endTag('div') ?>
-<?= Html::endTag('div') ?>
-<?= Html::endTag('div') ?>
+
 <?= Html::endTag('div') ?>

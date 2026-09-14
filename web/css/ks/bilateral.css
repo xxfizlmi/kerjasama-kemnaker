@@ -1,0 +1,788 @@
+/* =========================================================
+   KERJA SAMA BILATERAL
+========================================================= */
+
+.ksb-page {
+    --ksb-navy: var(--primary-2, #0f172a);
+    --ksb-navy-soft: #0d1f2f;
+
+    --ksb-blue: #04baf4;
+    --ksb-gold: #ffb800;
+
+    --ksb-text: #172b3d;
+    --ksb-muted: #6b7280;
+    --ksb-border: #d8dee6;
+
+    width: 100%;
+    overflow-x: hidden;
+
+    background: #fff;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.ksb-hero {
+    padding: 50px 0 48px;
+
+    color: #fff;
+
+    background: var(--ksb-navy-soft);
+}
+
+.ksb-hero-heading {
+    max-width: 950px;
+
+    margin: 0 auto;
+}
+
+.ksb-hero-heading h1 {
+    margin: 0 0 5px;
+
+    color: #fff;
+
+    font-size: clamp(30px, 3vw, 38px);
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+.ksb-hero-heading p {
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.84);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+/* =========================================================
+   STRATEGIC AREA
+========================================================= */
+
+.ksb-hero-strategic {
+    margin-top: 36px;
+}
+
+.ksb-strategic-item {
+    height: 100%;
+
+    padding: 0 20px;
+
+    border-left: 4px solid;
+
+    transition:
+        transform 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.ksb-strategic-item.blue {
+    border-color: var(--ksb-blue);
+}
+
+.ksb-strategic-item.gold {
+    border-color: var(--ksb-gold);
+}
+
+.ksb-strategic-item:hover {
+    transform: translateX(4px);
+}
+
+.ksb-strategic-item h2 {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin: 0 0 8px;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 0.4px;
+}
+
+.ksb-strategic-item.blue h2 {
+    color: #00cdfd;
+}
+
+.ksb-strategic-item.gold h2 {
+    color: #ffbb00;
+}
+
+.ksb-strategic-item h2 i {
+    font-size: 12px;
+}
+
+.ksb-strategic-item p {
+    max-width: 470px;
+
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.92);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+/* =========================================================
+   HERO STATISTICS
+========================================================= */
+
+.ksb-hero-statistics {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 39px;
+    padding-top: 19px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.ksb-stat-item,
+.ksb-stat-country {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: #d1d8e2;
+
+    font-size: 13px;
+}
+
+.ksb-stat-item i,
+.ksb-stat-country i {
+    color: #d5dde7;
+
+    font-size: 13px;
+}
+
+.ksb-stat-item strong,
+.ksb-stat-country strong {
+    color: #fff;
+
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.ksb-stat-divider {
+    width: 1px;
+    height: 18px;
+
+    background: rgba(255, 255, 255, 0.28);
+}
+
+.ksb-stat-country {
+    padding: 8px 16px;
+
+    border: 1px solid rgba(255, 255, 255, 0.78);
+    border-radius: 8px;
+
+    transition:
+        background-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.ksb-stat-country:hover {
+    background: rgba(255, 255, 255, 0.08);
+
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   COUNTRY SECTION
+========================================================= */
+
+.ksb-country-section {
+    padding: 30px 0 70px;
+
+    background: #fff;
+}
+
+/* =========================================================
+   COUNTRY CARD
+========================================================= */
+.ksb-country-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: 100%;
+    min-height: 235px;
+    padding: 28px 22px 24px;
+
+    background: #fff;
+
+    border: 1px solid #d8dee6;
+    border-radius: 12px;
+
+    text-align: center;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+/* Card saat hover */
+.ksb-country-card:hover {
+    border-color: #2196e3;
+
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   FLAG
+========================================================= */
+
+.ksb-country-flag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 82px;
+    height: 62px;
+
+    margin-bottom: 14px;
+
+    overflow: hidden;
+
+    border-radius: 3px;
+
+    background: #f7f7f7;
+
+    box-shadow: 0 2px 5px rgba(15, 23, 42, 0.1);
+}
+
+.ksb-country-flag img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+/* Jangan membesarkan bendera saat hover */
+.ksb-country-card:hover .ksb-country-flag {
+    transform: none;
+}
+/* Name */
+
+.ksb-country-name {
+    margin: 0 0 7px;
+
+    color: #173047;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    letter-spacing: 0.3px;
+
+    text-transform: uppercase;
+}
+
+/* Count */
+
+.ksb-country-count {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 26px;
+
+    margin-bottom: 15px;
+    padding: 4px 12px;
+
+    border-radius: 50px;
+
+    color: #758191;
+
+    background: #f0f2f4;
+
+    font-size: 11px;
+}
+
+/* Button */
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.ksb-country-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+
+    margin-top: auto;
+    padding: 8px 19px;
+
+    color: #33475a;
+    background: #fff;
+
+    border: 1px solid #e1e5e9;
+    border-radius: 50px;
+
+    font-size: 11px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        color 0.25s ease,
+        background-color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+/* Tombol ikut aktif ketika CARD di-hover */
+.ksb-country-card:hover .ksb-country-button {
+    color: #fff;
+
+    background: #3498db;
+    border-color: #3498db;
+}
+
+/* Tombol ketika mouse tepat di tombol */
+.ksb-country-button:hover {
+    color: #fff;
+
+    background: #2789ca;
+    border-color: #2789ca;
+}
+
+/* Chevron */
+.ksb-country-button i {
+    font-size: 11px;
+
+    transition: transform 0.2s ease;
+}
+
+.ksb-country-card:hover .ksb-country-button i {
+    transform: translateY(1px);
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.ksb-modal-dialog {
+    width: min(900px, calc(100vw - 40px));
+    max-width: 900px;
+
+    margin-top: 38px;
+    margin-bottom: 38px;
+}
+
+.ksb-modal-content {
+    overflow: visible;
+
+    border: 0;
+    border-radius: 6px;
+
+    background: #fff;
+
+    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.2);
+}
+
+.ksb-modal-inner {
+    width: 100%;
+}
+
+/* Header */
+
+.ksb-modal-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    min-height: 57px;
+
+    padding: 13px 24px;
+
+    border-bottom: 1px solid #d8dde3;
+
+    background: #f9fafb;
+}
+
+.ksb-modal-title-wrap {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    min-width: 0;
+}
+
+.ksb-modal-flag {
+    display: flex;
+
+    flex: 0 0 28px;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 28px;
+    height: 20px;
+
+    overflow: hidden;
+
+    background: #f1f1f1;
+}
+
+.ksb-modal-flag img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+.ksb-modal-title {
+    margin: 0;
+
+    color: #222f3d;
+
+    font-size: 17px;
+    font-weight: 800;
+
+    line-height: 1.3;
+}
+
+.ksb-modal-close {
+    flex: 0 0 auto;
+
+    opacity: 0.45;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+.ksb-modal-close:hover {
+    opacity: 0.85;
+
+    transform: rotate(90deg);
+}
+
+/* Body */
+
+.ksb-modal-body {
+    padding: 17px 25px 25px;
+
+    max-height: none;
+    overflow: visible;
+}
+
+.ksb-modal-summary {
+    margin: 0;
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid #eceff2;
+
+    color: #757575;
+
+    font-size: 13px;
+}
+
+/* =========================================================
+   DOCUMENT LIST
+========================================================= */
+
+.ksb-modal-list {
+    width: 100%;
+}
+
+.ksb-modal-document {
+    position: relative;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid #e1e4e8;
+}
+
+.ksb-modal-document-main {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.ksb-modal-document h3 {
+    max-width: 680px;
+
+    margin: 0 0 6px;
+
+    color: #304358;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    line-height: 1.45;
+}
+
+/* Meta */
+
+.ksb-modal-meta {
+    display: flex;
+
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 5px;
+
+    color: #666;
+
+    font-size: 11px;
+}
+
+.ksb-modal-meta span {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 4px;
+}
+
+.ksb-modal-meta i {
+    color: #666;
+
+    font-size: 11px;
+}
+
+.ksb-meta-separator {
+    width: 1px;
+    height: 13px;
+
+    margin: 0 2px;
+
+    background: #aaa;
+}
+
+/* Description */
+
+.ksb-modal-description {
+    display: -webkit-box;
+
+    max-width: 700px;
+
+    margin: 5px 0 0;
+
+    overflow: hidden;
+
+    color: #8a8a8a;
+
+    font-size: 10px;
+    font-style: italic;
+
+    line-height: 1.5;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+/* Status */
+
+.ksb-status {
+    flex: 0 0 auto;
+
+    margin-top: 1px;
+    padding: 4px 11px;
+
+    border: 1px solid #b8dcbf;
+    border-radius: 3px;
+
+    color: #208a38;
+
+    background: #dff1e3;
+
+    font-size: 9px;
+    font-weight: 500;
+}
+
+/* Empty */
+
+.ksb-modal-empty {
+    padding: 35px 10px;
+
+    color: #7c8792;
+
+    font-size: 13px;
+
+    text-align: center;
+}
+
+/* Modal Footer */
+
+.ksb-modal-footer {
+    display: flex;
+
+    justify-content: flex-end;
+
+    padding: 15px 25px;
+
+    border-top: 1px solid #e7eaee;
+}
+
+/* =========================================================
+   MODAL BACKDROP
+========================================================= */
+
+.modal-backdrop.show {
+    opacity: 0.55;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991.98px) {
+    .ksb-hero {
+        padding: 45px 0;
+    }
+
+    .ksb-strategic-item {
+        padding-right: 8px;
+    }
+
+    .ksb-country-card {
+        min-height: 230px;
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767.98px) {
+    .ksb-hero {
+        padding: 40px 0;
+    }
+
+    .ksb-hero-heading h1 {
+        font-size: 30px;
+    }
+
+    .ksb-hero-heading p {
+        font-size: 12px;
+    }
+
+    .ksb-hero-strategic {
+        margin-top: 30px;
+    }
+
+    .ksb-strategic-item {
+        padding-left: 15px;
+    }
+
+    .ksb-hero-statistics {
+        flex-wrap: wrap;
+
+        gap: 10px;
+    }
+
+    .ksb-stat-divider {
+        display: none;
+    }
+
+    .ksb-country-section {
+        padding: 25px 0 55px;
+    }
+
+    .ksb-country-card {
+        min-height: 215px;
+    }
+
+    .ksb-modal-dialog {
+        width: calc(100vw - 20px);
+
+        margin: 10px auto;
+    }
+
+    .ksb-modal-header {
+        padding: 13px 17px;
+    }
+
+    .ksb-modal-title {
+        font-size: 15px;
+    }
+
+    .ksb-modal-body {
+        padding: 15px 17px 20px;
+    }
+
+    .ksb-modal-document {
+        gap: 12px;
+    }
+
+    .ksb-modal-document h3 {
+        font-size: 13px;
+    }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 575.98px) {
+    .ksb-hero-statistics {
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    .ksb-country-card {
+        max-width: 340px;
+
+        margin-inline: auto;
+    }
+
+    .ksb-modal-document {
+        flex-direction: column;
+    }
+
+    .ksb-status {
+        align-self: flex-start;
+    }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .ksb-strategic-item,
+    .ksb-stat-country,
+    .ksb-country-card,
+    .ksb-country-flag,
+    .ksb-country-button,
+    .ksb-country-button i,
+    .ksb-modal-document,
+    .ksb-modal-close {
+        transition: none;
+    }
+}

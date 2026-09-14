@@ -5,90 +5,214 @@ use yii\helpers\Html;
 /**
  * @var string $id
  * @var string $image
- * @var string $title
- * @var string|null $subtitle
+ * @var string $name
+ * @var string|null $title
+ * @var string|null $description
+ * @var string|null $status
+ * @var string|null $mitra
+ * @var string|null $pemerintah
  * @var int|null $documentCount
- * @var string $type
+ * @var string|null $type
  */
+
+$type = $type ?? null;
+$documentCount = (int) ($documentCount ?? 0);
+
 ?>
 
-<?= Html::beginTag('article', [
-    'class' => 'card border rounded-4 overflow-hidden text-center h-100 d-flex flex-column p-2',
-    'style' => 'width:260px;',
-]) ?>
 
-<!-- IMAGE -->
-<?= Html::beginTag('div', [
-    'class' => 'd-flex flex-column align-items-center p-4',
-]) ?>
+<?php if ($type === 'ksb'): ?>
 
-<?= Html::beginTag('div', [
-    'class' => 'd-flex justify-content-center',
-]) ?>
+    <!-- =========================================================
+         BILATERAL COUNTRY CARD
+    ========================================================== -->
+    <article class="ksb-country-card">
 
-<?= Html::img($image, [
-    'alt' => $name,
-    'loading' => 'lazy',
-    'width' => 100,
-    'height' => 100,
-    'class' => 'object-fit-contain',
-]) ?>
+        <div class="ksb-country-flag">
 
-<?= Html::endTag('div') ?>
+            <?= Html::img(
+                $image,
+                [
+                    'alt' => $name,
+                    'loading' => 'lazy',
+                ]
+            ) ?>
 
-<?= Html::endTag('div') ?>
+        </div>
 
 
-<!-- CONTENT -->
-<?= Html::beginTag('div', [
-    'class' => 'd-flex flex-column align-items-center p-3 pt-0 flex-grow-1',
-]) ?>
+        <h3 class="ksb-country-name">
+            <?= Html::encode($name) ?>
+        </h3>
 
-<?= Html::tag(
-    'h3',
-    Html::encode($name),
-    [
-        'class' => 'h6 fw-bold mb-0',
-    ]
-) ?>
 
-<?php if (!empty($title)) : ?>
+        <div class="ksb-country-count">
 
-    <?= Html::tag(
-        'p',
-        Html::encode($title),
+            <?= Html::encode($documentCount) ?>
+
+            <?= $documentCount === 1
+                ? 'Dokumen'
+                : 'Dokumen' ?>
+
+        </div>
+
+
+        <?= Html::button(
+            'Lihat Daftar <i class="bi bi-chevron-down"></i>',
+            [
+                'type' => 'button',
+                'class' => 'ksb-country-button',
+                'data-bs-toggle' => 'modal',
+                'data-bs-target' => '#modal-' . $id,
+            ]
+        ) ?>
+
+    </article>
+
+
+<?php else: ?>
+
+    <!-- =========================================================
+         DEFAULT CARD
+    ========================================================== -->
+
+    <?= Html::beginTag(
+        'article',
         [
-            'class' => 'text-secondary small mt-3 mb-3 text-clamp-2',
-            'title' => $title,
+            'class' =>
+            'card border rounded-4 overflow-hidden text-center h-100 d-flex flex-column p-2',
+            'style' => 'width:260px;',
         ]
     ) ?>
-<?php elseif (!empty($documentCount)) : ?>
 
-    <?= Html::tag(
-        'p',
-        Html::encode($documentCount) . ' ' . 'Document',
-        [
-            'class' => 'small mt-3 mb-3 text-clamp-2 border text-white bg-secondary px-3 py-1 rounded-pill ',
-            'title' => $documentCount,
-        ]
-    ) ?>
+
+    <div class="d-flex flex-column align-items-center p-4">
+
+        <?= Html::img(
+            $image,
+            [
+                'alt' => $name,
+                'loading' => 'lazy',
+                'width' => 100,
+                'height' => 100,
+                'class' => 'object-fit-contain',
+            ]
+        ) ?>
+
+    </div>
+
+
+    <div class="d-flex flex-column align-items-center p-3 pt-0 flex-grow-1">
+
+        <?= Html::tag(
+            'h3',
+            Html::encode($name),
+            [
+                'class' => 'h6 fw-bold mb-0',
+            ]
+        ) ?>
+
+
+        <?php
+
+        $additionalText = null;
+
+        if (!empty($title)) {
+            $additionalText = $title;
+        } elseif (!empty($documentCount)) {
+            $additionalText = $documentCount . ' Document';
+        } elseif (!empty($description)) {
+            $additionalText = $description;
+        } elseif (!empty($mitra)) {
+            $additionalText = $mitra;
+        } elseif (!empty($pemerintah)) {
+            $additionalText = $pemerintah;
+        }
+
+        ?>
+
+
+        <?php if ($additionalText !== null): ?>
+
+            <?= Html::tag(
+                'p',
+                Html::encode($additionalText),
+                [
+                    'class' =>
+                    'text-secondary-2 small mt-3 mb-3 text-clamp-2',
+                    'title' => $additionalText,
+                ]
+            ) ?>
+
+        <?php endif; ?>
+
+
+        <?= Html::button(
+            Html::tag('span', 'Lihat Detail')
+                . Html::tag(
+                    'i',
+                    '',
+                    [
+                        'class' => 'bi bi-arrow-right',
+                        'aria-hidden' => 'true',
+                    ]
+                ),
+            [
+                'type' => 'button',
+                'class' =>
+                'btn btn-outline-primary rounded-pill d-inline-flex align-items-center gap-2 mt-auto small px-3',
+                'data-bs-toggle' => 'modal',
+                'data-bs-target' => '#modal-' . $id,
+            ]
+        ) ?>
+
+    </div>
+
+    <?= Html::endTag('article') ?>
 
 <?php endif; ?>
-<!-- BUTTON -->
-<?= Html::button(
-    Html::tag('span', 'Lihat Detail') .
-        Html::tag('i', '', [
-            'class' => 'bi bi-arrow-right',
-            'aria-hidden' => 'true',
-        ]),
-    [
-        'type' => 'button',
-        'class' => 'btn btn-outline-primary rounded-pill d-inline-flex align-items-center gap-2 mt-auto small px-3',
-        'data-bs-toggle' => 'modal',
-        'data-bs-target' => '#modal-' . $id,
-    ]
-) ?>
+<?php if (($type ?? '') === 'ksr'): ?>
 
-<!-- <?= Html::endTag('div') ?> -->
+    <article
+        class="card ksr-region-card text-center h-100"
+        role="button"
+        tabindex="0"
+        data-bs-toggle="modal"
+        data-bs-target="#modal-<?= Html::encode($id) ?>">
 
-<?= Html::endTag('article') ?>
+        <div class="ksr-region-image">
+
+            <?= Html::img(
+                $image,
+                [
+                    'alt' => $name,
+                    'loading' => 'lazy',
+                    'class' => 'img-fluid object-fit-contain',
+                ]
+            ) ?>
+
+        </div>
+
+        <div class="ksr-region-content">
+
+            <h3 class="ksr-region-name">
+                <?= Html::encode($name) ?>
+            </h3>
+
+            <?php if (!empty($description)): ?>
+
+                <p class="ksr-region-description">
+                    <?= Html::encode($description) ?>
+                </p>
+
+            <?php endif; ?>
+
+        </div>
+
+    </article>
+
+<?php else: ?>
+
+    <!-- card default Anda yang sekarang -->
+
+<?php endif; ?>

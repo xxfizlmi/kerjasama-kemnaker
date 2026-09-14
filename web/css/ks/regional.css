@@ -1,0 +1,733 @@
+/* =========================================================
+   KERJA SAMA REGIONAL
+========================================================= */
+
+.ksr-page {
+    --ksr-dark: #1a263d;
+    --ksr-card-dark: #263a64;
+
+    --ksr-blue: #2873ff;
+    --ksr-gold: #ef9400;
+
+    --ksr-text: #152238;
+    --ksr-muted: #8090ad;
+    --ksr-border: #dae3ed;
+
+    width: 100%;
+
+    overflow-x: hidden;
+
+    background: #ffffff;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.ksr-hero {
+    padding: 60px 0 25px;
+
+    color: #ffffff;
+
+    background: var(--ksr-dark);
+}
+
+.ksr-hero-heading {
+    max-width: 900px;
+
+    margin: 0 auto;
+}
+
+.ksr-hero-heading h1 {
+    margin: 0 0 13px;
+
+    color: #ffffff;
+
+    font-size: clamp(30px, 3.4vw, 36px);
+
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+.ksr-hero-heading p {
+    max-width: 870px;
+
+    margin: 0 auto 22px;
+
+    color: rgba(255, 255, 255, 0.86);
+
+    font-size: 13px;
+
+    line-height: 1.75;
+}
+
+/* =========================================================
+   REGULATION
+========================================================= */
+
+.ksr-regulation {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    padding: 7px 16px;
+
+    border: 0;
+    border-radius: 30px;
+
+    color: #b7c5dd;
+
+    background: rgba(0, 0, 0, 0.18);
+
+    font-size: 10px;
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.ksr-regulation i {
+    font-size: 12px;
+}
+
+.ksr-regulation:hover {
+    color: #ffffff;
+
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* =========================================================
+   STRATEGIC ROW
+========================================================= */
+
+.ksr-strategic-row {
+    max-width: 930px;
+
+    margin: 26px auto 0;
+}
+
+/* =========================================================
+   STRATEGIC CARD
+========================================================= */
+
+.ksr-strategic-card {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 245px;
+
+    padding: 30px;
+
+    border: 1px solid rgba(105, 140, 205, 0.3);
+
+    border-radius: 14px;
+
+    background: var(--ksr-card-dark);
+
+    text-align: center;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.ksr-strategic-card:hover {
+    transform: translateY(-3px);
+
+    border-color: rgba(105, 140, 205, 0.55);
+
+    background: #2a406d;
+
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================================================
+   STRATEGIC ICON
+========================================================= */
+
+.ksr-strategic-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 50px;
+
+    margin-bottom: 17px;
+
+    border-radius: 12px;
+
+    color: #ffffff;
+
+    font-size: 23px;
+}
+
+.ksr-strategic-icon.blue {
+    background: var(--ksr-blue);
+}
+
+.ksr-strategic-icon.gold {
+    background: var(--ksr-gold);
+}
+
+.ksr-strategic-card h2 {
+    margin: 0 0 12px;
+
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.ksr-strategic-card p {
+    max-width: 400px;
+
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.94);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+/* =========================================================
+   ORGANISATIONS SECTION
+========================================================= */
+
+.ksr-organizations {
+    padding: 14px 0 70px;
+
+    background: #ffffff;
+}
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.ksr-section-heading {
+    margin-bottom: 25px;
+}
+
+.ksr-section-heading h2 {
+    margin: 0;
+
+    color: var(--ksr-text);
+
+    font-size: 22px;
+    font-weight: 800;
+
+    letter-spacing: 0.6px;
+}
+
+.ksr-heading-line {
+    display: block;
+
+    width: 49px;
+    height: 4px;
+
+    margin: 9px auto 0;
+
+    border-radius: 4px;
+
+    background: var(--ksr-blue);
+}
+
+/* =========================================================
+   ORGANIZATION CARD
+========================================================= */
+
+.ksr-organization-card {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    width: 100%;
+
+    min-height: 205px;
+
+    padding: 25px 20px;
+
+    border: 1px solid var(--ksr-border);
+
+    border-radius: 12px;
+
+    color: inherit;
+
+    background: #ffffff;
+
+    font-family: inherit;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    appearance: none;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.ksr-organization-card:hover,
+.ksr-organization-card:focus-visible {
+    border-color: var(--ksr-blue);
+
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.07);
+
+    transform: translateY(-2px);
+
+    outline: none;
+}
+
+/* =========================================================
+   ORGANIZATION LOGO
+========================================================= */
+
+.ksr-organization-logo {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 80px;
+    height: 80px;
+
+    margin-bottom: 18px;
+
+    overflow: hidden;
+
+    border: 1px solid #cad5e2;
+
+    border-radius: 50%;
+
+    background: #e5ebf2;
+}
+
+.ksr-organization-logo img {
+    display: block;
+
+    width: 62%;
+    height: 62%;
+
+    object-fit: contain;
+}
+
+/* =========================================================
+   ORGANIZATION NAME
+========================================================= */
+
+.ksr-organization-card h3 {
+    margin: 0 0 7px;
+
+    color: #17263b;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    line-height: 1.3;
+}
+
+/* =========================================================
+   ORGANIZATION DESCRIPTION
+========================================================= */
+
+.ksr-organization-card p {
+    display: -webkit-box;
+
+    margin: 0;
+
+    overflow: hidden;
+
+    color: #8290ad;
+
+    font-size: 11px;
+
+    line-height: 1.55;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+/* =========================================================
+   REGIONAL MODAL
+========================================================= */
+
+.ksr-modal-dialog {
+    width: min(900px, calc(100vw - 40px));
+
+    max-width: 900px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =========================================================
+   MODAL CONTENT
+========================================================= */
+
+.ksr-modal-content {
+    width: 100%;
+
+    overflow: hidden;
+
+    border: 0;
+    border-radius: 5px;
+
+    background: #ffffff;
+
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.22);
+}
+
+/* =========================================================
+   MODAL HEADER
+========================================================= */
+
+.ksr-modal-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    min-height: 69px;
+
+    padding: 0 15px;
+
+    border: 0;
+
+    background: #1a263d;
+}
+
+/* Title */
+
+.ksr-modal-title {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    line-height: 1.2;
+}
+
+/* =========================================================
+   MODAL CLOSE
+========================================================= */
+
+.ksr-modal-close {
+    flex-shrink: 0;
+
+    width: 12px;
+    height: 12px;
+
+    margin: 0;
+    padding: 7px;
+
+    opacity: 0.28;
+
+    background-size: 11px;
+
+    transition: opacity 0.2s ease;
+}
+
+.ksr-modal-close:hover,
+.ksr-modal-close:focus {
+    opacity: 0.7;
+}
+
+/* =========================================================
+   MODAL BODY
+========================================================= */
+
+.ksr-modal-body {
+    padding: 17px 15px 10px;
+
+    background: #ffffff;
+}
+
+/* =========================================================
+   MODAL SECTION
+========================================================= */
+
+.ksr-modal-section {
+    width: 100%;
+
+    padding: 0;
+}
+
+/* =========================================================
+   MODAL LABEL
+========================================================= */
+
+.ksr-modal-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--ksr-blue);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    line-height: 1.3;
+
+    text-transform: uppercase;
+}
+
+/* =========================================================
+   PILAR
+========================================================= */
+
+.ksr-modal-pillar {
+    margin: 0 0 3px;
+
+    color: #474747;
+
+    font-size: 13px;
+    font-weight: 400;
+
+    line-height: 1.5;
+}
+
+.ksr-modal-dash {
+    display: block;
+
+    color: #474747;
+
+    font-size: 12px;
+}
+
+/* =========================================================
+   MODAL DIVIDER
+========================================================= */
+
+.ksr-modal-divider {
+    width: 100%;
+
+    margin: 21px 0;
+
+    border-top: 1px dashed #d7dce3;
+}
+
+/* =========================================================
+   POSITION TITLE
+========================================================= */
+
+.ksr-modal-position-title {
+    margin: 0 0 3px;
+
+    color: #474747;
+
+    font-size: 13px;
+    font-weight: 400;
+
+    line-height: 1.5;
+}
+
+/* =========================================================
+   POSITION TEXT
+========================================================= */
+
+.ksr-modal-position-text {
+    margin: 0;
+
+    color: #474747;
+
+    font-size: 12px;
+    font-weight: 400;
+
+    line-height: 1.55;
+}
+
+/* =========================================================
+   MODAL ACTION
+========================================================= */
+
+.ksr-modal-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    width: 100%;
+
+    margin-top: 17px;
+}
+
+/* =========================================================
+   WEBSITE BUTTON
+========================================================= */
+
+.ksr-website-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    padding: 8px 13px;
+
+    border: 0;
+    border-radius: 5px;
+
+    color: var(--ksr-blue);
+
+    background: #edf4ff;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.ksr-website-button:hover {
+    color: #ffffff;
+
+    background: var(--ksr-blue);
+
+    text-decoration: none;
+}
+
+/* =========================================================
+   BOOTSTRAP MODAL BACKDROP
+========================================================= */
+
+.ksr-page ~ .modal-backdrop,
+.modal-backdrop.show {
+    opacity: 0.55;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991.98px) {
+    .ksr-hero {
+        padding: 50px 0 30px;
+    }
+
+    .ksr-strategic-row {
+        max-width: none;
+    }
+
+    .ksr-organizations {
+        padding-top: 35px;
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767.98px) {
+    .ksr-hero {
+        padding: 42px 0 30px;
+    }
+
+    .ksr-hero-heading h1 {
+        font-size: 30px;
+    }
+
+    .ksr-hero-heading p {
+        font-size: 12px;
+    }
+
+    .ksr-regulation {
+        padding: 7px 13px;
+
+        font-size: 9px;
+    }
+
+    .ksr-strategic-card {
+        min-height: 220px;
+
+        padding: 25px 20px;
+    }
+
+    .ksr-organizations {
+        padding: 35px 0 55px;
+    }
+
+    .ksr-section-heading h2 {
+        font-size: 20px;
+    }
+
+    .ksr-organization-card {
+        min-height: 200px;
+    }
+
+    /* Modal */
+
+    .ksr-modal-dialog {
+        width: calc(100vw - 20px);
+
+        margin: 10px auto;
+    }
+
+    .ksr-modal-header {
+        min-height: 58px;
+
+        padding: 0 14px;
+    }
+
+    .ksr-modal-body {
+        padding: 16px 14px 12px;
+    }
+
+    .ksr-modal-position-text {
+        font-size: 11.5px;
+    }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 575.98px) {
+    .ksr-organization-card {
+        max-width: 340px;
+
+        margin-inline: auto;
+    }
+
+    .ksr-strategic-card {
+        min-height: 0;
+    }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .ksr-strategic-card,
+    .ksr-organization-card,
+    .ksr-regulation,
+    .ksr-website-button,
+    .ksr-modal-close {
+        transition: none;
+    }
+}

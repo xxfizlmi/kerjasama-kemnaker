@@ -8,7 +8,7 @@ use yii\helpers\Html;
 ?>
 
 <?= Html::beginTag('section', [
-    'class' => 'bg-primary text-white py-5',
+    'class' => 'bg-primary-60 text-white py-5',
 ]) ?>
 
     <?= Html::beginTag('div', [
@@ -35,7 +35,7 @@ use yii\helpers\Html;
                     'p',
                     Html::encode($description),
                     [
-                        'class' => 'lead text-white-50 mb-0',
+                        'class' => 'lead text-secondary mb-0',
                     ]
                 ) ?>
 
@@ -49,7 +49,7 @@ use yii\helpers\Html;
         ]) ?>
 
             <?= Html::a(
-                '<i class="bi bi-file-text me-2"></i>' .
+                '<i class="bi bi-journals me-2 text-warning"></i>' .
                     '<span>Permenaker RI No. 19 Tahun 2024</span>',
                 'https://jdih.kemnaker.go.id/peraturan/Permenaker%20No.%2019%20Tahun%202024.pdf',
                 [
@@ -66,14 +66,14 @@ use yii\helpers\Html;
             'class' => 'row g-4 mt-4',
         ]) ?>
 
-            <?php foreach ($section as $item): ?>
+            <?php foreach ($highlights as $item): ?>
 
                 <?= Html::beginTag('div', [
                     'class' => 'col-12 col-lg-6',
                 ]) ?>
 
-                    <?= Html::beginTag('article', [
-                        'class' => 'h-100 p-4 rounded-4 border border-light border-opacity-25',
+                    <?= Html::beginTag('article     ', [
+                        'class' => 'h-100 p-5 rounded-4 border border-light border-opacity-10 bg-white bg-opacity-10 highlights',
                     ]) ?>
 
                         <?= Html::beginTag('div', [
@@ -81,20 +81,19 @@ use yii\helpers\Html;
                         ]) ?>
 
                             <?= Html::beginTag('div', [
-                                'class' => 'd-flex align-items-center justify-content-center flex-shrink-0 border border-light border-opacity-25 rounded-3',
-                                'style' => 'width:48px;height:48px;',
+                                'class' => 'd-flex align-items-center justify-content-center flex-shrink-0 border border-light border-opacity-25 rounded-3' . ' ' . Html::encode($item['class'] ?? '') . ' i-hover',
+                                'style' => 'width: 45px; height: 45px;',
                             ]) ?>
 
                                 <?= Html::tag('i', '', [
-                                    'class' => Html::encode($item[2]),
+                                    'class' => Html::encode($item['icon']) . ' ' . 'fs-4 fw-bold text-white',
                                     'aria-hidden' => 'true',
                                 ]) ?>
-
                             <?= Html::endTag('div') ?>
 
                             <?= Html::tag(
                                 'h2',
-                                Html::encode($item[0]),
+                                Html::encode($item['title']),
                                 [
                                     'class' => 'h6 fw-bold mb-0',
                                 ]
@@ -104,9 +103,9 @@ use yii\helpers\Html;
 
                         <?= Html::tag(
                             'p',
-                            Html::encode($item[1]),
+                            Html::encode($item['description'] ?? ''),
                             [
-                                'class' => 'small text-white-50 lh-lg mt-3 mb-0',
+                                'class' => 'small text-secondary lh-lg mt-3 mb-0',
                             ]
                         ) ?>
 
