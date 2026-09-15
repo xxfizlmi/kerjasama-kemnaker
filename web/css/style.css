@@ -13,9 +13,9 @@
 @import url("about.css");
 @import url("card.css");
 @import url("modal.css");
-@import url("footer.css");
+/* @import url("footer.css"); */
 
-a* {
+* {
     font-family: "SN Pro", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
