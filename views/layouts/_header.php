@@ -93,7 +93,7 @@ $items = [
                 [
                     [
                         'label' => 'Inpassing JFAKS',
-                        'url' => ['/site/index'],
+                        'url' => ['/pengumuman/inpassing'],
                     ],
                 ]
             ),

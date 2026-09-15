@@ -12,6 +12,7 @@ $footerItems = [
         'subtitle' => 'ALAMAT KANTOR',
         'type' => 'address',
         'address' => 'Biro Kerja Sama Gedung Kementerian Ketenagakerjaan RI, Jl. Jenderal Gatot Subroto Kav. 51, Jakarta Selatan, DKI Jakarta.',
+        'icon' => 'bi bi-geo-alt',
     ],
 
     [
@@ -119,8 +120,8 @@ $footerItems = [
 
                         <p class="footer-address">
                             <?= Html::encode($item['address']) ?>
-                        </p>
 
+                        </p>=7890-
 
                     <?php elseif ($item['type'] === 'links'): ?>
 
@@ -206,12 +207,10 @@ $footerItems = [
          ===================================================== -->
 
     <div class="footer-bottom">
-
         <p>
             © <?= date('Y') ?> Biro Kerja Sama - Kemnaker RI.
             All Rights Reserved.
         </p>
-
         <p>
             Dikembangkan oleh Tim IT Biro Kerja Sama
         </p>
