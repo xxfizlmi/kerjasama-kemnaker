@@ -15,4 +15,15 @@ $config = require $root . '/config/web.php';
 $config['runtimePath'] = '/tmp/yii-runtime';
 $config['components']['request']['baseUrl'] = '';
 
-(new yii\web\Application($config))->run();
+try {
+    (new yii\web\Application($config))->run();
+} catch (\Throwable $e) {
+    error_log(
+        get_class($e) . ': ' .
+            $e->getMessage() . PHP_EOL .
+            $e->getTraceAsString()
+    );
+
+    http_response_code(500);
+    echo 'Internal Server Error';
+}
