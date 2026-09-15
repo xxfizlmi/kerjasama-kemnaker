@@ -6,7 +6,19 @@
     },
     "routes": [
         {
-            "src": "/(.*\\.(?:css|js|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|map))$",
+            "src": "/css/(.*)",
+            "dest": "/web/css/$1"
+        },
+        {
+            "src": "/js/(.*)",
+            "dest": "/web/js/$1"
+        },
+        {
+            "src": "/images/(.*)",
+            "dest": "/web/images/$1"
+        },
+        {
+            "src": "/(.*\\.(?:png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|webp))$",
             "dest": "/web/$1"
         },
         {
