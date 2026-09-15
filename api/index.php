@@ -36,12 +36,11 @@ try {
     $config['components']['request']['baseUrl'] = '';
 
     (new yii\web\Application($config))->run();
-} catch (\Throwable $e) {
-    error_log('YII ERROR: ' . get_class($e));
-    error_log('MESSAGE: ' . $e->getMessage());
-    error_log('FILE: ' . $e->getFile() . ':' . $e->getLine());
-    error_log('TRACE: ' . $e->getTraceAsString());
 
+} catch (\Throwable $e) {
     http_response_code(500);
-    echo 'Internal Server Error';
+    header('Content-Type: text/plain; charset=UTF-8');
+
+    echo get_class($e) . PHP_EOL;
+    echo $e->getMessage();
 }
