@@ -6,7 +6,7 @@
     },
     "routes": [
         {
-            "src": "/(.*\\.(?:css|js|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot|otf|webp|map))$",
+            "src": "/(.*\\.(?:css|js|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot|otf|webp|avif|map))$",
             "dest": "/api/assets.php?path=$1"
         },
         {
