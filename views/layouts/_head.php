@@ -6,7 +6,7 @@ declare(strict_types=1);
 
 use app\assets\AppAsset;
 
-AppAsset::register($this);
+// AppAsset::register($this);
 
 $this->registerCsrfMetaTags();
 $this->registerMetaTag(
