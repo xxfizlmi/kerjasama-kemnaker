@@ -47,7 +47,10 @@ $mimeTypes = [
 $contentType = $mimeTypes[$extension] ?? 'application/octet-stream';
 
 header('Content-Type: ' . $contentType);
-header('Cache-Control: public, max-age=86400');
+
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
+header('Expires: 0');
 
 readfile($file);
 exit;
