@@ -167,41 +167,40 @@ class EventController extends \yii\web\Controller
                         'type' => 'paragraph',
                         'dropcap' => true,
                         'html' => '
-                            <strong>JAKARTA</strong> – Biro Kerja Sama
-                            Kementerian Ketenagakerjaan melaksanakan Rapat Evaluasi
-                            Monitoring Kerja Sama Dalam Negeri Tahun 2026 sebagai
-                            bagian dari penguatan tata kelola pelaksanaan kerja sama.
+                            <strong>JAKARTA</strong> – Dalam rangka meningkatkan efektivitas pelaksanaan kerja sama dalam negeri, Biro Kerja Sama menyelenggarakan kegiatan <strong>Rapat Evaluasi Monitoring Kerja Sama Dalam Negeri.</strong> Kegiatan ini dilaksanakan pada 11–13 Mei 2026 dengan metode hybrid, serta dihadiri oleh perwakilan unit kerja terkait, kementerian/lembaga, pemerintah daerah, dan mitra pembangunan. Kegiatan ini menjadi forum strategis untuk melakukan evaluasi terhadap pelaksanaan kerja sama yang telah berjalan, sekaligus memperkuat koordinasi dan sinergi antar pemangku kepentingan dalam mendukung pencapaian program pembangunan nasional
                         ',
                     ],
 
                     [
                         'type' => 'paragraph',
                         'html' => '
-                            Kegiatan ini menjadi forum evaluasi terhadap pelaksanaan,
-                            monitoring, tindak lanjut, serta capaian berbagai kerja sama
-                            yang telah dilaksanakan bersama kementerian/lembaga,
-                            pemerintah daerah, dan mitra pembangunan.
+                            Fokus pembahasan dalam kegiatan ini meliputi evaluasi pelaksanaan kerja sama dalam negeri yang telah berjalan, khususnya terhadap 20 Kesepahaman Bersama Prioritas, monitoring capaian program dan kegiatan, identifikasi berbagai kendala dan tantangan dalam implementasi kerja sama, serta pembahasan langkah-langkah tindak lanjut yang perlu dilakukan untuk meningkatkan efektivitas pelaksanaan kerja sama. Selain itu, para peserta juga membahas penguatan koordinasi antara unit kerja, kementerian/lembaga, pemerintah daerah, dan mitra pembangunan guna mendorong terciptanya sinergi yang lebih baik dalam mendukung pelaksanaan program pembangunan.
                         ',
                     ],
 
                     [
                         'type' => 'paragraph',
                         'html' => '
-                            Melalui kegiatan Rapat Evaluasi Monitoring Kerja Sama Dalam
-                            Negeri ini, Biro Kerja Sama berharap tata kelola kerja sama
-                            dalam negeri dapat semakin ditingkatkan, khususnya dalam
-                            aspek perencanaan, pelaksanaan, monitoring, evaluasi,
-                            dan tindak lanjut.
+                            Tujuan kegiatan ini adalah untuk mengevaluasi pelaksanaan kerja sama dalam negeri yang sedang berjalan, sekaligus mengidentifikasi berbagai hambatan dan tantangan yang dihadapi dalam pelaksanaannya di lapangan. Melalui kegiatan ini, Biro Kerja Sama bersama para pemangku kepentingan berupaya mengukur efektivitas program kerja sama yang telah dilaksanakan, menyusun rekomendasi perbaikan serta langkah tindak lanjut yang diperlukan, dan memperkuat sinergi antar lembaga, unit kerja, pemerintah daerah, serta mitra pembangunan agar kerja sama yang terjalin dapat berjalan lebih optimal, terarah, dan memberikan manfaat yang berkelanjutan.
                         ',
                     ],
 
                     [
                         'type' => 'paragraph',
                         'html' => '
-                            Sinergi antara unit kerja, kementerian/lembaga, pemerintah
-                            daerah, serta mitra pembangunan juga diharapkan semakin
-                            kuat sehingga pelaksanaan kerja sama dapat memberikan
-                            kontribusi nyata terhadap pencapaian program.
+                            Pokok pembahasan dalam rapat ini mencakup penyampaian hasil monitoring pelaksanaan kerja sama dalam negeri pada 20 Kesepahaman Bersama Prioritas, evaluasi terhadap target dan realisasi kegiatan, serta pembahasan indikator keberhasilan kerja sama yang telah ditetapkan. Selain itu, rapat juga membahas berbagai kendala administratif maupun teknis yang dihadapi dalam pelaksanaan kerja sama, strategi peningkatan kualitas kerja sama ke depan, serta penyusunan rencana tindak lanjut dan penguatan koordinasi antar unit kerja, kementerian/lembaga, pemerintah daerah, dan mitra pembangunan.
+                        ',
+                    ],
+                    [
+                        'type' => 'paragraph',
+                        'html' => '
+                            Hasil yang diharapkan dari kegiatan ini adalah tersusunnya rekomendasi evaluasi pelaksanaan kerja sama dalam negeri sebagai bahan perbaikan ke depan. Kegiatan ini juga diharapkan dapat menghasilkan identifikasi tindak lanjut prioritas, penguatan mekanisme monitoring dan pelaporan, serta kesepakatan bersama dalam meningkatkan koordinasi antar unit kerja, kementerian/lembaga, pemerintah daerah, dan mitra pembangunan guna mendukung pelaksanaan kerja sama yang lebih efektif, terukur, dan berkelanjutan.
+                        ',
+                    ],
+                    [
+                        'type' => 'paragraph',
+                        'html' => '
+                            Melalui kegiatan Rapat Evaluasi Monitoring Kerja Sama Dalam Negeri ini, Biro Kerja Sama berharap tata kelola kerja sama dalam negeri dapat semakin ditingkatkan, khususnya dalam aspek perencanaan, pelaksanaan, monitoring, evaluasi, dan tindak lanjut. Sinergi antara unit kerja, kementerian/lembaga, pemerintah daerah, serta mitra pembangunan juga diharapkan semakin kuat, sehingga pelaksanaan kerja sama dapat berjalan lebih efektif, terarah, dan memberikan kontribusi nyata dalam mendukung pencapaian program serta peningkatan kualitas pelayanan yang lebih optimal.
                         ',
                     ],
 
@@ -229,7 +228,7 @@ class EventController extends \yii\web\Controller
 
                 'hero' =>
                 '@web/images/kegiatan/1779680465_bYDQS.jpeg',
-                
+
 
                 'content' => [
 
