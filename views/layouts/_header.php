@@ -113,23 +113,42 @@ $items = [
                 [
                     [
                         'label' => 'Sosialisasi LINKS',
-                        'url' => ['/site/index'],
+                        'url' => [
+                            '/event/detail',
+                            'slug' => 'sosialisasi-links',
+                        ],
                     ],
+
                     [
                         'label' => 'Monev KSDN Batch 1 2026',
-                        'url' => ['/site/index'],
+                        'url' => [
+                            '/event/detail',
+                            'slug' => 'monev-ksdn-batch-1-2026',
+                        ],
                     ],
+
                     [
                         'label' => 'Penyusunan Bahan ILC 114',
-                        'url' => ['/site/index'],
+                        'url' => [
+                            '/event/detail',
+                            'slug' => 'penyusunan-bahan-ilc-114',
+                        ],
                     ],
+
                     [
                         'label' => 'Kerja Sama Bilateral Indonesia dan Turki',
-                        'url' => ['/site/index'],
+                        'url' => [
+                            '/event/detail',
+                            'slug' => 'indonesia-turki-plan-of-action',
+                        ],
                     ],
+
                     [
                         'label' => 'Monev KSDN Batch 2 2026',
-                        'url' => ['/site/index'],
+                        'url' => [
+                            '/event/detail',
+                            'slug' => 'monev-ksdn-batch-2-2026',
+                        ],
                     ],
                 ]
             ),
@@ -246,8 +265,8 @@ $items = [
 ?>
 
 <header id="site-header">
-    <nav class="site-navbar px-5">
-        <div class="navbar-container px-5">
+    <nav class="site-navbar">
+        <div class="navbar-container">
             <!-- Logo -->
             <a
                 href="<?= Url::to(['/site/index']) ?>"
