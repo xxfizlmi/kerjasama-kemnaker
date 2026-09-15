@@ -891,6 +891,5 @@ if (ksdnBackTop) {
 
 JS;
 
-$this->registerJs($js);
-
+$this->registerJs($js, \yii\web\View::POS_END);
 ?>
