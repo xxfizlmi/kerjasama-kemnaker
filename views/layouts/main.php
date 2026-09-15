@@ -17,7 +17,7 @@ $this->render('_head');
 
 <head>
     <?php $this->head() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <title>Layanan Informasi Kerja Sama</title>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
