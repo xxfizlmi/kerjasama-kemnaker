@@ -32,7 +32,7 @@ try {
 
     Yii::setAlias('@webroot', $root . '/web');
     Yii::setAlias('@web', '');
-    
+
     $config = require $root . '/config/web.php';
 
     $config['runtimePath'] = '/tmp/yii-runtime';
@@ -44,5 +44,6 @@ try {
     header('Content-Type: text/plain; charset=UTF-8');
 
     echo get_class($e) . PHP_EOL;
-    echo $e->getMessage();
+    echo $e->getMessage() . PHP_EOL . PHP_EOL;
+    echo $e->getTraceAsString();
 }
