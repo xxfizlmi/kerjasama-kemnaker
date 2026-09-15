@@ -1,118 +1,358 @@
 <?php
 
-/** @var yii\web\View $this */
-/** @var yii\bootstrap5\ActiveForm $form */
+use yii\helpers\Html;
 
-/** @var app\models\LoginForm $model */
+$this->title = 'Login';
 
-use yii\bootstrap5\ActiveForm;
-use yii\bootstrap5\Html;
-
-$this->title = 'Login to your account';
-$this->params['breadcrumbs'][] = $this->title;
-$this->params['meta_description'] = 'Log in to access your Yii2 application account.';
-$this->params['meta_keywords'] = 'yii, yii2, login, sign in, authentication';
-$htmlIcon = <<<HTML
-{label}<div class="input-group"><span class="input-group-text" aria-hidden="true">%s</span>{input}</div>{error}{hint}
-HTML;
-$labelOptions = ['class' => 'form-label fw-semibold small'];
 ?>
-<div class="site-login d-flex align-items-center justify-content-center py-5">
-    <div class="card border-0 overflow-hidden login-split-card">
-        <div class="row g-0">
 
-            <!-- Brand panel -->
-            <div class="col-md-5 d-none d-md-flex login-brand-panel text-white">
-                <div class="d-flex flex-column justify-content-between p-4 p-lg-5 w-100">
-                    <div>
-                        <?= Html::img(
-                            Yii::getAlias('@web/images/yii3_full_white_for_dark.svg'),
-                            [
-                                'alt' => 'Yii Framework',
-                                'class' => 'mb-4',
-                                'height' => 40,
-                            ],
-                        ) ?>
-                    </div>
-                    <div>
-                        <h2 class="fw-bold mb-3 login-brand-title">
-                            Welcome<br>Back
-                        </h2>
-                        <p class="opacity-75 mb-0 login-brand-text">
-                            Log in to access your Yii2 application and manage your account.
-                        </p>
-                    </div>
-                </div>
+<div class="login-page">
+
+    <div class="login-card">
+
+        <!-- THEME / DISPLAY TOGGLE -->
+        <button
+            type="button"
+            class="login-theme-toggle"
+            id="loginThemeToggle"
+            aria-label="Ubah tampilan">
+            <i class="bi bi-circle-half"></i>
+        </button>
+
+
+        <!-- =====================================================
+             LEFT : ILLUSTRATION
+        ====================================================== -->
+        <section class="login-illustration-panel">
+
+            <div class="login-illustration-wrap">
+
+                <?= Html::img(
+                    '@web/images/login/mobile-login-concept-illustration_114360-83.avif',
+                    [
+                        'class' => 'login-illustration-image',
+                        'alt' => 'Ilustrasi login Layanan Informasi Kerja Sama',
+                    ]
+                ) ?>
+
             </div>
 
-            <!-- Form panel -->
-            <div class="col-md-7">
-                <div class="p-4 p-lg-5">
-                    <div class="text-center mb-4">
-                        <!-- Mobile-only logo -->
-                        <div class="d-md-none mb-3">
-                            <?= Html::img(
-                                Yii::getAlias('@web/images/yii3_full_black_for_light.svg'),
-                                [
-                                    'alt' => 'Yii Framework',
-                                    'class' => 'login-mobile-logo',
-                                    'height' => 36,
-                                ],
-                            ) ?>
+        </section>
+
+
+        <!-- =====================================================
+             RIGHT : LOGIN FORM
+        ====================================================== -->
+        <section class="login-form-panel">
+
+            <div class="login-form-content">
+
+                <!-- LOGO LINKS -->
+                <div class="login-logo">
+
+                    <?= Html::img(
+                        '@web/images/logo/logo_final.png',
+                        [
+                            'class' => 'login-logo-image',
+                            'alt' => 'LINKS - Layanan Informasi Kerja Sama',
+                        ]
+                    ) ?>
+
+                </div>
+
+
+                <!-- HEADING -->
+                <div class="login-heading">
+
+                    <h1>
+                        Layanan Informasi Kerja Sama
+                    </h1>
+
+                    <p>
+                        Selamat Siang, silakan masuk akun anda.
+                    </p>
+
+                </div>
+
+
+                <!-- FORM -->
+                <form
+                    id="loginForm"
+                    class="login-form"
+                    action="#"
+                    method="post">
+
+                    <!-- USERNAME -->
+                    <div class="login-field">
+
+                        <label for="username">
+                            Username
+                        </label>
+
+                        <div class="login-input-wrapper">
+
+                            <i class="bi bi-person-fill login-input-icon"></i>
+
+                            <input
+                                type="text"
+                                id="username"
+                                name="username"
+                                class="login-input"
+                                placeholder="Username"
+                                autocomplete="username"
+                                required>
+
                         </div>
-                        <h1 class="h3 fw-bold mb-1"><?= Html::encode($this->title) ?></h1>
-                        <p class="text-body-secondary small">Enter your credentials to continue</p>
+
                     </div>
 
-                    <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
-                    <div class="mb-3">
-                        <?= $form->field($model, 'username', [
-                            'options' => ['class' => 'mb-0'],
-                            'template' => sprintf($htmlIcon, '&#128100;'),
-                            'inputOptions' => [
-                                'class' => 'form-control',
-                                'placeholder' => 'username',
-                                'autofocus' => true,
-                            ],
-                        ])->textInput()->label('Your Username', $labelOptions) ?>
+                    <!-- PASSWORD -->
+                    <div class="login-field">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <div class="login-input-wrapper">
+
+                            <i class="bi bi-lock-fill login-input-icon"></i>
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                class="login-input"
+                                placeholder="Password"
+                                autocomplete="current-password"
+                                required>
+
+                            <button
+                                type="button"
+                                class="login-password-toggle"
+                                id="togglePassword"
+                                aria-label="Tampilkan password">
+                                <i class="bi bi-eye-fill"></i>
+                            </button>
+
+                        </div>
+
                     </div>
 
-                    <div class="mb-3">
-                        <?= $form->field($model, 'password', [
-                            'options' => ['class' => 'mb-0'],
-                            'template' => sprintf($htmlIcon, '&#128274;'),
-                            'inputOptions' => [
-                                'class' => 'form-control',
-                                'placeholder' => 'Password',
-                            ],
-                        ])->passwordInput()->label('Your Password', $labelOptions) ?>
+
+                    <!-- OPTIONS -->
+                    <div class="login-options">
+
+                        <label class="login-remember">
+
+                            <input
+                                type="checkbox"
+                                name="remember"
+                                checked>
+
+                            <span>
+                                Remember Me
+                            </span>
+
+                        </label>
+
+
+                        <a
+                            href="#"
+                            class="login-forgot">
+                            Lupa Password?
+                        </a>
+
                     </div>
 
-                    <div class="mb-4">
-                        <?= $form->field($model, 'rememberMe')->checkbox() ?>
+
+                    <!-- SUBMIT -->
+                    <button
+                        type="submit"
+                        class="login-submit"
+                        id="loginSubmit">
+
+                        <span class="login-submit-text">
+                            MASUK SEKARANG
+                        </span>
+
+                        <span
+                            class="login-loading"
+                            aria-hidden="true">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+
+                    </button>
+
+                </form>
+
+
+                <!-- FOOTER -->
+                <footer class="login-footer">
+
+                    <p>
+                        © 2026 Biro Kerja Sama - Kemnaker RI
+                    </p>
+
+                    <div class="login-footer-links">
+
+                        <a href="#">
+                            Kebijakan Privasi
+                        </a>
+
+                        <span>•</span>
+
+                        <a href="#">
+                            Bantuan
+                        </a>
+
                     </div>
 
-                    <div class="d-grid">
-                        <?= Html::submitButton(
-                            'Login',
-                            [
-                                'class' => 'btn login-btn btn-lg rounded-3 text-white',
-                                'name' => 'login-button',
-                            ],
-                        ) ?>
-                    </div>
+                </footer>
 
-                    <?php ActiveForm::end(); ?>
-
-                    <div class="text-body-secondary text-center mt-3 small">
-                        You may login with <strong>admin/admin</strong> or <strong>demo/demo</strong>.<br>
-                        To modify the username/password, check <code>app\models\User::$users</code>.
-                    </div>
-
-                </div>
             </div>
 
-        </div>
+        </section>
+
     </div>
+
 </div>
+
+<?php
+
+$loginJs = <<<'JS'
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    const passwordInput =
+        document.getElementById('password');
+
+    const togglePassword =
+        document.getElementById('togglePassword');
+
+    const loginForm =
+        document.getElementById('loginForm');
+
+    const loginSubmit =
+        document.getElementById('loginSubmit');
+
+    const themeToggle =
+        document.getElementById('loginThemeToggle');
+
+    const loginCard =
+        document.querySelector('.login-card');
+
+
+    /* =====================================================
+       SHOW / HIDE PASSWORD
+    ====================================================== */
+
+    if (togglePassword && passwordInput) {
+
+        togglePassword.addEventListener('click', function () {
+
+            const isPassword =
+                passwordInput.type === 'password';
+
+            passwordInput.type =
+                isPassword
+                    ? 'text'
+                    : 'password';
+
+
+            const icon =
+                togglePassword.querySelector('i');
+
+
+            if (icon) {
+
+                icon.className =
+                    isPassword
+                        ? 'bi bi-eye-slash-fill'
+                        : 'bi bi-eye-fill';
+
+            }
+
+
+            togglePassword.setAttribute(
+                'aria-label',
+                isPassword
+                    ? 'Sembunyikan password'
+                    : 'Tampilkan password'
+            );
+
+        });
+
+    }
+
+
+    /* =====================================================
+       TOGGLE DISPLAY
+    ====================================================== */
+
+    if (themeToggle && loginCard) {
+
+        themeToggle.addEventListener('click', function () {
+
+            loginCard.classList.toggle(
+                'login-card-dark'
+            );
+
+        });
+
+    }
+
+
+    /* =====================================================
+       LOGIN BUTTON LOADING
+    ====================================================== */
+
+    if (loginForm && loginSubmit) {
+
+        loginForm.addEventListener(
+            'submit',
+            function (event) {
+
+                /*
+                 * Untuk demo saja.
+                 * Kalau login sudah terhubung backend Yii,
+                 * hapus event.preventDefault().
+                 */
+                event.preventDefault();
+
+
+                loginSubmit.classList.add(
+                    'loading'
+                );
+
+                loginSubmit.disabled = true;
+
+
+                setTimeout(function () {
+
+                    loginSubmit.classList.remove(
+                        'loading'
+                    );
+
+                    loginSubmit.disabled = false;
+
+                }, 1000);
+
+            }
+        );
+
+    }
+
+});
+
+JS;
+
+
+$this->registerJs(
+    $loginJs,
+    \yii\web\View::POS_END
+);
+
+?>
