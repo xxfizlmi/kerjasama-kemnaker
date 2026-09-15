@@ -30,13 +30,15 @@ try {
     require $root . '/vendor/autoload.php';
     require $root . '/vendor/yiisoft/yii2/Yii.php';
 
+    Yii::setAlias('@webroot', $root . '/web');
+    Yii::setAlias('@web', '');
+    
     $config = require $root . '/config/web.php';
 
     $config['runtimePath'] = '/tmp/yii-runtime';
     $config['components']['request']['baseUrl'] = '';
 
     (new yii\web\Application($config))->run();
-
 } catch (\Throwable $e) {
     http_response_code(500);
     header('Content-Type: text/plain; charset=UTF-8');
