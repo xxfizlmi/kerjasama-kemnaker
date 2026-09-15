@@ -8,7 +8,7 @@
     width: 100%;
     max-width: 100%;
 
-    margin-top: 80px;
+    /* margin-top: 80px; */
 
     color: #ffffff;
 
@@ -19,6 +19,7 @@
     );
 
     box-sizing: border-box;
+    border-top: 5px solid var(--warning);
 }
 
 /* =========================================================
