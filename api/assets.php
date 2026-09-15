@@ -2,22 +2,33 @@
 
 declare(strict_types=1);
 
-$base = realpath(__DIR__ . '/../web');
+$base = __DIR__ . '/../web';
 
-$path = $_GET['path'] ?? '';
+$path = rawurldecode((string) ($_GET['path'] ?? ''));
+$path = str_replace('\\', '/', $path);
 $path = ltrim($path, '/');
 
-$file = realpath($base . '/' . $path);
-
-// Cegah akses file di luar folder web
+// Cegah path traversal
 if (
-    $base === false ||
-    $file === false ||
-    !is_file($file) ||
-    !str_starts_with($file, $base . DIRECTORY_SEPARATOR)
+    $path === '' ||
+    str_contains($path, "\0") ||
+    preg_match('#(^|/)\.\.(/|$)#', $path)
 ) {
+    http_response_code(400);
+    header('Content-Type: text/plain; charset=UTF-8');
+    echo 'Invalid asset path';
+    exit;
+}
+
+$file = $base . '/' . $path;
+
+clearstatcache(true, $file);
+
+if (!is_file($file)) {
     http_response_code(404);
-    echo 'Asset not found';
+    header('Content-Type: text/plain; charset=UTF-8');
+
+    echo 'Asset not found: ' . $path;
     exit;
 }
 
@@ -33,6 +44,7 @@ $mimeTypes = [
     'gif'   => 'image/gif',
     'svg'   => 'image/svg+xml',
     'webp'  => 'image/webp',
+    'avif' => 'image/avif',
     'ico'   => 'image/x-icon',
 
     'woff'  => 'font/woff',
@@ -47,6 +59,7 @@ $mimeTypes = [
 $contentType = $mimeTypes[$extension] ?? 'application/octet-stream';
 
 header('Content-Type: ' . $contentType);
+header('Content-Length: ' . filesize($file));
 
 header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
 header('Pragma: no-cache');
