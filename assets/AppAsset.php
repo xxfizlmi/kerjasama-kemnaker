@@ -1,42 +1,39 @@
 <?php
 
-/**
- * @link https://www.yiiframework.com/
- * @copyright Copyright (c) 2008 Yii Software LLC
- * @license https://www.yiiframework.com/license/
- */
-
 declare(strict_types=1);
 
 namespace app\assets;
 
-use yii\bootstrap5\BootstrapAsset;
 use yii\web\AssetBundle;
 use yii\web\View;
-use yii\web\YiiAsset;
 
-/**
- * Main application asset bundle.
- *
- * @author Qiang Xue <qiang.xue@gmail.com>
- * @since 2.0
- */
 class AppAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
+
     public $css = [
-        'css/style.css',
+        // Bootstrap 5
+        'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css',
+
+        // Bootstrap Icons
         'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css',
+
+        // CSS project
+        'css/style.css',
     ];
+
     public $js = [
+        // Bootstrap JS
+        'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js',
+
+        // JS project
         'js/script.js',
     ];
+
     public $jsOptions = [
         'position' => View::POS_HEAD,
     ];
-    public $depends = [
-        YiiAsset::class,
-        BootstrapAsset::class,
-    ];
+
+    public $depends = [];
 }
