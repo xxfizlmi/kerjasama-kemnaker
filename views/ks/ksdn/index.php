@@ -668,7 +668,7 @@ use yii\helpers\Url;
                         <div class="ksdn-pra-image">
 
                             <?= Html::img(
-                                '@web/images/pra-mou-due-diligence.jpg',
+                                '@web/images/Ilustrasi-tahap-pra-mou.png',
                                 [
                                     'alt' => 'Due Diligence Sebelum Membangun Kerja Sama',
                                     'class' => 'img-fluid',
