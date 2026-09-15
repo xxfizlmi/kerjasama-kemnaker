@@ -4,8 +4,6 @@ use yii\helpers\Html;
 
 $this->title = 'Tentang';
 
-$organizationImage = 'https://kerjasama.kemnaker.go.id/img/organisasi-ks.jpg';
-
 ?>
 
 <!-- =========================================================
@@ -310,7 +308,7 @@ $organizationImage = 'https://kerjasama.kemnaker.go.id/img/organisasi-ks.jpg';
                 <div class="organization-image-wrapper">
 
                     <?= Html::img(
-                        $organizationImage,
+                        '@web/images/organisasi-ks.jpg',
                         [
                             'class' => 'organization-image',
                             'alt' => 'Struktur Organisasi Biro Kerja Sama',
@@ -506,7 +504,7 @@ $organizationImage = 'https://kerjasama.kemnaker.go.id/img/organisasi-ks.jpg';
                 <div class="organization-modal-image-wrapper">
 
                     <?= Html::img(
-                        $organizationImage,
+                        '@web/images/organisasi-ks.jpg',
                         [
                             'class' => 'organization-modal-image',
                             'alt' => 'Struktur Organisasi Biro Kerja Sama',
