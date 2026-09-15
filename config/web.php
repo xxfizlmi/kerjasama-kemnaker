@@ -51,11 +51,17 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+
             'rules' => [
+                'pengumuman/inpassing' => 'event/pengumuman',
+
+                'events/<slug:[a-z0-9\-]+>' => 'event/detail',
+
                 'ksdn' => 'ks/ksdn',
                 'ksb' => 'ks/ksb',
                 'ksr' => 'ks/ksr',
                 'ksm' => 'ks/ksm',
+
                 'kartu-nama' => 'kartu-nama/index',
                 'about' => 'site/about',
             ],
