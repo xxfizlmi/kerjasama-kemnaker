@@ -79,7 +79,7 @@
 
     color: #ffffff;
 
-    background: rgba(255, 255, 255, 0.09);
+    background: rgba(255, 255, 255, 0.08);
 
     font-size: 12px;
     font-weight: 700;
@@ -125,7 +125,7 @@
     border: 1px solid rgba(255, 255, 255, 0.09);
     border-radius: 20px;
 
-    background: var(--ksdn-card-dark);
+    background: rgba(255, 255, 255, 0.08);
 
     transition:
         transform 0.25s ease,
@@ -211,7 +211,7 @@
 }
 
 /* =========================================================
-   TABS
+   TABS - CENTER + SLIDING PRIMARY FRAME
 ========================================================= */
 
 .ksdn-tabs-wrapper {
@@ -219,31 +219,137 @@
 }
 
 .ksdn-tabs {
-    display: flex;
+    position: relative;
 
-    justify-content: flex-start;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
 
     border-bottom: 1px solid #d5dae1;
+
+    --tab-indicator-left: 0px;
+    --tab-indicator-width: 0px;
+    --tab-indicator-height: 0px;
 }
+
+/* Garis dasar tab */
+
+.ksdn-tabs::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 1px;
+
+    background: #d5dae1;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+/* =========================================================
+   FRAME AKTIF YANG BERGESER
+   Border kiri + atas + kanan ikut bergerak.
+========================================================= */
+
+.ksdn-tabs::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -1px;
+
+    width: var(--tab-indicator-width);
+    height: var(--tab-indicator-height);
+
+    box-sizing: border-box;
+
+    /*
+     * Border hanya kiri + atas + kanan.
+     */
+    border-left: 2px solid var(--bs-primary);
+    border-top: 2px solid var(--bs-primary);
+    border-right: 2px solid var(--bs-primary);
+    border-bottom: 0;
+
+    border-radius: 7px 7px 0 0;
+
+    /*
+     * Harus transparan karena frame berada
+     * di atas tombol.
+     */
+    background: transparent;
+
+    transform: translate3d(var(--tab-indicator-left), 0, 0);
+
+    transition:
+        transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+        width 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+        height 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+
+    pointer-events: none;
+
+    /*
+     * Penting:
+     * frame berada DI ATAS nav-link.
+     */
+    z-index: 10;
+}
+
+/* Transition baru aktif setelah posisi awal selesai dihitung */
+
+.ksdn-tabs.is-indicator-ready::after {
+    transition:
+        transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+        width 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+        height 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =========================================================
+   NAV ITEM
+========================================================= */
 
 .ksdn-tabs .nav-item {
-    margin-bottom: -1px;
+    position: relative;
+
+    flex: 0 0 auto;
+
+    margin-bottom: 0;
+
+    z-index: 2;
 }
 
-.ksdn-tabs .nav-link {
-    display: flex;
+/* =========================================================
+   TAB BUTTON
+========================================================= */
 
+.ksdn-tabs .nav-link {
+    position: relative;
+
+    display: flex;
     align-items: center;
     justify-content: center;
 
-    gap: 11px;
+    gap: 10px;
 
     min-height: 55px;
 
     padding: 14px 34px;
 
-    border: 1px solid transparent;
-    border-radius: 4px 4px 0 0;
+    border: 0 !important;
+
+    border-radius: 7px 7px 0 0;
 
     color: #526781;
 
@@ -255,30 +361,51 @@
     white-space: nowrap;
 
     transition:
-        color 0.2s ease,
-        background-color 0.2s ease;
+        color 0.3s ease,
+        background-color 0.3s ease;
+
+    z-index: 2;
 }
 
-.ksdn-tabs .nav-link i {
-    font-size: 13px;
+.ksdn-tabs .nav-link.active i {
+    color: var(--bs-primary);
+
+    transform: translateY(-1px);
 }
 
 .ksdn-tabs .nav-link:hover {
-    color: #101828;
+    color: var(--bs-primary);
 
-    background: #fafbfc;
+    background: rgba(13, 110, 253, 0.035);
 }
 
+/* Hover tab yang tidak aktif */
+
+.ksdn-tabs .nav-link:not(.active):hover {
+    color: var(--bs-primary);
+
+    background: rgba(13, 110, 253, 0.035);
+}
+
+/* Active
+   Border TIDAK ditempel pada button.
+   Border berasal dari .ksdn-tabs::after sehingga bisa bergeser.
+*/
+
 .ksdn-tabs .nav-link.active {
-    margin-bottom: -1px;
-
-    border-color: #101828 #101828 #ffffff;
-
-    color: #101828;
+    color: var(--bs-primary);
 
     background: #ffffff;
 
     font-weight: 700;
+
+    border: 0 !important;
+}
+
+.ksdn-tabs .nav-link.active i {
+    color: var(--bs-primary);
+
+    transform: translateY(-1px);
 }
 
 /* =========================================================
@@ -325,10 +452,17 @@
 ========================================================= */
 
 .ksdn-partner-card {
+    --partner-color: #2563eb;
+    --partner-rgb: 37, 99, 235;
+
+    position: relative;
+
     height: 100%;
     min-height: 255px;
 
     padding: 34px 35px;
+
+    overflow: hidden;
 
     border: 1px solid var(--ksdn-border);
     border-radius: 20px;
@@ -338,9 +472,53 @@
     box-shadow: 0 16px 30px rgba(15, 23, 42, 0.035);
 
     transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
+        transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 0.3s ease,
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* =========================================================
+   CARD COLORS
+========================================================= */
+
+.ksdn-partner-card.is-blue {
+    --partner-color: var(--ksdn-blue);
+    --partner-rgb: 37, 99, 235;
+}
+
+.ksdn-partner-card.is-green {
+    --partner-color: var(--ksdn-green);
+    --partner-rgb: 22, 163, 74;
+}
+
+.ksdn-partner-card.is-gold {
+    --partner-color: var(--ksdn-gold);
+    --partner-rgb: 217, 146, 0;
+}
+
+/* =========================================================
+   TOP ACCENT
+========================================================= */
+
+.ksdn-partner-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 0;
+    height: 4px;
+
+    border-radius: 0 0 6px 6px;
+
+    background: var(--partner-color);
+
+    transform: translateX(-50%);
+
+    transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .ksdn-partner-card:hover {
@@ -349,6 +527,42 @@
     border-color: rgba(37, 99, 235, 0.35);
 
     box-shadow: 0 18px 36px rgba(15, 23, 42, 0.08);
+}
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.ksdn-partner-card:hover {
+    transform: translateY(-6px);
+
+    border-color: var(--partner-color);
+
+    background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        rgba(var(--partner-rgb), 0.045) 100%
+    );
+
+    box-shadow: 0 18px 40px rgba(var(--partner-rgb), 0.15);
+}
+
+/* Icon sedikit membesar */
+
+.ksdn-partner-card:hover .ksdn-box-icon {
+    transform: scale(1.08);
+
+    box-shadow: 0 8px 18px rgba(var(--partner-rgb), 0.25);
+}
+
+/* Judul ikut warna */
+
+.ksdn-partner-card .ksdn-card-heading h3 {
+    transition: color 0.3s ease;
+}
+
+.ksdn-partner-card:hover .ksdn-card-heading h3 {
+    color: var(--partner-color);
 }
 
 .ksdn-card-heading {
@@ -389,7 +603,9 @@
 
     font-size: 20px;
 
-    transition: transform 0.25s ease;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .ksdn-partner-card:hover .ksdn-box-icon,
@@ -419,15 +635,21 @@
 
 .ksdn-partner-stat {
     display: flex;
+    flex-direction: column;
 
-    align-items: baseline;
+    align-items: center;
+    justify-content: center;
 
-    gap: 10px;
+    gap: 6px;
 
-    margin-bottom: 15px;
+    margin-bottom: 18px;
+
+    text-align: center;
 }
 
 .ksdn-partner-stat strong {
+    display: block;
+
     font-size: 36px;
     font-weight: 800;
 
@@ -435,10 +657,14 @@
 }
 
 .ksdn-partner-stat span {
+    display: block;
+
     color: #94a3b8;
 
     font-size: 11px;
     font-weight: 700;
+
+    text-align: center;
 }
 
 .blue-text {
@@ -484,10 +710,13 @@
 
     text-align: center;
 
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.025);
+
     transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
+        transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 0.3s ease,
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .ksdn-scope-card:hover {
@@ -509,19 +738,50 @@
 
     margin: 0 auto 20px;
 
+    border: 1px solid rgba(var(--scope-rgb), 0.22);
     border-radius: 50%;
 
-    color: var(--ksdn-blue);
+    color: var(--scope-color);
 
-    background: #edf4ff;
+    background: #eff6ff;
 
     font-size: 27px;
 
-    transition: transform 0.25s ease;
+    transition:
+        background-color 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ksdn-scope-card:hover {
+    transform: translateY(-6px);
+
+    /*
+     * Tetap warna biru yang sama,
+     * hanya dibuat lebih jelas.
+     */
+    border-color: rgba(37, 99, 235, 0.42);
+
+    /*
+     * Background hanya sedikit lebih terang.
+     */
+    background: #fbfdff;
+
+    box-shadow: 0 16px 34px rgba(37, 99, 235, 0.11);
 }
 
 .ksdn-scope-card:hover .ksdn-scope-icon {
-    transform: scale(1.08);
+    color: #ffffff;
+
+    background: var(--bs-primary);
+
+    border-color: var(--scope-color);
+
+    transform: translateY(-3px) rotate(360deg) scale(1.08);
+
+    box-shadow: 0 10px 24px rgba(var(--scope-rgb), 0.25);
 }
 
 .ksdn-scope-card h3 {
@@ -531,6 +791,16 @@
 
     font-size: 11px;
     font-weight: 800;
+
+    transition: color 0.3s ease;
+}
+
+/*
+ * Judul tidak berubah menjadi biru.
+ * Hanya sedikit lebih gelap/tegas saat hover.
+ */
+.ksdn-scope-card:hover h3 {
+    color: var(--bs-primary);
 }
 
 .ksdn-scope-card p {
@@ -541,6 +811,12 @@
     font-size: 12px;
 
     line-height: 1.55;
+
+    transition: color 0.3s ease;
+}
+
+.ksdn-scope-card:hover p {
+    color: #42526a;
 }
 
 /* =========================================================
@@ -569,10 +845,17 @@
 ========================================================= */
 
 .ksdn-document-card {
+    --document-color: var(--ksdn-blue);
+    --document-rgb: 37, 99, 235;
+
+    position: relative;
+
     height: 100%;
     min-height: 220px;
 
     padding: 35px;
+
+    overflow: hidden;
 
     border: 1px solid var(--ksdn-border);
     border-radius: 19px;
@@ -582,17 +865,89 @@
     box-shadow: 0 14px 28px rgba(15, 23, 42, 0.035);
 
     transition:
-        transform 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
 .ksdn-document-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
 
-    border-color: rgba(37, 99, 235, 0.32);
+    border-color: var(--document-color);
 
-    box-shadow: 0 17px 34px rgba(15, 23, 42, 0.07);
+    background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        rgba(var(--document-rgb), 0.045) 100%
+    );
+
+    box-shadow: 0 18px 40px rgba(var(--document-rgb), 0.15);
+}
+
+.ksdn-document-card .ksdn-box-icon {
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.ksdn-document-card:hover .ksdn-box-icon {
+    transform: translateY(-2px) scale(1.08);
+
+    box-shadow: 0 8px 20px rgba(var(--document-rgb), 0.28);
+}
+
+/* =========================================================
+   DOCUMENT COLORS
+========================================================= */
+
+.ksdn-document-card.is-blue {
+    --document-color: var(--ksdn-blue);
+    --document-rgb: 37, 99, 235;
+}
+
+.ksdn-document-card.is-green {
+    --document-color: var(--ksdn-green);
+    --document-rgb: 22, 163, 74;
+}
+
+.ksdn-document-card.is-gold {
+    --document-color: var(--ksdn-gold);
+    --document-rgb: 217, 146, 0;
+}
+
+.ksdn-document-card.is-purple {
+    --document-color: var(--ksdn-purple);
+    --document-rgb: 133, 87, 233;
+}
+
+.ksdn-document-card.is-red {
+    --document-color: var(--ksdn-red);
+    --document-rgb: 239, 68, 68;
+}
+
+/* =========================================================
+   TOP COLOR LINE
+========================================================= */
+
+.ksdn-document-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 0;
+    height: 4px;
+
+    border-radius: 0 0 6px 6px;
+
+    background: var(--document-color);
+
+    transform: translateX(-50%);
+
+    transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .ksdn-document-title {
@@ -614,6 +969,15 @@
     font-weight: 800;
 
     letter-spacing: 0.7px;
+
+    transition: color 0.35s ease;
+}
+
+.ksdn-document-card:hover .ksdn-document-title h3 {
+    color: var(--document-color);
+}
+.ksdn-document-card:hover .ksdn-document-title h3 {
+    color: var(--document-color);
 }
 
 .ksdn-document-card > p {
@@ -639,6 +1003,14 @@
     font-style: italic;
 
     line-height: 1.5;
+
+    transition:
+        border-color 0.35s ease,
+        color 0.35s ease;
+}
+
+.ksdn-document-card:hover .ksdn-document-note {
+    border-color: rgba(var(--document-rgb), 0.4);
 }
 
 .ksdn-document-note span {
@@ -705,15 +1077,28 @@
 
     background: #f7f9fc;
 
+    /*
+     * Card tidak diberi animasi gerak.
+     */
     transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+        border-color 0.3s ease,
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
-
 .ksdn-step-card:hover {
-    transform: translateX(4px);
+    transform: none;
 
-    box-shadow: 0 12px 25px rgba(15, 23, 42, 0.06);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+}
+/* =========================================================
+   HOVER NUMBER
+========================================================= */
+
+.ksdn-step-card:hover .ksdn-step-number {
+    transform: rotate(8deg) scale(1.07);
+
+    box-shadow: 0 8px 18px
+        color-mix(in srgb, var(--step-color) 28%, transparent);
 }
 
 .ksdn-step-card.step-blue {
@@ -752,11 +1137,14 @@
     border-radius: 10px;
 
     color: #ffffff;
-
     background: var(--step-color);
 
     font-size: 15px;
     font-weight: 800;
+
+    transition:
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.3s ease;
 }
 
 .ksdn-step-title h3 {
@@ -895,8 +1283,7 @@
         overflow-x: auto;
 
         flex-wrap: nowrap;
-
-        justify-content: flex-start;
+        justify-content: center;
 
         scrollbar-width: none;
     }
@@ -947,10 +1334,14 @@
         padding-top: 38px;
     }
 
+    .ksdn-tabs {
+        justify-content: center;
+    }
+
     .ksdn-tabs .nav-link {
         min-height: 52px;
 
-        padding: 13px 20px;
+        padding: 13px 16px;
 
         font-size: 12px;
     }
@@ -1036,4 +1427,113 @@
     .ksdn-warning-box {
         padding: 24px 18px;
     }
+    .ksdn-tabs {
+        justify-content: flex-start;
+    }
+}
+
+/* =========================================================
+   HERO NETWORK BASE
+========================================================= */
+
+.ksdn-hero.hero-network-section {
+    position: relative;
+
+    isolation: isolate;
+
+    overflow: hidden;
+}
+
+/* Canvas */
+
+.hero-network-canvas {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+}
+
+/* Overlay */
+
+.hero-network-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background: linear-gradient(
+        180deg,
+        rgba(3, 15, 30, 0.08) 0%,
+        rgba(3, 15, 30, 0.12) 45%,
+        rgba(3, 15, 30, 0.22) 100%
+    );
+}
+
+/* Area tengah lebih tenang */
+
+.hero-network-focus {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background: radial-gradient(
+        ellipse at 50% 38%,
+        rgba(6, 29, 52, 0.24) 0%,
+        rgba(6, 29, 52, 0.14) 30%,
+        rgba(6, 29, 52, 0.04) 55%,
+        transparent 75%
+    );
+}
+
+/* Hero Content */
+
+.ksdn-hero > .container {
+    position: relative;
+
+    z-index: 3;
+}
+
+.ksdn-hero-inner {
+    position: relative;
+
+    z-index: 3;
+}
+
+.ksdn-hero-content {
+    position: relative;
+
+    z-index: 4;
+
+    max-width: 860px;
+
+    margin: 0 auto;
+}
+
+/* Strategic cards */
+
+.ksdn-strategic-row {
+    position: relative;
+
+    z-index: 4;
+}
+
+.ksdn-strategic-card {
+    position: relative;
+
+    z-index: 4;
 }
