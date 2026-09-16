@@ -38,9 +38,17 @@ try {
 
     $config['runtimePath'] = '/tmp/yii-runtime';
     $config['components']['request']['baseUrl'] = '';
-    $config['components']['assetManager']['bundles'][\yii\bootstrap5\BootstrapAsset::class] = false;
+    $config = require $root . '/config/web.php';
 
+    $config['runtimePath'] = '/tmp/yii-runtime';
+    $config['components']['request']['baseUrl'] = '';
+
+    $config['components']['assetManager']['bundles'][\yii\web\YiiAsset::class] = false;
+    $config['components']['assetManager']['bundles'][\yii\web\JqueryAsset::class] = false;
+    $config['components']['assetManager']['bundles'][\yii\bootstrap5\BootstrapAsset::class] = false;
     $config['components']['assetManager']['bundles'][\yii\bootstrap5\BootstrapPluginAsset::class] = false;
+
+    (new yii\web\Application($config))->run();
 
     (new yii\web\Application($config))->run();
 } catch (\Throwable $e) {
