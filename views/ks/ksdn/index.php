@@ -323,7 +323,7 @@ use yii\helpers\Url;
 
                                     <div class="ksdn-partner-stat">
 
-                                        <strong class="blue-text">43</strong>
+                                        <strong class="blue-text ksdn-counter" data-target="43">0</strong>
 
                                         <span>MITRA AKTIF</span>
 
@@ -362,7 +362,7 @@ use yii\helpers\Url;
 
                                     <div class="ksdn-partner-stat">
 
-                                        <strong class="green-text">30</strong>
+                                        <strong class="green-text ksdn-counter" data-target="30">0</strong>
 
                                         <span>MITRA AKTIF</span>
 
@@ -402,7 +402,9 @@ use yii\helpers\Url;
 
                                     <div class="ksdn-partner-stat">
 
-                                        <strong class="gold-text">139</strong>
+                                        <strong class="gold-text ksdn-counter" data-target="139">
+                                            0
+                                        </strong>
 
                                         <span>MITRA AKTIF</span>
 
@@ -2439,6 +2441,147 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         {
             passive: true
+        }
+    );
+
+});
+document.addEventListener('DOMContentLoaded', function () {
+
+    const counters =
+        document.querySelectorAll('.ksdn-counter');
+
+    if (!counters.length) {
+        return;
+    }
+
+
+    function animateCounter(element) {
+
+        const target =
+            parseInt(
+                element.dataset.target,
+                10
+            );
+
+        const duration = 3000;
+
+        let startTime = null;
+
+
+        function updateCounter(timestamp) {
+
+            if (!startTime) {
+                startTime = timestamp;
+            }
+
+
+            const elapsed =
+                timestamp - startTime;
+
+
+            const progress =
+                Math.min(
+                    elapsed / duration,
+                    1
+                );
+
+
+            /*
+             * Ease-out supaya awal cepat,
+             * lalu melambat ketika mendekati angka akhir.
+             */
+            const easedProgress =
+                1 -
+                Math.pow(
+                    1 - progress,
+                    3
+                );
+
+
+            const current =
+                Math.floor(
+                    easedProgress *
+                    target
+                );
+
+
+            element.textContent =
+                current.toLocaleString('id-ID');
+
+
+            if (progress < 1) {
+
+                requestAnimationFrame(
+                    updateCounter
+                );
+
+            } else {
+
+                element.textContent =
+                    target.toLocaleString('id-ID');
+
+            }
+
+        }
+
+
+        requestAnimationFrame(
+            updateCounter
+        );
+
+    }
+
+
+    const observer =
+        new IntersectionObserver(
+            function (entries, observer) {
+
+                entries.forEach(
+                    function (entry) {
+
+                        if (
+                            entry.isIntersecting &&
+                            !entry.target.classList.contains(
+                                'counter-started'
+                            )
+                        ) {
+
+                            entry.target.classList.add(
+                                'counter-started'
+                            );
+
+
+                            animateCounter(
+                                entry.target
+                            );
+
+
+                            /*
+                             * Hanya animasi 1 kali.
+                             */
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    }
+                );
+
+            },
+            {
+                threshold: 0.45
+            }
+        );
+
+
+    counters.forEach(
+        function (counter) {
+
+            observer.observe(
+                counter
+            );
+
         }
     );
 

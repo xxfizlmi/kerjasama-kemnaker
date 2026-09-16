@@ -98,6 +98,10 @@
     font-size: 17px;
 }
 
+.ksdn-regulation span {
+    font-size: 14px;
+}
+
 .ksdn-regulation:hover {
     color: #ffffff;
 
@@ -741,7 +745,7 @@
     border: 1px solid rgba(var(--scope-rgb), 0.22);
     border-radius: 50%;
 
-    color: var(--scope-color);
+    color: var(--bs-primary);
 
     background: #eff6ff;
 
