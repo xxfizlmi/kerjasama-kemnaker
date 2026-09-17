@@ -44,20 +44,20 @@ use yii\helpers\Url;
         <!-- =====================================================
          HERO CONTENT
     ====================================================== -->
-        <div class="container" data-aos="fade-up"
-            data-aos-offset="50"
-            data-aos-delay="0"
-            data-aos-duration="1500"
-            data-aos-easing="ease-in-out-sine"
-            data-aos-mirror="false"
-            data-aos-once="false">
+        <div class="container">
 
             <div class="ksdn-hero-inner">
 
                 <!-- =================================================
                  HERO INTRODUCTION
             ================================================== -->
-                <div class="ksdn-hero-content text-center">
+                <div class="ksdn-hero-content text-center" data-aos="fade-down"
+                    data-aos-offset="50"
+                    data-aos-delay="0"
+                    data-aos-duration="500"
+                    data-aos-easing="ease-in-out-sine"
+                    data-aos-mirror="false"
+                    data-aos-once="false">
 
                     <h1 class="ksdn-hero-title">
                         Kerja Sama Dalam Negeri
@@ -100,7 +100,13 @@ use yii\helpers\Url;
                 ============================================== -->
                     <div class="col-lg-6">
 
-                        <article class="ksdn-strategic-card">
+                        <article class="ksdn-strategic-card" data-aos="fade-up-right"
+                            data-aos-offset="50"
+                            data-aos-delay="0"
+                            data-aos-duration="500"
+                            data-aos-easing="ease-in-out-sine"
+                            data-aos-mirror="false"
+                            data-aos-once="false">
 
                             <div class="ksdn-strategic-heading">
 
@@ -137,7 +143,13 @@ use yii\helpers\Url;
                 ============================================== -->
                     <div class="col-lg-6">
 
-                        <article class="ksdn-strategic-card">
+                        <article class="ksdn-strategic-card" data-aos="fade-up-left"
+                            data-aos-offset="50"
+                            data-aos-delay="0"
+                            data-aos-duration="500"
+                            data-aos-easing="ease-in-out-sine"
+                            data-aos-mirror="false"
+                            data-aos-once="false">
 
                             <div class="ksdn-strategic-heading">
 
@@ -189,7 +201,7 @@ use yii\helpers\Url;
                 data-aos="fade-up"
                 data-aos-offset="50"
                 data-aos-delay="0"
-                data-aos-duration="1500"
+                data-aos-duration="500"
                 data-aos-easing="ease-in-out"
                 data-aos-mirror="false"
                 data-aos-once="false">
@@ -280,7 +292,7 @@ use yii\helpers\Url;
                         <div class="ksdn-section-heading text-center" data-aos="fade-up"
                             data-aos-offset="50"
                             data-aos-delay="0"
-                            data-aos-duration="1500"
+                            data-aos-duration="500"
                             data-aos-easing="ease-in-out"
                             data-aos-mirror="false"
                             data-aos-once="false">
@@ -304,7 +316,7 @@ use yii\helpers\Url;
                                 data-aos="fade-right"
                                 data-aos-offset="50"
                                 data-aos-delay="0"
-                                data-aos-duration="1500"
+                                data-aos-duration="500"
                                 data-aos-easing="ease-in-out"
                                 data-aos-mirror="true"
                                 data-aos-once="false">
@@ -343,7 +355,7 @@ use yii\helpers\Url;
                             <div class="col-lg-4 col-md-6" data-aos="fade-up"
                                 data-aos-offset="50"
                                 data-aos-delay="0"
-                                data-aos-duration="1500"
+                                data-aos-duration="500"
                                 data-aos-easing="ease-in-out"
                                 data-aos-mirror="true"
                                 data-aos-once="false">
@@ -383,7 +395,7 @@ use yii\helpers\Url;
                             <div class="col-lg-4 col-md-6" data-aos="fade-left"
                                 data-aos-offset="50"
                                 data-aos-delay="0"
-                                data-aos-duration="1500"
+                                data-aos-duration="500"
                                 data-aos-easing="ease-in-out"
                                 data-aos-mirror="true"
                                 data-aos-once="false">
@@ -426,15 +438,15 @@ use yii\helpers\Url;
 
 
                     <!-- CAKUPAN -->
-                    <section class="ksdn-section ksdn-scope-section" data-aos="fade-up"
-                        data-aos-offset="50"
-                        data-aos-delay="0"
-                        data-aos-duration="1500"
-                        data-aos-easing="ease-in-out"
-                        data-aos-mirror="true"
-                        data-aos-once="false">
+                    <section class="ksdn-section ksdn-scope-section">
 
-                        <div class="ksdn-section-heading text-center">
+                        <div class="ksdn-section-heading text-center" data-aos="fade-up"
+                            data-aos-offset="50"
+                            data-aos-delay="0"
+                            data-aos-duration="500"
+                            data-aos-easing="ease-in-out"
+                            data-aos-mirror="true"
+                            data-aos-once="false">
 
                             <h2>CAKUPAN KOLABORASI</h2>
 
@@ -451,7 +463,13 @@ use yii\helpers\Url;
 
                             <div class="col-lg-3 col-md-6">
 
-                                <article class="ksdn-scope-card">
+                                <article class="ksdn-scope-card" data-aos="fade-up"
+                                    data-aos-offset="50"
+                                    data-aos-delay="0"
+                                    data-aos-duration="500"
+                                    data-aos-easing="ease-in-out"
+                                    data-aos-mirror="true"
+                                    data-aos-once="false">
 
                                     <div class="ksdn-scope-icon">
                                         <i class="bi bi-book"></i>
@@ -473,7 +491,13 @@ use yii\helpers\Url;
 
                             <div class="col-lg-3 col-md-6">
 
-                                <article class="ksdn-scope-card">
+                                <article class="ksdn-scope-card" data-aos="fade-up"
+                                    data-aos-offset="50"
+                                    data-aos-delay="0"
+                                    data-aos-duration="500"
+                                    data-aos-easing="ease-in-out"
+                                    data-aos-mirror="true"
+                                    data-aos-once="false">
 
                                     <div class="ksdn-scope-icon">
                                         <i class="bi bi-feather"></i>
@@ -495,7 +519,13 @@ use yii\helpers\Url;
 
                             <div class="col-lg-3 col-md-6">
 
-                                <article class="ksdn-scope-card">
+                                <article class="ksdn-scope-card" data-aos="fade-up"
+                                    data-aos-offset="50"
+                                    data-aos-delay="0"
+                                    data-aos-duration="500"
+                                    data-aos-easing="ease-in-out"
+                                    data-aos-mirror="true"
+                                    data-aos-once="false">
 
                                     <div class="ksdn-scope-icon">
                                         <i class="bi bi-globe2"></i>
@@ -517,7 +547,13 @@ use yii\helpers\Url;
 
                             <div class="col-lg-3 col-md-6">
 
-                                <article class="ksdn-scope-card">
+                                <article class="ksdn-scope-card" data-aos="fade-up"
+                                    data-aos-offset="50"
+                                    data-aos-delay="0"
+                                    data-aos-duration="500"
+                                    data-aos-easing="ease-in-out"
+                                    data-aos-mirror="true"
+                                    data-aos-once="false">
 
                                     <div class="ksdn-scope-icon">
                                         <i class="bi bi-shield"></i>
@@ -559,7 +595,7 @@ use yii\helpers\Url;
                             data-aos="fade-up"
                             data-aos-offset="50"
                             data-aos-delay="0"
-                            data-aos-duration="1500"
+                            data-aos-duration="500"
                             data-aos-easing="ease-in-out"
                             data-aos-mirror="false"
                             data-aos-once="false">
@@ -573,7 +609,7 @@ use yii\helpers\Url;
                             <div class="col-lg-6" data-aos="fade-right"
                                 data-aos-offset="50"
                                 data-aos-delay="0"
-                                data-aos-duration="1500"
+                                data-aos-duration="500"
                                 data-aos-easing="ease-in-out"
                                 data-aos-mirror="true"
                                 data-aos-once="false">
@@ -613,7 +649,7 @@ use yii\helpers\Url;
                             <div class="col-lg-6" data-aos="fade-left"
                                 data-aos-offset="50"
                                 data-aos-delay="0"
-                                data-aos-duration="1500"
+                                data-aos-duration="500"
                                 data-aos-easing="ease-in-out"
                                 data-aos-mirror="true"
                                 data-aos-once="false">
@@ -653,7 +689,7 @@ use yii\helpers\Url;
                             <div class="col-lg-6" data-aos="fade-right"
                                 data-aos-offset="50"
                                 data-aos-delay="0"
-                                data-aos-duration="1500"
+                                data-aos-duration="500"
                                 data-aos-easing="ease-in-out"
                                 data-aos-mirror="true"
                                 data-aos-once="false">
@@ -695,7 +731,7 @@ use yii\helpers\Url;
                             <div class="col-lg-6" data-aos="fade-left"
                                 data-aos-offset="50"
                                 data-aos-delay="0"
-                                data-aos-duration="1500"
+                                data-aos-duration="500"
                                 data-aos-easing="ease-in-out"
                                 data-aos-mirror="true"
                                 data-aos-once="false">
@@ -738,7 +774,7 @@ use yii\helpers\Url;
                             <div class="col-12" data-aos="fade-bottom"
                                 data-aos-offset="50"
                                 data-aos-delay="0"
-                                data-aos-duration="1500"
+                                data-aos-duration="500"
                                 data-aos-easing="ease-in-out"
                                 data-aos-mirror="true"
                                 data-aos-once="false">
@@ -802,10 +838,10 @@ use yii\helpers\Url;
                             Simpan misalnya:
                             frontend/web/images/pra-mou-due-diligence.jpg
                         -->
-                        <div class="ksdn-pra-image" data-aos="fade-up"
-                            data-aos-offset="50"
+                        <div class="ksdn-pra-image" data-aos="zoom-in"
+                            data-aos-offset="200"
                             data-aos-delay="0"
-                            data-aos-duration="1500"
+                            data-aos-duration="500"
                             data-aos-easing="ease-in-out"
                             data-aos-mirror="false"
                             data-aos-once="false">
@@ -820,13 +856,10 @@ use yii\helpers\Url;
 
                         </div>
 
-
-
-
                         <div data-aos="fade-up"
                             data-aos-offset="50"
                             data-aos-delay="0"
-                            data-aos-duration="1500"
+                            data-aos-duration="500"
                             data-aos-easing="ease-in-out"
                             data-aos-mirror="true"
                             data-aos-once="false">
@@ -843,166 +876,220 @@ use yii\helpers\Url;
 
                             </div>
 
-                            <!-- STEP 1 -->
-                            <article class="ksdn-step-card step-blue">
+                            <div
+                                class="ksdn-step-timeline"
+                                id="ksdnStepTimeline">
 
-                                <div class="ksdn-step-title">
+                                <!-- GARIS TIMELINE -->
+                                <div
+                                    class="ksdn-step-line"
+                                    aria-hidden="true">
+                                    <span class="ksdn-step-line-progress"></span>
+                                </div>
 
-                                    <div class="ksdn-step-number">
-                                        1
+
+                                <!-- =====================================================
+         STEP 1
+    ====================================================== -->
+                                <article
+                                    class="ksdn-step-card step-blue"
+                                    data-step-card>
+
+                                    <span
+                                        class="ksdn-step-marker"
+                                        aria-hidden="true"></span>
+
+                                    <div class="ksdn-step-title">
+
+                                        <div class="ksdn-step-number">
+                                            1
+                                        </div>
+
+                                        <h3>
+                                            Due Diligence Mitra | Cek Profil &amp; Legalitas
+                                        </h3>
+
                                     </div>
 
-                                    <h3>
-                                        Due Diligence Mitra | Cek Profil &amp; Legalitas
-                                    </h3>
+                                    <p>
+                                        Ini fondasi utama. Jangan sampai MoU dengan
+                                        mitra “fiktif”.
+                                    </p>
 
-                                </div>
+                                    <ul>
+
+                                        <li>
+                                            <strong>Pelajari profil:</strong>
+                                            Visi-misi, bidang usaha, rekam jejak proyek,
+                                            struktur organisasi, reputasi di industri/media.
+                                        </li>
+
+                                        <li>
+                                            <strong>Cek status legal:</strong>
+                                            Pastikan berbadan hukum &amp; punya izin resmi.
+                                            Verifikasi Akta Pendirian, NIB, NPWP, SIUP, dll.
+                                            Cek ke AHU Online &amp; OSS.
+                                        </li>
+
+                                        <li>
+                                            <strong>Cek status keuangan:</strong>
+                                            Tidak sedang pailit/digugat
+                                            (bisa via SIPP PN atau laporan keuangan publik).
+                                        </li>
+
+                                        <li>
+                                            <strong>Cek daftar hitam:</strong>
+                                            Pastikan tidak masuk blacklist LKPP,
+                                            Bank Indonesia, atau Kementerian/Lembaga terkait.
+                                        </li>
+
+                                    </ul>
+
+                                </article>
+
+
+                                <!-- =====================================================
+         STEP 2
+    ====================================================== -->
+                                <article
+                                    class="ksdn-step-card step-gold"
+                                    data-step-card>
+
+                                    <span
+                                        class="ksdn-step-marker"
+                                        aria-hidden="true"></span>
+
+                                    <div class="ksdn-step-title">
+
+                                        <div class="ksdn-step-number">
+                                            2
+                                        </div>
+
+                                        <h3>
+                                            Analisis Kesesuaian &amp; Kapasitas Mitra
+                                        </h3>
+
+                                    </div>
+
+                                    <p>
+                                        Pastikan terdapat kesesuaian antara tujuan kerja sama
+                                        dan kapasitas calon mitra.
+                                    </p>
+
+                                    <ul>
+
+                                        <li>
+                                            <strong>Keunggulan &amp; kompetensi:</strong>
+                                            Identifikasi nilai tambah yang dapat diberikan
+                                            serta kesesuaiannya dengan kebutuhan
+                                            Kementerian/Lembaga.
+                                        </li>
+
+                                        <li>
+                                            <strong>Kapasitas riil:</strong>
+                                            Tinjau sumber daya manusia, teknologi,
+                                            kemampuan finansial, jaringan, serta portofolio
+                                            calon mitra.
+                                        </li>
+
+                                        <li>
+                                            <strong>Rekam jejak:</strong>
+                                            Telusuri pengalaman kerja sama sebelumnya
+                                            dan potensi permasalahan yang pernah terjadi.
+                                        </li>
+
+                                        <li>
+                                            <strong>Keselarasan nilai:</strong>
+                                            Perhatikan budaya kerja, integritas,
+                                            serta komitmen terhadap standar ketenagakerjaan
+                                            dan lingkungan.
+                                        </li>
+
+                                    </ul>
+
+                                </article>
+
+
+                                <!-- =====================================================
+         STEP 3
+    ====================================================== -->
+                                <article
+                                    class="ksdn-step-card step-green"
+                                    data-step-card>
+
+                                    <span
+                                        class="ksdn-step-marker"
+                                        aria-hidden="true"></span>
+
+                                    <div class="ksdn-step-title">
+
+                                        <div class="ksdn-step-number">
+                                            3
+                                        </div>
+
+                                        <h3>
+                                            Penilaian Risiko Awal &amp; Persetujuan Internal
+                                        </h3>
+
+                                    </div>
+
+                                    <ul>
+
+                                        <li>
+                                            <strong>Penilaian risiko:</strong>
+                                            Identifikasi risiko hukum, reputasi,
+                                            operasional, dan keuangan yang berpotensi
+                                            timbul dalam pelaksanaan kerja sama.
+                                        </li>
+
+                                        <li>
+                                            <strong>Persetujuan prinsip:</strong>
+                                            Sampaikan hasil kajian kepada pimpinan
+                                            untuk memperoleh persetujuan sebelum
+                                            melanjutkan pembahasan teknis MoU.
+                                        </li>
+
+                                        <li>
+                                            <strong>Cek konflik kepentingan:</strong>
+                                            Pastikan tidak terdapat benturan dengan
+                                            ketentuan internal maupun konflik kepentingan
+                                            para pihak.
+                                        </li>
+
+                                    </ul>
+
+                                </article>
+
+                            </div>
+
+
+                            <!-- ALERT -->
+                            <div
+                                class="ksdn-warning-box text-center"
+                                data-aos="fade-up"
+                                data-aos-offset="60"
+                                data-aos-delay="100"
+                                data-aos-duration="1000"
+                                data-aos-easing="ease-out-cubic"
+                                data-aos-mirror="true"
+                                data-aos-once="false">
+
+                                <strong>
+                                    <i class="bi bi-exclamation-triangle-fill"></i>
+
+                                    Intinya: Know Your Partner Dulu!
+                                </strong>
 
                                 <p>
-                                    Ini fondasi utama. Jangan sampai MoU dengan
-                                    mitra “fiktif”.
+                                    MoU itu mengikat. Kalau legalitas &amp; kapasitasnya
+                                    bermasalah, risiko hukum &amp; reputasi akan ikut ke kita.
+
+                                    <br>
+
+                                    Due diligence di awal = mitigasi masalah di akhir.
                                 </p>
 
-                                <ul>
-                                    <li>
-                                        <strong>Pelajari profil:</strong>
-                                        Visi-misi, bidang usaha, rekam jejak proyek,
-                                        struktur organisasi, reputasi di industri/media.
-                                    </li>
-
-                                    <li>
-                                        <strong>Cek status legal:</strong>
-                                        Pastikan berbadan hukum &amp; punya izin resmi.
-                                        Verifikasi Akta Pendirian, NIB, NPWP, SIUP, dll.
-                                        Cek ke AHU Online &amp; OSS.
-                                    </li>
-
-                                    <li>
-                                        <strong>Cek status keuangan:</strong>
-                                        Tidak sedang pailit/digugat
-                                        (bisa via SIPP PN atau laporan keuangan publik).
-                                    </li>
-
-                                    <li>
-                                        <strong>Cek daftar hitam:</strong>
-                                        Pastikan tidak masuk blacklist LKPP,
-                                        Bank Indonesia, atau Kementerian/Lembaga terkait.
-                                    </li>
-                                </ul>
-
-                            </article>
-
-
-                            <!-- STEP 2 -->
-                            <article class="ksdn-step-card step-gold">
-
-                                <div class="ksdn-step-title">
-
-                                    <div class="ksdn-step-number">
-                                        2
-                                    </div>
-
-                                    <h3>
-                                        Analisis Kesesuaian &amp; Kapasitas Mitra
-                                    </h3>
-
-                                </div>
-
-                                <p>
-                                    Pastikan “klik” secara tujuan dan kemampuan.
-                                </p>
-
-                                <ul>
-                                    <li>
-                                        <strong>Keunggulan &amp; kompetensi:</strong>
-                                        Apa value yang dibawa? Sesuai dengan kebutuhan
-                                        Kementerian/Lembaga?
-                                    </li>
-
-                                    <li>
-                                        <strong>Kapasitas riil:</strong>
-                                        Cek SDM, teknologi, finansial, jaringan.
-                                        Jangan cuma lihat proposal. Minta portofolio mereka.
-                                    </li>
-
-                                    <li>
-                                        <strong>Track record:</strong>
-                                        Pernah bermasalah dengan mitra lain?
-                                        Cek testimoni.
-                                    </li>
-
-                                    <li>
-                                        <strong>Keselarasan nilai:</strong>
-                                        Budaya kerja, integritas, komitmen terhadap
-                                        standar kerja/lingkungan.
-                                    </li>
-                                </ul>
-
-                            </article>
-
-
-                            <!-- STEP 3 -->
-                            <article class="ksdn-step-card step-green">
-
-                                <div class="ksdn-step-title">
-
-                                    <div class="ksdn-step-number">
-                                        3
-                                    </div>
-
-                                    <h3>
-                                        Penilaian Risiko Awal &amp; Persetujuan Internal
-                                    </h3>
-
-                                </div>
-
-                                <ul>
-                                    <li>
-                                        <strong>Risk assessment:</strong>
-                                        Identifikasi risiko hukum, reputasi,
-                                        operasional, keuangan jika kerja sama berjalan.
-                                    </li>
-
-                                    <li>
-                                        <strong>Persetujuan prinsip:</strong>
-                                        Sampaikan hasil kajian ke pimpinan untuk mendapat
-                                        <em>green light</em> sebelum lanjut ke pembahasan
-                                        teknis MoU.
-                                    </li>
-
-                                    <li>
-                                        <strong>Cek konflik kepentingan:</strong>
-                                        Pastikan tidak ada benturan dengan aturan
-                                        internal atau relasi pribadi.
-                                    </li>
-                                </ul>
-
-                            </article>
-                        </div>
-
-
-                        <!-- ALERT -->
-                        <div class="ksdn-warning-box text-center" data-aos="fade-up"
-                            data-aos-offset="50"
-                            data-aos-delay="0"
-                            data-aos-duration="1500"
-                            data-aos-easing="ease-in-out"
-                            data-aos-mirror="false"
-                            data-aos-once="false">
-
-                            <strong>
-                                <i class="bi bi-exclamation-triangle-fill"></i>
-                                Intinya: Know Your Partner Dulu!
-                            </strong>
-
-                            <p>
-                                MoU itu mengikat. Kalau legalitas &amp; kapasitasnya
-                                bermasalah, risiko hukum &amp; reputasi akan ikut ke kita.
-                                <br>
-                                Due diligence di awal = mitigasi masalah di akhir.
-                            </p>
-
-                        </div>
+                            </div>
 
                     </section>
 
@@ -2168,20 +2255,27 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
     }
 
+
+    /* =========================================================
+       AOS GLOBAL
+    ========================================================= */
+
     AOS.init({
-        duration: 700,
-        easing: 'ease-out-cubic',
-        once: true,
-        mirror: false,
-        offset: 70,
+        duration: 1200,
+        easing: 'ease-in-out',
+        offset: 50,
         delay: 0,
+
+        once: false,
+        mirror: false,
+
         anchorPlacement: 'top-bottom'
     });
 
 
-    /* =========================================
-       BOOTSTRAP TAB + AOS
-    ========================================= */
+    /* =========================================================
+       BOOTSTRAP TAB + REPLAY AOS
+    ========================================================= */
 
     const tabButtons =
         document.querySelectorAll(
@@ -2191,15 +2285,157 @@ document.addEventListener('DOMContentLoaded', function () {
 
     tabButtons.forEach(function (button) {
 
+
+        /* =====================================================
+           SEBELUM TAB DITAMPILKAN
+           Reset AOS saat tab masih hidden.
+        ====================================================== */
+
+        button.addEventListener(
+            'show.bs.tab',
+            function (event) {
+
+                const targetSelector =
+                    event.target.getAttribute(
+                        'data-bs-target'
+                    );
+
+
+                if (!targetSelector) {
+                    return;
+                }
+
+
+                const targetPane =
+                    document.querySelector(
+                        targetSelector
+                    );
+
+
+                if (!targetPane) {
+                    return;
+                }
+
+
+                const aosElements =
+                    targetPane.querySelectorAll(
+                        '[data-aos]'
+                    );
+
+
+                aosElements.forEach(
+                    function (element) {
+
+                        element.classList.remove(
+                            'aos-animate'
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           SETELAH TAB SUDAH TERBUKA
+        ====================================================== */
+
         button.addEventListener(
             'shown.bs.tab',
-            function () {
+            function (event) {
 
-                setTimeout(function () {
+                const targetSelector =
+                    event.target.getAttribute(
+                        'data-bs-target'
+                    );
 
-                    AOS.refreshHard();
 
-                }, 80);
+                if (!targetSelector) {
+                    return;
+                }
+
+
+                const targetPane =
+                    document.querySelector(
+                        targetSelector
+                    );
+
+
+                if (!targetPane) {
+                    return;
+                }
+
+
+                /*
+                 * Hitung ulang posisi AOS karena sebelumnya
+                 * tab masih display:none.
+                 */
+                AOS.refreshHard();
+
+
+                const aosElements =
+                    targetPane.querySelectorAll(
+                        '[data-aos]'
+                    );
+
+
+                /*
+                 * RefreshHard kadang langsung menambahkan
+                 * aos-animate karena elemen sudah berada
+                 * dalam viewport.
+                 *
+                 * Maka reset sekali lagi.
+                 */
+                aosElements.forEach(
+                    function (element) {
+
+                        element.classList.remove(
+                            'aos-animate'
+                        );
+
+                    }
+                );
+
+
+                /*
+                 * Force browser membaca layout baru.
+                 */
+                void targetPane.offsetHeight;
+
+
+                /*
+                 * Replay AOS.
+                 */
+                requestAnimationFrame(
+                    function () {
+
+                        aosElements.forEach(
+                            function (
+                                element,
+                                index
+                            ) {
+
+                                /*
+                                 * Sedikit stagger supaya
+                                 * animasi lebih elegan.
+                                 */
+                                setTimeout(
+                                    function () {
+
+                                        element.classList.add(
+                                            'aos-animate'
+                                        );
+
+                                    },
+                                    index * 90
+                                );
+
+                            }
+                        );
+
+                    }
+                );
 
             }
         );
@@ -2592,6 +2828,345 @@ JS;
 
 $this->registerJs(
     $tabSliderJs,
+    \yii\web\View::POS_END
+);
+
+?>
+
+<?php
+
+$stepTimelineJs = <<<'JS'
+
+document.addEventListener(
+    'DOMContentLoaded',
+    function () {
+
+        const timeline =
+            document.getElementById(
+                'ksdnStepTimeline'
+            );
+
+        if (!timeline) {
+            return;
+        }
+
+
+        const cards =
+            Array.from(
+                timeline.querySelectorAll(
+                    '[data-step-card]'
+                )
+            );
+
+
+        let ticking = false;
+
+        /*
+         * Untuk mengetahui arah scroll:
+         * turun atau naik.
+         */
+        let lastScrollY =
+            window.scrollY;
+
+
+        /* =====================================================
+           UPDATE TIMELINE
+        ====================================================== */
+
+        function updateTimeline() {
+
+            ticking = false;
+
+
+            /*
+             * Jangan hitung saat tab Pra-MoU
+             * masih display:none.
+             */
+            if (!timeline.offsetParent) {
+                return;
+            }
+
+
+            const currentScrollY =
+                window.scrollY;
+
+
+            /*
+             * Tentukan arah scroll.
+             */
+            const isScrollingDown =
+                currentScrollY >=
+                lastScrollY;
+
+
+            const isScrollingUp =
+                currentScrollY <
+                lastScrollY;
+
+
+            lastScrollY =
+                currentScrollY;
+
+
+            const rect =
+                timeline.getBoundingClientRect();
+
+
+            const viewportHeight =
+                window.innerHeight;
+
+
+            /*
+             * Posisi ujung virtual timeline
+             * di dalam viewport.
+             */
+            const triggerY =
+                viewportHeight * 0.68;
+
+
+            /*
+             * Harus sama dengan top/bottom
+             * pada .ksdn-step-line.
+             */
+            const lineTop =
+                rect.top + 40;
+
+
+            const lineBottom =
+                rect.bottom - 40;
+
+
+            const totalHeight =
+                Math.max(
+                    lineBottom - lineTop,
+                    1
+                );
+
+
+            /* =================================================
+               VERTICAL LINE PROGRESS
+            ================================================== */
+
+            let progress =
+                (
+                    triggerY -
+                    lineTop
+                ) /
+                totalHeight;
+
+
+            progress =
+                Math.max(
+                    0,
+                    Math.min(
+                        progress,
+                        1
+                    )
+                );
+
+
+            /*
+             * Tidak memakai maxProgress lagi.
+             *
+             * Scroll turun:
+             * progress membesar.
+             *
+             * Scroll naik:
+             * progress mengecil.
+             */
+            timeline.style.setProperty(
+                '--timeline-progress',
+                progress
+            );
+
+
+            /* =================================================
+               CARDS
+            ================================================== */
+
+            cards.forEach(
+                function (card) {
+
+                    const cardRect =
+                        card.getBoundingClientRect();
+
+
+                    /*
+                     * Titik marker berada sekitar
+                     * 40px dari atas card.
+                     */
+                    const revealPoint =
+                        cardRect.top + 40;
+
+
+                    /* =========================================
+                       SCROLL TURUN
+                    ========================================== */
+
+                    if (isScrollingDown) {
+
+                        /*
+                         * Card baru dibuka ketika
+                         * garis mencapai titik card.
+                         *
+                         * Card sebelumnya tidak ditutup.
+                         */
+                        if (
+                            revealPoint <=
+                            triggerY
+                        ) {
+
+                            card.classList.add(
+                                'is-visible'
+                            );
+
+                        }
+
+                    }
+
+
+                    /* =========================================
+                       SCROLL NAIK
+                    ========================================== */
+
+                    if (isScrollingUp) {
+
+                        /*
+                         * Ketika titik card kembali
+                         * berada di bawah trigger,
+                         * card ditutup.
+                         *
+                         * Urutannya otomatis:
+                         *
+                         * Step 3
+                         * Step 2
+                         * Step 1
+                         */
+                        if (
+                            revealPoint >
+                            triggerY
+                        ) {
+
+                            card.classList.remove(
+                                'is-visible'
+                            );
+
+                        } else {
+
+                            /*
+                             * Card yang masih berada
+                             * di atas trigger tetap terbuka.
+                             */
+                            card.classList.add(
+                                'is-visible'
+                            );
+
+                        }
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        /* =====================================================
+           REQUEST ANIMATION FRAME
+        ====================================================== */
+
+        function requestUpdate() {
+
+            if (ticking) {
+                return;
+            }
+
+
+            ticking = true;
+
+
+            requestAnimationFrame(
+                updateTimeline
+            );
+
+        }
+
+
+        /* =====================================================
+           SCROLL
+        ====================================================== */
+
+        window.addEventListener(
+            'scroll',
+            requestUpdate,
+            {
+                passive: true
+            }
+        );
+
+
+        /* =====================================================
+           RESIZE
+        ====================================================== */
+
+        window.addEventListener(
+            'resize',
+            requestUpdate
+        );
+
+
+        /* =====================================================
+           BOOTSTRAP TAB
+        ====================================================== */
+
+        const praMouTab =
+            document.getElementById(
+                'pra-mou-tab'
+            );
+
+
+        if (praMouTab) {
+
+            praMouTab.addEventListener(
+                'shown.bs.tab',
+                function () {
+
+                    /*
+                     * Reset posisi scroll reference
+                     * supaya tidak salah membaca arah.
+                     */
+                    lastScrollY =
+                        window.scrollY;
+
+
+                    requestAnimationFrame(
+                        function () {
+
+                            requestUpdate();
+
+                        }
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* =====================================================
+           INITIAL
+        ====================================================== */
+
+        requestUpdate();
+
+    }
+);
+
+JS;
+
+
+$this->registerJs(
+    $stepTimelineJs,
     \yii\web\View::POS_END
 );
 

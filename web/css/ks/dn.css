@@ -1071,28 +1071,30 @@
 
 .ksdn-step-card {
     --step-color: var(--ksdn-blue);
+    --step-rgb: 37, 99, 235;
 
-    margin-bottom: 25px;
+    position: relative;
+
+    z-index: 2;
+
+    margin-bottom: 28px;
 
     padding: 30px 32px;
 
     border-left: 6px solid var(--step-color);
+
     border-radius: 17px;
 
     background: #f7f9fc;
 
-    /*
-     * Card tidak diberi animasi gerak.
-     */
-    transition:
-        border-color 0.3s ease,
-        background-color 0.3s ease,
-        box-shadow 0.3s ease;
-}
-.ksdn-step-card:hover {
-    transform: none;
+    opacity: 0;
 
-    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+    transform: translateY(24px);
+
+    transition:
+        opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.3s ease;
 }
 /* =========================================================
    HOVER NUMBER
@@ -1101,20 +1103,7 @@
 .ksdn-step-card:hover .ksdn-step-number {
     transform: rotate(8deg) scale(1.07);
 
-    box-shadow: 0 8px 18px
-        color-mix(in srgb, var(--step-color) 28%, transparent);
-}
-
-.ksdn-step-card.step-blue {
-    --step-color: var(--ksdn-blue);
-}
-
-.ksdn-step-card.step-gold {
-    --step-color: var(--ksdn-gold);
-}
-
-.ksdn-step-card.step-green {
-    --step-color: var(--ksdn-green);
+    box-shadow: 0 8px 18px rgba(var(--step-rgb), 0.22);
 }
 
 .ksdn-step-title {
@@ -1125,30 +1114,6 @@
     gap: 15px;
 
     margin-bottom: 25px;
-}
-
-.ksdn-step-number {
-    display: flex;
-
-    flex: 0 0 50px;
-
-    align-items: center;
-    justify-content: center;
-
-    width: 50px;
-    height: 50px;
-
-    border-radius: 10px;
-
-    color: #ffffff;
-    background: var(--step-color);
-
-    font-size: 15px;
-    font-weight: 800;
-
-    transition:
-        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 0.3s ease;
 }
 
 .ksdn-step-title h3 {
@@ -1540,4 +1505,420 @@
     position: relative;
 
     z-index: 4;
+}
+
+/* =========================================================
+   PRA MOU - SCROLL TIMELINE
+========================================================= */
+
+.ksdn-step-timeline {
+    --timeline-progress: 0;
+
+    position: relative;
+
+    padding-left: 72px;
+}
+
+/* =========================================================
+   TIMELINE BASE
+========================================================= */
+
+.ksdn-step-line {
+    position: absolute;
+
+    top: 40px;
+    bottom: 40px;
+    left: 24px;
+
+    z-index: 0;
+
+    width: 3px;
+
+    overflow: hidden;
+
+    border-radius: 999px;
+
+    background: #d9e1ea;
+}
+
+/* =========================================================
+   TIMELINE ACTIVE
+========================================================= */
+
+.ksdn-step-line-progress {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    /*
+     * Tiga warna sesuai tahap.
+     *
+     * Biru  : Step 1
+     * Gold  : Step 2
+     * Hijau : Step 3
+     */
+    background: linear-gradient(
+        to bottom,
+
+        var(--ksdn-blue) 0%,
+        var(--ksdn-blue) 33.333%,
+
+        var(--ksdn-gold) 33.333%,
+        var(--ksdn-gold) 66.666%,
+
+        var(--ksdn-green) 66.666%,
+        var(--ksdn-green) 100%
+    );
+
+    /*
+     * Jangan pakai scaleY.
+     *
+     * clip-path membuka garis dari
+     * atas ke bawah tanpa mengecilkan gradient.
+     */
+    clip-path: inset(0 0 calc((1 - var(--timeline-progress)) * 100%) 0);
+
+    transition: clip-path 0.12s linear;
+
+    pointer-events: none;
+}
+
+/* =========================================================
+   CARD SUDAH DICAPAI GARIS
+========================================================= */
+
+.ksdn-step-card.is-visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+/* =========================================================
+   WARNA STEP
+========================================================= */
+
+.ksdn-step-card.step-blue {
+    --step-color: var(--ksdn-blue);
+
+    --step-rgb: 37, 99, 235;
+}
+
+.ksdn-step-card.step-gold {
+    --step-color: var(--ksdn-gold);
+
+    --step-rgb: 217, 146, 0;
+}
+
+.ksdn-step-card.step-green {
+    --step-color: var(--ksdn-green);
+
+    --step-rgb: 22, 163, 74;
+}
+
+/* =========================================================
+   MARKER PADA GARIS
+========================================================= */
+
+.ksdn-step-marker {
+    position: absolute;
+
+    /*
+     * Titik sejajar dengan bagian atas
+     * konten / nomor step.
+     */
+    top: 31px;
+
+    /*
+     * Card dimulai setelah padding timeline 72px.
+     * Nilai ini membuat pusat titik tepat pada
+     * garis vertikal di x = 24px.
+     */
+    left: -58px;
+
+    z-index: 4;
+
+    width: 20px;
+    height: 20px;
+
+    border: 4px solid #ffffff;
+
+    border-radius: 50%;
+
+    background: #cbd5e1;
+
+    box-shadow: 0 0 0 2px #d9e1ea;
+
+    transition:
+        background-color 0.35s ease,
+        box-shadow 0.35s ease,
+        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ksdn-step-marker::before {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: 100%;
+
+    z-index: -1;
+
+    width: 38px;
+    height: 2px;
+
+    background: #d9e1ea;
+
+    transform: translateY(-50%);
+}
+
+.ksdn-step-marker::after {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: 100%;
+
+    width: 0;
+    height: 2px;
+
+    border-radius: 0 999px 999px 0;
+
+    background: var(--step-color);
+
+    transform: translateY(-50%);
+
+    transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Marker aktif */
+
+.ksdn-step-card.is-visible .ksdn-step-marker {
+    background: var(--step-color);
+
+    box-shadow:
+        0 0 0 2px rgba(var(--step-rgb), 0.24),
+        0 0 18px rgba(var(--step-rgb), 0.3);
+
+    transform: scale(1.08);
+}
+
+.ksdn-step-card.is-visible .ksdn-step-marker::after {
+    width: 38px;
+}
+
+/* =========================================================
+   STEP NUMBER
+========================================================= */
+
+.ksdn-step-number {
+    display: flex;
+
+    flex: 0 0 50px;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: 10px;
+
+    color: #ffffff;
+
+    background: var(--step-color);
+
+    font-size: 15px;
+    font-weight: 800;
+
+    transition:
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.3s ease;
+}
+
+/* =========================================================
+   CARD HOVER
+   Card TIDAK bergerak
+========================================================= */
+
+.ksdn-step-card:hover {
+    transform: translateY(0);
+
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767.98px) {
+    .ksdn-step-timeline {
+        padding-left: 52px;
+    }
+
+    .ksdn-step-line {
+        left: 16px;
+    }
+
+    .ksdn-step-marker {
+        left: -45px;
+
+        width: 18px;
+        height: 18px;
+
+        border-width: 3px;
+    }
+
+    /*
+     * Jarak marker → card lebih pendek
+     * pada mobile.
+     */
+    .ksdn-step-marker::before {
+        width: 30px;
+    }
+
+    .ksdn-step-card.is-visible .ksdn-step-marker::after {
+        width: 30px;
+    }
+
+    .ksdn-step-card {
+        margin-bottom: 24px;
+
+        padding: 25px 20px;
+    }
+}
+/* =========================================================
+   WARNING BOX - PROFESSIONAL ANIMATION
+========================================================= */
+
+.ksdn-warning-box {
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        border-color 0.4s ease,
+        background-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.ksdn-warning-box strong i {
+    display: inline-block;
+
+    margin-right: 6px;
+
+    animation:
+        ksdnWarningPulse
+        1.4s
+        ease-in-out
+        infinite;
+
+    transform-origin: center;
+}
+
+@keyframes ksdnWarningPulse {
+
+    0%,
+    100% {
+        transform: scale(1.25);
+    }
+
+    50% {
+        transform: scale(0.85);
+    }
+
+}
+
+/* =========================================================
+   SAAT AOS SUDAH AKTIF
+========================================================= */
+
+.ksdn-warning-box.aos-animate {
+    box-shadow: 0 12px 30px rgba(185, 28, 28, 0.1);
+}
+
+/*
+ * Icon bergerak setelah box muncul.
+ */
+
+/* =========================================================
+   WARNING ICON ANIMATION
+========================================================= */
+
+@keyframes ksdnWarningIcon {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    25% {
+        transform: rotate(-10deg) scale(1.12);
+    }
+
+    50% {
+        transform: rotate(8deg) scale(1.12);
+    }
+
+    72% {
+        transform: rotate(-4deg) scale(1.06);
+    }
+
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+.ksdn-warning-box::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -45%;
+
+    width: 35%;
+    height: 100%;
+
+    pointer-events: none;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.45),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+
+    opacity: 0;
+}
+
+.ksdn-warning-box.aos-animate::after {
+    animation: ksdnWarningShine 1.2s 0.35s ease-out both;
+}
+
+@keyframes ksdnWarningShine {
+    0% {
+        left: -45%;
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 120%;
+        opacity: 0;
+    }
 }
